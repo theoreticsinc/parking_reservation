@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use App\Models\BookArea;
-use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Imagick\Driver;
+
 
 class TeamController extends Controller
 {
@@ -22,6 +24,12 @@ class TeamController extends Controller
     } // End Method 
 
     public function StoreTeam(Request $request){
+
+        // create new manager instance with desired driver
+        $manager = new ImageManager(new Driver());
+
+        // alternatively create new manager instance by class name
+        $manager = new ImageManager(Driver::class);
 
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();

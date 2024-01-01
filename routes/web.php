@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Frontend\BookController;
+use App\Http\Controllers\Frontend\SlotController;
+use App\Http\Controllers\Frontend\FrontendRoomController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\RoomTypeController;
 use App\Http\Controllers\Auth\AdminRegisteredUserController;
@@ -18,17 +20,28 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 
-
-
- 
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 Route::get('/', [UserController::class, 'Index']);
-Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
+//Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
 Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('booking.reserve');
     
+/// Room All Route 
+Route::controller(FrontendRoomController::class)->group(function(){
+    Route::get('/rooms', 'AllFrontendRoomList')->name('room.all');
+    Route::get('/room/details/{id}', 'RoomDetailsPage');
+    Route::get('/bookings', 'BookingSearch')->name('booking.search');
+    Route::get('/search/room/details/{id}', 'SearchRoomDetails')->name('search_room_details');
+    Route::get('/check_room_availability', 'CheckRoomAvailability')->name('check_room_availability');
+ 
+});
+
+
+/// SLot All Route 
+Route::controller(SlotController::class)->group(function(){
+    Route::get('/slots', 'SlotSearch')->name('slot.index');
+});
 
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.user_dashboard');
@@ -70,7 +83,6 @@ Route::middleware(['auth','roles:admin'])->group(function(){
 
 }); // End Admin Group Middleware 
 
-
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::get('/admin/register', [AdminController::class, 'create'])->name('admin.register');
 Route::post('/admin/store', [AdminRegisteredUserController::class, 'store'])->name('admin.store');
@@ -106,8 +118,41 @@ Route::controller(TeamController::class)->group(function(){
     Route::get('/room/type/list', 'RoomTypeList')->name('room.type.list');
     Route::get('/add/room/type', 'AddRoomType')->name('add.room.type');
     Route::post('/room/type/store', 'RoomTypeStore')->name('room.type.store'); 
+    Route::get('/edit/room/{id}', 'EditRoomType')->name('edit.room.type');
+    Route::post('/room/type/update', 'RoomTypeUpdate')->name('roomtype.update');
+
+});
+
+ /// Room All Route 
+ Route::controller(FrontendRoomController::class)->group(function(){
+
+    Route::get('/rooms/', 'AllFrontendRoomList')->name('froom.all');
+
+
+});
+
+
+ /// Admin Booking All Route 
+ Route::controller(BookingController::class)->group(function(){
+
+    Route::get('/booking/list', 'BookingList')->name('booking.list');
+    Route::get('/edit_booking/{id}', 'EditBooking')->name('edit_booking');
+    Route::get('/download/invoice/{id}', 'DownloadInvoice')->name('download.invoice');
+    
       
 });
+
+
+ /// Admin Room List All Route 
+ Route::controller(RoomListController::class)->group(function(){
+
+    Route::get('/view/room/list', 'ViewRoomList')->name('view.room.list');
+    Route::get('/add/room/list', 'AddRoomList')->name('add.room.list'); 
+    Route::post('/store/roomlist', 'StoreRoomList')->name('store.roomlist'); 
+    
+      
+});
+
 
 }); // End Admin Group Middleware 
    

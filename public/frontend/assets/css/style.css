@@ -1440,6 +1440,29 @@ Banner Form Area
 /*=================================
 Banner Form Area End
 ====================================*/
+
+
+.ui-datepicker .ui-datepicker-prev {
+	left: 2px;
+	background-image: url("/images/left.png");	
+	background-repeat: no-repeat;
+}
+.ui-datepicker .ui-datepicker-next {
+	right: 2px;	
+	background-image: url("../../../images/right.png");
+	background-repeat: no-repeat;
+}
+.ui-datepicker .ui-datepicker-prev:hover {
+	left: 1px;		
+	background-image: url("../../../images/left.png");
+	background-repeat: no-repeat;
+}
+.ui-datepicker .ui-datepicker-next:hover {
+	right: 1px;
+	background-image: url("../../../images/right.png");
+	background-repeat: no-repeat;
+}
+
 /*================================
 Inner Banner
 ==================================*/

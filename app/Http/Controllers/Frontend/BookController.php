@@ -10,8 +10,12 @@ use Illuminate\Support\Facades\Hash;
 
 class BookController extends Controller
 {
-    public function BookSearch(){
-        return view('frontend.book');
+    public function BookSearch(Request $request){
+       $name = $request->checkin;
+       //$data->email = $request->email;
+       //$data->phone = $request->phone;
+       //$data->address = $request->address;
+      return view('frontend.book', ['name' => $request->checkin]);
      } //End Method
 
      public function BookReserve(){

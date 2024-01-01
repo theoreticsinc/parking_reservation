@@ -5,8 +5,8 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-widget">
                                 <div class="footer-logo">
-                                    <a href="index.html">
-                                        <img src="assets/img/logos/footer-logo1.png" alt="Images">
+                                    <a href="{{ route('home.index') }}">
+                                        <img src="frontend/assets/img/logos/footer-logo1.png" alt="Images">
                                     </a>
                                 </div>
                                 <p>
@@ -78,7 +78,7 @@
                                 <h3>Useful Links</h3>
                                 <ul class="footer-list">
                                     <li>
-                                        <a href="index.html" target="_blank">
+                                        <a href="{{ route('home.index') }}" target="_blank">
                                             <i class='bx bx-caret-right'></i>
                                             Home
                                         </a>

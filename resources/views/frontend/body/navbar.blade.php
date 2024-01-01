@@ -1,7 +1,7 @@
 <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="index.html" class="logo">
+                <a href="{{ route('home.index') }}" class="logo">
                     <img src="{{ asset('frontend/assets/img/logos/logo-1.png') }}" class="logo-one" alt="Logo">
                     <img src="{{ asset('frontend/assets/img/logos/footer-logo1.png') }}" class="logo-two" alt="Logo">
                 </a>
@@ -11,7 +11,7 @@
             <div class="main-nav">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{ route('home.index') }}">
                             <img src="{{ asset('frontend/assets/img/logos/logo-1.png') }}" class="logo-one" alt="Logo">
                             <img src="{{ asset('frontend/assets/img/logos/footer-logo1.png') }}" class="logo-two" alt="Logo">
                         </a>
@@ -107,23 +107,23 @@
                                         </li>
                                     </ul>
                                 </li>
-
+                                @php
+                                    $room = App\Models\Room::latest()->get();
+                                @endphp
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Rooms
+                                    <a href="{{ route('froom.all') }}" class="nav-link">
+                                        All Rooms
                                         <i class='bx bx-chevron-down'></i>
                                     </a>
                                     <ul class="dropdown-menu">
+                                        @foreach ($room  as $item) 
                                         <li class="nav-item">
                                             <a href="room.html" class="nav-link">
-                                                Rooms 
+                                                {{ $item['type']['name'] }}
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="room-details.html" class="nav-link">
-                                                Room Details 
-                                            </a>
-                                        </li>
+                                        @endforeach
+        
                                     </ul>
                                 </li>
 

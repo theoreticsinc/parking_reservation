@@ -7,20 +7,26 @@
     <meta name="keywords" content="Safe and Secure, ​Car Repair Services">
     <meta name="description" content="">
     <title>Home</title>
-    <link rel="stylesheet" href="{{ asset("css/nicepage.css") }}" media="screen">
-    <link rel="stylesheet" href="{{ asset("css/Home.css") }}" media="screen">
-    <script class="u-script" type="text/javascript" src="{{ asset("javascript/jquery.js") }}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{{ asset("javascript/nicepage.js") }}" defer=""></script>
+    <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ asset('css/Home.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ asset('javascript/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ asset('javascript/nicepage.js') }}" defer=""></script>
     <meta name="generator" content="Nicepage 6.2.1, nicepage.com">
     <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i|Jockey+One:400|Anybody:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "Site2"
-}</script>
+    }</script>
+    <script>
+      var today = new Date().toISOString().slice(0, 16);
+        document.getElementsByName("checkin").min = today;
+      </script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
@@ -36,7 +42,7 @@
     <!-- Top HeaderNav End -->
    
       <section class="skrollable u-clearfix u-image u-parallax u-section-1" id="sec-645a" data-image-width="4704" data-image-height="3136">
-        <form method="post" action="{{ route('booking.search') }}">
+        <form method="get" action="{{ route('slot.index') }}">
         <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-sheet-1">
           <p class="u-custom-font u-text u-text-white u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction=""> ARRIVE ON TIME<br>
             <br>
@@ -46,14 +52,14 @@
             <div class="form-group">
                 <label>CHECK IN TIME</label>
                 <div class="input-group">
-                    <input id="datetimepicker" placeholder="MM/DD/YYYY" type="text" class="form-control"  required="required" data-date-format="mm/dd/yyyy">
+                    <input autocomplete="off" type="text" required name="check_in" class="form-control dt_picker" placeholder="yyyy-mm-dd">
                     <span class="input-group-addon"><i class='bx bxs-chevron-down'></i>	</span>                    
                 </div>                
             </div>
             <div class="form-group">
                 <label>CHECK OUT TIME</label>
                 <div class="input-group">
-                    <input id="datetimepicker-check" placeholder="MM/DD/YYYY" type="text" class="form-control">
+                    <input autocomplete="off" type="text" required name="check_out" class="form-control dt_picker" placeholder="yyyy-mm-dd">
                     <span class="input-group-addon"><i class='bx bxs-chevron-down'></i>	</span>                    
                 </div>                
             </div>
@@ -75,6 +81,15 @@
         <p class="u-custom-font u-font-georgia u-text u-text-2"> The indoor parking facilities are covered and provided with professional security and electronic surveillance.&nbsp;The facilities are specifically designed for air travelers in order to ensure comfortable hassle-free and worry-free travel. It is ideally located at MIA and Domestic roads just 500 meters from the domestic airport terminal.</p>
       </div>
     </section>
+
+    <!-- Book Area Two-->
+    @include('frontend.home.room_area_two')
+    <!-- Book Area Two End -->
+
+    <!-- Room Area -->
+    @include('frontend.home.room_area')
+    <!-- Room Area End -->
+
     <section class="u-clearfix u-section-3" id="sec-3e8a">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-rotation-parent u-rotation-parent-1" data-animation-name="bounceIn" data-animation-duration="1750" data-animation-direction="">

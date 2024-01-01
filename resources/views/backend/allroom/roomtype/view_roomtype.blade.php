@@ -37,7 +37,7 @@
                             <td>   </td>
                             <td>{{ $item->name }}</td> 
                             <td>
-    <a href="{{ route('edit.team',$item->id) }}" class="btn btn-warning px-3 radius-30"> Edit</a>
+    <a href="{{ route('edit.room.type',$item->id) }}" class="btn btn-warning px-3 radius-30"> Edit</a>
     <a href="{{ route('delete.team',$item->id) }}" class="btn btn-danger px-3 radius-30" id="delete"> Delete</a>
 
                             </td>

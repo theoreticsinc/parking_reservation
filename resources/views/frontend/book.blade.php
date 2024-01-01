@@ -42,7 +42,7 @@
               <input type="tel" placeholder="Enter your Flight no. here" id="phone-447e" name="flightID" class="u-input u-input-rectangle u-palette-4-light-3" required="">
             </div>
             <br>
-            <div><h3>Personal Information</h3></div>
+            <div><h3>Personal Information {{ $name }}</h3></div>
             <table>
               <tr>
                 <td><label for="fname-f2a8" class="u-label u-label-1">FIRST NAME</label></td>

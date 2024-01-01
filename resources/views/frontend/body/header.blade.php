@@ -18,11 +18,11 @@
                   <ul>
                       <li>
                           <i class='bx bx-home-alt'></i>
-                          <a href="#">123 Virgil A Stanton, Virginia, USA</a>
+                          <a href="#">Mia Road Corner Domestic Road Airport,&nbsp; Pasay City</a>
                       </li>
                       <li>
                           <i class='bx bx-phone-call'></i>
-                          <a href="tel:+1-(123)-456-7890">+1 (123) 456 7890</a>
+                          <a href="tel:+639189910000">(+63)918-991-0000</a>
                       </li>
 @auth
 
