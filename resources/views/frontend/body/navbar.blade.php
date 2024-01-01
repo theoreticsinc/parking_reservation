@@ -19,121 +19,44 @@
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav m-auto">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
-                                        Home 
-                                        <i class='bx bx-chevron-down'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="index.html" class="nav-link active">
-                                                Home One  
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-2.html" class="nav-link">
-                                                Home Two
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-3.html" class="nav-link">
-                                                Home Three
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <a href="{{ route('home.index') }}" class="nav-link active">
+                                        Home                                         
+                                    </a>                                    
                                 </li>
                                 <li class="nav-item">
-                                    <a href="about.html" class="nav-link">
-                                        About
+                                    <a href="{{ route('parking.index') }}" class="nav-link">
+                                        Parking
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        Pages 
+                                        Repairs 
                                         <i class='bx bx-chevron-down'></i>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="book.html" class="nav-link">
-                                                Booking
+                                            <a href="#" class="nav-link">
+                                                1 One
                                             </a>
                                         </li>
                                         
                                         <li class="nav-item">
-                                            <a href="team.html" class="nav-link">
-                                                Team
+                                            <a href="#" class="nav-link">
+                                                2 Two
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="faq.html" class="nav-link">
-                                                FAQ
+                                            <a href="#" class="nav-link">
+                                                3 Three
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a href="restaurant.html" class="nav-link">
-                                                Restaurant
+                                            <a href="#" class="nav-link">
+                                                4 Four
                                             </a>
                                         </li>
 
-                                        <li class="nav-item">
-                                            <a href="reservation.html" class="nav-link">
-                                                Reservation
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="gallery.html" class="nav-link">
-                                                Gallery
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="testimonials.html" class="nav-link">
-                                                Testimonials
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="checkout.html" class="nav-link">
-                                                Check out
-                                            </a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a href="sign-in.html" class="nav-link">
-                                                Sign In
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="sign-up.html" class="nav-link">
-                                                Sign Up
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="terms-condition.html" class="nav-link">
-                                                Terms & Conditions
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="privacy-policy.html" class="nav-link">
-                                                Privacy Policy
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a href="404.html" class="nav-link">
-                                                404 page
-                                            </a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a href="coming-soon.html" class="nav-link">
-                                                Coming Soon
-                                            </a>
-                                        </li>
                                     </ul>
                                 </li>
 
@@ -145,12 +68,12 @@
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
                                             <a href="services-1.html" class="nav-link">
-                                                Services Style One 
+                                                Services One 
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="services-2.html" class="nav-link">
-                                                Services Style Two 
+                                                Services Two 
                                             </a>
                                         </li>
                                         <li class="nav-item">

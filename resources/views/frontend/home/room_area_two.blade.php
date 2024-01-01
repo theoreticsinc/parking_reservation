@@ -7,7 +7,7 @@
                                 <span class="sp-color">MAKE A QUICK BOOKING</span>
                                 <h2>We Are the Best in All-time & So Please Get a Quick Booking</h2>
                                 <p>
-                                    Atoli is one of the best resorts in the global market and that's why you will get a luxury life period on the global market. We always
+                                    Park N Fly is one of the best resorts in the global market and that's why you will get a luxury life period on the global market. We always
                                     provide you a special support for all of our guests and that's will  be the main reason to be the most popular.
                                 </p>
                             </div>

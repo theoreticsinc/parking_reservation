@@ -53,10 +53,6 @@
         </div>
         <!-- PreLoader End -->
 
-        <!-- Top Header Start -->
-       @include('frontend.body.header')
-        <!-- Top Header End -->
-
         <!-- Start Navbar Area -->
         @include('frontend.body.navbar')
         <!-- End Navbar Area -->

@@ -23,7 +23,7 @@
                                     </li>
                                     <li>
                                         <i class='bx bx-envelope'></i>
-                                        <a href="mailto:hello@atoli.com">hello@atoli.com</a>
+                                        <a href="mailto:hello@Park N Fly.com">hello@Park N Fly.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -152,8 +152,8 @@
                         <div class="col-lg-8 col-md-8">
                             <div class="copy-right-text text-align1">
                                 <p>
-                                    Copyright @<script>document.write(new Date().getFullYear())</script> Atoli. All Rights Reserved by 
-                                    <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a> 
+                                    Copyright @<script>document.write(new Date().getFullYear())</script> Park N Fly. All rights reserved.
+                                    
                                 </p>
                             </div>
                         </div>

@@ -15,7 +15,7 @@ class BookController extends Controller
      } //End Method
 
      public function BookReserve(){
-        return view('frontend.book');
+        return view('frontend.registered');
      } //End Method
 
 }

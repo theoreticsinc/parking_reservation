@@ -20,35 +20,71 @@
     
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header" id="sec-b1a5" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-valign-top-md u-valign-top-sm u-valign-top-xs u-sheet-1">
-        <img class="custo-expanded u-image u-image-contain u-image-default u-image-1" src="{{ asset("images/Screenshot2023-12-171142241.png") }}" alt="" data-image-width="1524" data-image-height="600">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 500;">
-            <a class="u-button-style u-custom-active-color u-custom-border u-custom-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link" href="{{ url("#") }}">
-              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-13d0"></use></svg>
-              <svg class="u-svg-content" version="1.1" id="svg-13d0" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</g></svg>
-            </a>
+
+          
+          <form method="post" action="{{ route('booking.reserve') }}" class="" style="padding: 10px" source="email" name="form">
+            <div><h3>Flight Details</h3></div>
+            <div class="u-form-date u-form-group u-form-partition-factor-2">
+              <label for="email-f2a8" class="u-label u-label-1">CHECK-IN</label>
+              <input type="text" placeholder="MM/DD/YYYY" id="email-f2a8" name="email" class="u-input u-input-rectangle u-palette-4-light-3" required="required" data-date-format="mm/dd/yyyy">
             </div>
-          <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('home.index') }}" }} style="padding: 10px 14px;">Home</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" a href="{{ route('parking.index') }}" style="padding: 10px 14px;">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white u-white" href="{{ url("#") }}">Shuttle Service</a>
-</li></ul>
-</div>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('vehiclerepair.index') }}" style="padding: 10px 14px;">Vehicle Repair</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('foodservice.index') }}" style="padding: 10px 14px;">Food Service</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('advertisingopportunities.index') }}" style="padding: 10px 14px;">Advertising Opportunities</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('careeropportunities.index') }}" style="padding: 10px 14px;">Career Opportunities</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('faqs.index') }}" style="padding: 10px 14px;">FAQs</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('contact.index') }}" style="padding: 10px 14px;">Contact us</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('about.index') }}" style="padding: 10px 14px;">About Us</a>
-</li></ul>
-          </div>
+            <div class="u-form-group u-form-name u-form-partition-factor-2">
+              <label for="name-f2a8" class="u-label u-label-2">DESTINATION</label>
+              <input type="text" placeholder="Enter your destination here" id="name-f2a8" name="destination" class="u-input u-input-rectangle u-palette-4-light-3" required="">
+            </div>
+            <div class="u-form-date u-form-group u-form-partition-factor-2 u-form-group-3">
+              <label for="date-4441" class="u-label u-label-3">CHECK-OUT</label>
+              <input type="text" placeholder="MM/DD/YYYY" id="date-4441" name="date" class="u-input u-input-rectangle u-palette-4-light-3" required="" data-date-format="mm/dd/yyyy">
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-form-phone u-form-group-4">
+              <label for="phone-447e" class="u-label u-label-4">FLIGHT NUMBER</label>
+              <input type="tel" placeholder="Enter your Flight no. here" id="phone-447e" name="flightID" class="u-input u-input-rectangle u-palette-4-light-3" required="">
+            </div>
+            <br>
+            <div><h3>Personal Information</h3></div>
+            <table>
+              <tr>
+                <td><label for="fname-f2a8" class="u-label u-label-1">FIRST NAME</label></td>
+                <td><label for="lname-f2a8" class="u-label u-label-1">LAST NAME</label></td>
+                <td><label for="mobile-f2a8" class="u-label u-label-1">MOBILE NUMBER</label></td>
+              </tr><tr>
+                <td><input type="text" id="fname-f2a8" name="fname" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+                <td><input type="text" id="lname-f2a8" name="lname" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+                <td><input type="text" id="mobile-f2a8" name="mobile" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+              </tr><tr><hr>
+              </tr><tr>
+                <td><label for="cartype-f2a8" class="u-label u-label-1">Type of Car</label></td>
+                <td><label for="plate-f2a8" class="u-label u-label-1">Plate Number</label></td>
+              </tr><tr>
+              </tr><tr>
+                <td><input type="text" id="cartype-f2a8" name="cartype" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+                <td><input type="text" id="plate-f2a8" name="plate" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+              </tr><tr>
+                <td><label for="email-f2a8" class="u-label u-label-1">Email Address</label></td>
+                <td><label for="emailconfirm-f2a8" class="u-label u-label-1">Confirm Email</label></td>
+              </tr><tr>
+                <td><input type="text" id="email-f2a8" name="email" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+                <td><input type="text" id="emailconfirm-f2a8" name="emailconfirm" class="u-input u-input-rectangle u-palette-4-light-3" required="required"></label></td>
+              </tr>
+              <tr>
+                <td>
+                  <button type="submit" class="u-border-1 u-border-custom-color-2 u-border-hover-black u-btn u-button-style u-hover-feature u-none u-text-custom-color-2 u-text-hover-grey-90 u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1750">
+                    Register
+                  </button></td>
+              </tr>
+            </table>
+
+            @csrf
+            <input type="hidden" value="" name="recaptchaResponse">
+            <input type="hidden" name="formServices" value="47a64133-8ba5-244d-2d11-ac6e479d0892">
+          </form>
           <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Home.html") }}">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href=" href="{{ route('register') }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ route('register') }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
 <!-- Example button in a Blade file -->
@@ -69,69 +105,21 @@
         </nav>
       </div></header>
       <section class="skrollable u-clearfix u-image u-parallax u-section-1" id="sec-645a" data-image-width="4704" data-image-height="3136">
-        
+      </section>
             <section class="u-align-left u-clearfix u-gradient u-section-3" id="sec-56a5">
                 <div class="u-clearfix u-sheet u-valign-middle-lg u-sheet-1">
-                  <div class="u-shape u-shape-svg u-text-custom-color-2 u-shape-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
-                    <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5b44"></use></svg>
-                    <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-5b44" style="enable-background:new 0 0 160 160;"><path d="M80,30c27.6,0,50,22.4,50,50s-22.4,50-50,50s-50-22.4-50-50S52.4,30,80,30 M80,0C35.8,0,0,35.8,0,80s35.8,80,80,80
-              s80-35.8,80-80S124.2,0,80,0L80,0z"></path></svg>
-                  </div>
-                  <div class="u-shape u-shape-svg u-text-palette-2-base u-shape-2" data-animation-name="customAnimationIn" data-animation-duration="2000">
-                    <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 150" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9308"></use></svg>
-                    <svg class="u-svg-content" viewBox="0 0 160 150" x="0px" y="0px" id="svg-9308"><path d="M43.2,126.9c14.2,1.3,27.6,7,39.1,15.6c8.3,6.1,19.4,10.3,32.7,5.3c11.7-4.4,18.6-17.4,21-30.2c2.6-13.3,8.1-25.9,15.7-37.1
-              c8.3-12.1,10.8-27.9,5.3-42.7C150.5,20.3,134.6,9,117,7.6C107.9,6.9,98.8,5,90.1,1.9C83-0.6,75-0.7,67.4,2.1
-              c-9.9,3.7-17,11.6-20.1,21c-3.3,10.1-10.9,18-20.6,22.2c-0.1,0-0.1,0.1-0.2,0.1c-20.3,8.9-31,32-24.6,53.2
-              C6.9,115.6,25.2,125.2,43.2,126.9z"></path></svg>
-                  </div>
-                  <div class="u-shape u-shape-svg u-text-palette-3-base u-shape-3" data-animation-name="customAnimationIn" data-animation-duration="2000">
-                    <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-98e8"></use></svg>
-                    <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-98e8" style="enable-background:new 0 0 160 160;"><path d="M80,30c27.6,0,50,22.4,50,50s-22.4,50-50,50s-50-22.4-50-50S52.4,30,80,30 M80,0C35.8,0,0,35.8,0,80s35.8,80,80,80
-              s80-35.8,80-80S124.2,0,80,0L80,0z"></path></svg>
-                  </div>
-                  <div class="u-align-left u-border-1 u-border-grey-75 u-container-align-center-lg u-container-align-center-md u-container-align-center-sm u-container-align-center-xl u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius u-shape-round u-white u-group-1" data-animation-name="flipIn" data-animation-duration="1250" data-animation-direction="X">
-                    <div class="u-container-layout u-valign-bottom-xs u-container-layout-1">
-                      <h2 class="u-align-center u-text u-text-1">Make a reservation</h2>
-                            </span>
-                          </span>
-                        </span>
-                      </p>
+                  
+                  <div data-animation-name="flipIn" data-animation-duration="1250" data-animation-direction="X">
+                      
                       <div class="u-form u-form-1">
                         
-                        <form method="post" action="{{ route('booking.reserve') }}" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
-                          <div class="u-form-date u-form-group u-form-partition-factor-2">
-                            <label for="email-f2a8" class="u-label u-label-1">CHECK-IN</label>
-                            <input type="text" placeholder="MM/DD/YYYY" id="email-f2a8" name="email" class="u-input u-input-rectangle u-palette-4-light-3" required="required" data-date-format="mm/dd/yyyy">
-                          </div>
-                          <div class="u-form-group u-form-name u-form-partition-factor-2">
-                            <label for="name-f2a8" class="u-label u-label-2">DESTINATION</label>
-                            <input type="text" placeholder="Enter your destination here" id="name-f2a8" name="destination" class="u-input u-input-rectangle u-palette-4-light-3" required="">
-                          </div>
-                          <div class="u-form-date u-form-group u-form-partition-factor-2 u-form-group-3">
-                            <label for="date-4441" class="u-label u-label-3">CHECK-OUT</label>
-                            <input type="text" placeholder="MM/DD/YYYY" id="date-4441" name="date" class="u-input u-input-rectangle u-palette-4-light-3" required="" data-date-format="mm/dd/yyyy">
-                          </div>
-                          <div class="u-form-group u-form-partition-factor-2 u-form-phone u-form-group-4">
-                            <label for="phone-447e" class="u-label u-label-4">FLIGHT NUMBER</label>
-                            <input type="tel" pattern="\+?\d{0,2}[\s\(\-]?([0-9]{3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Enter your Flight no. here" id="phone-447e" name="flightID" class="u-input u-input-rectangle u-palette-4-light-3" required="">
-                          </div>
-                          <div class="u-align-center u-form-group u-form-submit">
-                            <a href="{{ url("#") }}" class="u-border-2 u-border-hover-black u-border-palette-2-base u-btn u-btn-submit u-button-style u-none u-text-hover-black u-text-palette-2-base u-btn-1">CONTINUE</a>
-                            <input type="submit" value="submit" class="u-form-control-hidden">
-                          </div>
-                          <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-                          <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-                          <input type="hidden" value="" name="recaptchaResponse">
-                          <input type="hidden" name="formServices" value="47a64133-8ba5-244d-2d11-ac6e479d0892">
-                        </form>
+                        
                       </div>
-                      <p class="u-align-center u-text u-text-default u-text-3">NOTICE:&nbsp;<span style="font-weight: 400;"> Dates in grayscale color mean that there are no more slots available.</span>
-                      </p>
-                    </div>
+                      
+                      
                   </div>
                 </div>
               </section>
-      </section>
     
     
     
@@ -139,3 +127,5 @@
         <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
       </div></footer>
   
+
+@endsection

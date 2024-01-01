@@ -26,13 +26,14 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });
 Route::get('/', [UserController::class, 'Index']);
-Route::post('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
+Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
 Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('booking.reserve');
     
 
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.user_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home.index'); 
 Route::get('/parking', [ParkingController::class, 'index'])->name('parking.index');
 Route::get('/vehicle/repair', [VehicleRepairController::class, 'index'])->name('vehiclerepair.index'); 
