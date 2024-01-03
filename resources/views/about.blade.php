@@ -5,10 +5,10 @@
     <meta name="keywords" content="About Us">
     <meta name="description" content="">
     <title>About Us</title>
-    <link rel="stylesheet" href="{{ asset("css/nicepage.css") }}" media="screen">
-    <link rel="stylesheet" href="{{ asset("css/About-Us.css") }}" media="screen">
-    <script class="u-script" type="text/javascript" src="{{ asset("javascript/jquery.js") }}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{{ asset("javascript/nicepage.js") }}" defer=""></script>
+    <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ asset('css/About-Us.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ asset('javascript/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ asset('javascript/nicepage.js') }}" defer=""></script>
     <meta name="generator" content="Nicepage 6.2.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     
@@ -32,10 +32,10 @@
               <svg class="u-svg-content" version="1.1" id="svg-13d0" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
 </g></svg>
             </a>
-            </div>
+          </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('home.index') }}" }} style="padding: 10px 14px;">Home</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" a href="{{ route('parking.index') }}" style="padding: 10px 14px;">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white u-white" href="{{ url("#") }}">Shuttle Service</a>
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('home.index') }}"style="padding: 10px 14px;">Home</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ url("Parking.html") }}" style="padding: 10px 14px;">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white u-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('vehiclerepair.index') }}" style="padding: 10px 14px;">Vehicle Repair</a>
@@ -52,11 +52,14 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Home.html") }}">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Parking.html") }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href=" href="{{ route('register') }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Vehicle-Repair.html") }}">Vehicle Repair</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-Service.html") }}">Food Service</a>
+<!-- Example button in a Blade file -->
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ route('register') }}">Vehicle Repair</a></li>
+
+
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-.html") }}">Food Service</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Advertising-Opportunities.html") }}">Advertising Opportunities</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Career-Opportunities.html") }}">Career Opportunities</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("FAQS.html") }}">FAQs</a>
@@ -69,8 +72,8 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-align-center u-clearfix u-gradient u-valign-bottom-lg u-valign-bottom-xl u-valign-middle-md u-valign-middle-xs u-section-1" id="carousel_e954">
-      <img src="{{ asset("/images/sfmin.jpg") }}" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1980" data-image-height="1232">
+    <section class="u-align-center u-clearfix u-valign-bottom-lg u-valign-bottom-xl u-valign-middle-md u-valign-middle-xs u-white u-section-1" id="carousel_e954">
+      <img src="{{ asset("/images/pngtree-several-toyota-cars-parked-on-a-busy-street-picture-image_2658633.jpg") }}" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1200" data-image-height="673">
       <div class="u-border-2 u-border-grey-75 u-radius u-shape u-shape-round u-white u-shape-1"></div>
       <div class="data-layout-selected u-clearfix u-disable-padding u-gutter-30 u-layout-spacing-all u-layout-wrap u-layout-wrap-1">
         <div class="u-gutter-0 u-layout">
@@ -120,5 +123,16 @@
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
       </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Template</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/website-builder" target="_blank">
+        <span>Website Builder</span>
+      </a>. 
+    </section>
   
 </body></html>

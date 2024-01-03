@@ -86,7 +86,7 @@
             </p>
           </div>
         </div>
-        <img class="u-image u-image-1" src="{{ asset('/images/3d7370c79a6570f999b45d2c8e609db17e10f218a6800c7ec3751041ee0ada9b39beac5ed702526cd0d103d12432166c08688e152f263d3a1800ed_1280.jpg') }}" data-image-width="1280" data-image-height="whatever_height_value">        <div class="u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-2" data-animation-name="customAnimationIn" data-animation-duration="1750">
+        <img class="u-image u-image-1" src="{{ asset('/images/3d7370c79a6570f999b45d2c8e609db17e10f218a6800c7ec3751041ee0ada9b39beac5ed702526cd0d103d12432166c08688e152f263d3a1800ed_1280.jpg')}}" data-image-width="1280" data-image-height="whatever_height_value">        <div class="u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-2" data-animation-name="customAnimationIn" data-animation-duration="1750">
           <div class="u-container-layout u-valign-middle u-container-layout-2">
             <p class="u-custom-font u-heading-font u-text u-text-default-lg u-text-default-xl u-text-3"> Join our team!<br>
             </p>
@@ -97,7 +97,7 @@
     <section class="u-clearfix u-grey-5 u-section-2" id="carousel_4539">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-palette-2-base u-shape u-shape-rectangle u-shape-1" data-animation-name="customAnimationIn" data-animation-duration="1250"></div>
-        <img class="u-image u-image-default u-image-1" data-image-width="1280" data-image-height="853" src="{{ asset('/images/c521b253c910db7ff6f4ff2dbfc5295235316e4226d4a6ff881b883e8606cda33c7aec7f38e2b0f40adb82a6bd49.jpg') }}">
+        <img class="u-image u-image-default u-image-1" data-image-width="1280" data-image-height="853" src="{{ asset('images/c521b253c910db7ff6f4ff2dbfc5295235316e4226d4a6ff881b883e8606cda33c7aec7f38e2b0f40adb82a6bd49.jpg') }}">
         <div class="u-align-left u-container-style u-group u-palette-4-base u-group-1" data-animation-name="customAnimationIn" data-animation-duration="1250">
           <div class="u-container-layout u-container-layout-1">
             <h5 class="u-text u-text-1"> Discover Opportunities</h5>
