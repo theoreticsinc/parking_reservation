@@ -16,8 +16,7 @@
     
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Site2"
+		"@type": "Organization"
 }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="About Us">
@@ -59,7 +58,7 @@
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-Service.html") }}">Food Service</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Advertising-Opportunities.html") }}">Advertising Opportunities</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Career-Opportunities.html") }}">Career Opportunities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("FAQS.html") }}">FAQs</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("FAQS.html") }}">FAQ's</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Contact.html") }}">Contact us</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("About-Us.html") }}">About Us</a>
 </li></ul>
