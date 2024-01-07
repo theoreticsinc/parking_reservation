@@ -49,20 +49,7 @@
           </p>
           @csrf
           <div class="u-custom-font u-text u-text-custom-color-2 u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">
-            <div class="form-group">
-                <label>CHECK IN TIME</label>
-                <div class="input-group">
-                    <input autocomplete="off" type="text" required name="check_in" class="form-control dt_picker" placeholder="yyyy-mm-dd">
-                    <span class="input-group-addon"><i class='bx bxs-chevron-down'></i>	</span>                    
-                </div>                
-            </div>
-            <div class="form-group">
-                <label>CHECK OUT TIME</label>
-                <div class="input-group">
-                    <input autocomplete="off" type="text" required name="check_out" class="form-control dt_picker" placeholder="yyyy-mm-dd">
-                    <span class="input-group-addon"><i class='bx bxs-chevron-down'></i>	</span>                    
-                </div>                
-            </div>
+            
             <button type="submit" class="u-border-1 u-border-custom-color-2 u-border-hover-black u-btn u-button-style u-hover-feature u-none u-text-custom-color-2 u-text-hover-grey-90 u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1750">
               Check Availability
             </button>
