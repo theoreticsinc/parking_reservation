@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PaymongoController;
 use App\Http\Controllers\Frontend\BookController;
 use App\Http\Controllers\Frontend\SlotController;
 use App\Http\Controllers\Frontend\FrontendRoomController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\AdvertisingController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -27,6 +29,11 @@ Route::get('/', [UserController::class, 'Index']);
 //Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
 Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('booking.reserve');
     
+// routes/web.php
+Route::get('/createpost', function () {      return view('frontend.post.create');    });
+Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+Route::post('/posts', [PostController::class, 'showPosts'])->name('frontend.post.index');
+
 /// Room All Route 
 Route::controller(FrontendRoomController::class)->group(function(){
     Route::get('/rooms', 'AllFrontendRoomList')->name('room.all');
@@ -37,10 +44,21 @@ Route::controller(FrontendRoomController::class)->group(function(){
  
 });
 
+//Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+
+Route::controller(PaymongoController::class)->group(function(){
+ 
+    Route::get('/mongo', 'index')->name('mongo');
+    Route::get('/createLink/{title}/{amount}', 'createLink')->name('createLink');
+    //Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+    Route::post('/createLinkfromPost', 'createLinkfromPost')->name('createLinkfromPost');  
+});
 
 /// SLot All Route 
 Route::controller(SlotController::class)->group(function(){
-    Route::get('/slots', 'SlotSearch')->name('slot.index');
+    Route::get('/slots', 'slotHome')->name('slot.index');
+    Route::get('/slots/booking', 'slotBooking')->name('slot.booking');
+    
 });
 
 Route::get('/dashboard', function () {
@@ -152,7 +170,5 @@ Route::controller(TeamController::class)->group(function(){
     
       
 });
-
-
 }); // End Admin Group Middleware 
    
