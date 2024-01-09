@@ -30,7 +30,7 @@
   <!-- Inner Banner -->
   <div class="inner-banner inner-bg9">
     <div class="container">
-        <form  method="post" action="{{ route('createLinkfromPost') }}"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 0px;color:aliceblue" name="bookingform">
+        <form  method="post" action="{{ route('postbooking') }}"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 0px;color:aliceblue" name="bookingform">
         <div class="row">
             <div class="column1">
                 <div class="inner-title" style="font-style: italic; vertical-align: top; padding-top: 0px">        
@@ -132,7 +132,7 @@
                             </table>
             
                             <div>
-                                <input type="submit" value="Submit" class="u-form-contdol-hidden">
+                                <input type="submit" value="Submit" class="default-btn btn-bg-one border-radius-5">
                             </div>
                       
                 </div>
@@ -151,7 +151,7 @@
                                 ENTRY DATE: 
                             </div>
                             <div class="column2">
-                                
+                                {{$sdate}}
                             </div>
                         </div>
                         <div class="row">
@@ -159,7 +159,7 @@
                                 EXIT DATE: 
                             </div>
                             <div class="column2">
-
+                                {{$edate}}
                             </div>
                         </div>
                         <div class="row">
@@ -207,7 +207,7 @@
                                 Estimated Amount: 
                             </div>
                             <div class="column2">
-                                {{$totaldue}}<input type="hidden" name="amount" id="amount" value="{{$totaldue}}">    
+                                {{$totaldue}}<input type="hidden" name="amount" id="amount" value="{{$totaldue}}">.00
                             </div>
                         </div>
                 </div>

@@ -47,9 +47,14 @@ class PaymongoController extends Controller
 
         //$title = "Date:".$amount;
         //echo $title;
+        //ParkNFly
+        //sk_live_MbZ5HZ5oSStmyeXcS5TQafhM
+        //c2tfbGl2ZV9NYlo1SFo1b1NTdG15ZVhjUzVUUWFmaE06
+        //Theoretics test Account
+        //c2tfdGVzdF9MYnBxSmR5YnZTNFZqMmRmQ0R2NFdzdlI6
         $response = Http::withHeaders([
             'accept' => 'application/json',
-            'authorization' => 'Basic c2tfdGVzdF9MYnBxSmR5YnZTNFZqMmRmQ0R2NFdzdlI6',
+            'authorization' => 'Basic c2tfbGl2ZV9NYlo1SFo1b1NTdG15ZVhjUzVUUWFmaE06',
             'content-type' => 'application/json',
         ])->post('https://api.paymongo.com/v1/links', [
             'data' => [

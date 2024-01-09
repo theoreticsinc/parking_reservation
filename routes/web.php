@@ -58,7 +58,7 @@ Route::controller(PaymongoController::class)->group(function(){
 Route::controller(SlotController::class)->group(function(){
     Route::get('/slots', 'slotHome')->name('slot.index');
     Route::get('/slots/booking', 'slotBooking')->name('slot.booking');
-    
+    Route::post('/postbooking', 'postBooking')->name('postbooking');  
 });
 
 Route::get('/dashboard', function () {

@@ -60,6 +60,11 @@ class SlotController extends Controller
         return view('frontend.slot.booking', compact('slots','sdate','edate','destination','flightnumber', 'daysparked', 'totaldue'));
 
     } // End Method 
+
+    public function postBooking(Request $request) {
+        $totaldue = "50000";
+        return view('frontend.slot.postbooking', compact('totaldue'));
+    }
     
     public function store(Request $request)
     {
