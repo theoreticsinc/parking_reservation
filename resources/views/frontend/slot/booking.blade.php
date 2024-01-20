@@ -39,10 +39,10 @@
                         <table>
                         <tr>
                             <td class="u-form-group u-form-name" style="color: aliceblue">
-                            <label for="checkIn" class="u-form-contdol-hidden u-label">* CHECK-IN</label>
+                            <label for="check_in" class="u-form-contdol-hidden u-label">* CHECK-IN</label>
                             </td>
                             <td class="" style="color: aliceblue">
-                                <label for="checkOut" class="u-form-contdol-hidden u-label">* CHECK-OUT</label>
+                                <label for="check_out" class="u-form-contdol-hidden u-label">* CHECK-OUT</label>
                             </td>
                         </tr>
                         <tr>
@@ -77,13 +77,13 @@
                         <table>
                             <tr>
                                 <td class="u-form-group u-form-name" style="color: aliceblue">
-                                <label for="First-Name" class="u-form-contdol-hidden u-label">* First Name</label>
+                                <label for="firstName" class="u-form-contdol-hidden u-label">* First Name</label>
                                 </td>
                                 <td class="" style="color: aliceblue">
-                                    <label for="Last-Name" class="u-form-contdol-hidden u-label">* Last Name</label>
+                                    <label for="lastName" class="u-form-contdol-hidden u-label">* Last Name</label>
                                 </td>
                                 <td class="" style="color: aliceblue">
-                                    <label for="Mobile-Number" class="u-form-contdol-hidden u-label">* Mobile Number</label>
+                                    <label for="mobileNumber" class="u-form-contdol-hidden u-label">* Mobile Number</label>
                                 </td>
                             </tr>
                             <tr>
@@ -141,9 +141,7 @@
             <div class="column2" style="background-color:#f1f1f1aa;">
                 <div class="inner-title" style="font-style: italic; vertical-align: top; padding-top: 0px">        
                     <h3 style="font-size: 22px; color: maroon">Parking Fees</h3> 
-                    
-                    <input type="text" name="title" id="title" hidden value="Parking Fees">
-        
+                            
                        
                     <hr>
                         <div class="row">
@@ -207,7 +205,7 @@
                                 Estimated Amount: 
                             </div>
                             <div class="column2">
-                                {{$totaldue}}<input type="hidden" name="amount" id="amount" value="{{$totaldue}}">.00
+                                {{$totaldue}}<input type="hidden" name="total_price" id="total_price" value="{{$totaldue}}">.00
                             </div>
                         </div>
                 </div>

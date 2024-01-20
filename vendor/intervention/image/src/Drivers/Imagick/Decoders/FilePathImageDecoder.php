@@ -16,16 +16,20 @@ class FilePathImageDecoder extends BinaryImageDecoder implements DecoderInterfac
             throw new DecoderException('Unable to decode input');
         }
 
+        if (strlen($input) > PHP_MAXPATHLEN) {
+            throw new DecoderException('Unable to decode input');
+        }
+
         try {
             if (!@is_file($input)) {
                 throw new DecoderException('Unable to decode input');
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             throw new DecoderException('Unable to decode input');
         }
 
         // decode image
-        $image =  parent::decode(file_get_contents($input));
+        $image = parent::decode(file_get_contents($input));
 
         // set file path on origin
         $image->origin()->setFilePath($input);

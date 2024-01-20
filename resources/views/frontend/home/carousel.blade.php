@@ -38,26 +38,98 @@
         <div class="u-expanded-width u-layout-horizontal u-products u-products-1" data-site-sorting-prop="created" data-site-sorting-order="desc" data-products-datasource="site" data-items-per-page="6" data-products-id="1">
           <div class="u-list-control"></div>
           <div class="u-repeater u-repeater-1">
-            @foreach ($room as $item)
             <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
               <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
-                <a class="u-product-title-link" href="{{ url('room/details/'.$item->id) }}"><img src="{{ asset( 'upload/roomimg/'.$item->image ) }}" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <a class="u-product-title-link" href="products/men-s-t-shirt.html"><img src="images/53c4c417.svg" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
                 <h4 class="u-product-control u-text u-text-4">
-                  <a class="u-product-title-link" href="{{ url('room/details/'.$item->id) }}">{{ $item['type']['name'] }}</a>
+                  <a class="u-product-title-link" href="products/men-s-t-shirt.html">Men's T-Shirt</a>
                 </h4><!--/product_title--><!--product_price-->
-                
                 <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
                   <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                    <div class="u-old-price">{{ $item->price }}</div><!--/product_old_price--><!--product_regular_price-->
-                    <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">per night</div><!--/product_regular_price-->
+                    <s class="u-price u-text-palette-2-base">Php 450.00</s><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-old-price" style="font-size: 1.25rem; font-weight: 700;">Php 245.00</div><!--/product_regular_price-->
                   </div>
                 </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
-                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2"><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2" data-product=""><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
               </div>
-            </div>
-            <!--/product_item-->
-            @endforeach
+            </div><!--/product_item-->
+            <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
+                <a class="u-product-title-link" href="products/men-s-t-shirt.html"><img src="images/53c4c417.svg" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <h4 class="u-product-control u-text u-text-4">
+                  <a class="u-product-title-link" href="products/men-s-t-shirt.html">Men's Pants</a>
+                </h4><!--/product_title--><!--product_price-->
+                <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
+                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
+                    <s class="u-price u-text-palette-2-base">Php 700.00</s><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-old-price" style="font-size: 1.25rem; font-weight: 700;">Php 245.00</div><!--/product_regular_price-->
+                  </div>
+                </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2" data-product=""><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+              </div>
+            </div><!--/product_item-->
+            <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
+                <a class="u-product-title-link" href="products/men-s-t-shirt.html"><img src="images/53c4c417.svg" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <h4 class="u-product-control u-text u-text-4">
+                  <a class="u-product-title-link" href="products/men-s-t-shirt.html">Men's Underwear</a>
+                </h4><!--/product_title--><!--product_price-->
+                <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
+                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
+                    <s class="u-price u-text-palette-2-base">Php 300.00</s><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-old-price" style="font-size: 1.25rem; font-weight: 700;">Php 145.00</div><!--/product_regular_price-->
+                  </div>
+                </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2" data-product=""><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+              </div>
+            </div><!--/product_item-->
+             <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
+                <a class="u-product-title-link" href="products/men-s-t-shirt.html"><img src="images/53c4c417.svg" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <h4 class="u-product-control u-text u-text-4">
+                  <a class="u-product-title-link" href="products/men-s-t-shirt.html">Women's T-Shirt</a>
+                </h4><!--/product_title--><!--product_price-->
+                <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
+                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
+                    <s class="u-price u-text-palette-2-base">Php 450.00</s><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-old-price" style="font-size: 1.25rem; font-weight: 700;">Php 245.00</div><!--/product_regular_price-->
+                  </div>
+                </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2" data-product=""><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+              </div>
+            </div><!--/product_item-->
+            <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
+                <a class="u-product-title-link" href="products/men-s-t-shirt.html"><img src="images/53c4c417.svg" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <h4 class="u-product-control u-text u-text-4">
+                  <a class="u-product-title-link" href="products/men-s-t-shirt.html">Women's Pants</a>
+                </h4><!--/product_title--><!--product_price-->
+                <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
+                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
+                    <s class="u-price u-text-palette-2-base">Php 700.00</s><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-old-price" style="font-size: 1.25rem; font-weight: 700;">Php 245.00</div><!--/product_regular_price-->
+                  </div>
+                </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2" data-product=""><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+              </div>
+            </div><!--/product_item-->
+            <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
+                <a class="u-product-title-link" href="products/men-s-t-shirt.html"><img src="images/53c4c417.svg" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <h4 class="u-product-control u-text u-text-4">
+                  <a class="u-product-title-link" href="products/men-s-t-shirt.html">Women's Underwear</a>
+                </h4><!--/product_title--><!--product_price-->
+                <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
+                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
+                    <s class="u-price u-text-palette-2-base">Php 300.00</s><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-old-price" style="font-size: 1.25rem; font-weight: 700;">Php 145.00</div><!--/product_regular_price-->
+                  </div>
+                </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2" data-product=""><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+              </div>
+            </div><!--/product_item-->
             
+            <!--Insert phpforeach here-->
             
           </div>
           <div class="u-list-control"></div>
@@ -100,36 +172,36 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1500">
                 <div class="u-container-layout u-container-layout-1">
-                  <h2 class="u-text u-text-default u-text-1"> We define ambitions</h2>
-                  <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> Setting brand and digital strategies that mobilises teams from authentic insights.</p>
+                  <h2 class="u-text u-text-default u-text-1"> Add more to save on the total</h2>
+                  <p class="u-large-text u-text u-text-default u-text-variant u-text-2"> Get your car serviced here to save while you travel</p>
                   <ul class="u-custom-list u-file-icon u-text u-text-3">
                     <li>
                       <div class="u-list-icon u-text-palette-1-base">
                         <img src="images/10486568.png" alt="">
-                      </div> Brand strategy
+                      </div> Underchassis
                     </li>
                     <li>
                       <div class="u-list-icon u-text-palette-1-base">
                         <img src="images/10486568.png" alt="">
-                      </div>Brand architecture
+                      </div>Brakes
                     </li>
                     <li>
                       <div class="u-list-icon u-text-palette-1-base">
                         <img src="images/10486568.png" alt="">
-                      </div>Digital strategy
+                      </div>Engine
                     </li>
                     <li>
                       <div class="u-list-icon u-text-palette-1-base">
                         <img src="images/10486568.png" alt="">
-                      </div>Employer brand strategy
+                      </div>General
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="u-container-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <p class="u-align-left u-text u-text-default u-text-4"> “When I look at this brand, I suddenly realise everything I’ve been trying to say, now we have a way to express it.”</p>
-                  <p class="u-align-left u-text u-text-default u-text-5"> David Bell, CEO and Co-Founder</p>
+                  <p class="u-align-left u-text u-text-default u-text-4"> “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.”</p>
+                  <p class="u-align-left u-text u-text-default u-text-5"> Juan Luna, CEO and Co-Founder</p>
                 </div>
               </div>
             </div>
@@ -409,3 +481,22 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
   }
 }</style>
 </body></html>
+            @foreach ($room as $item)
+            <!--product_item--><div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="2">
+              <div class="u-container-layout u-similar-container u-container-layout-4"><!--product_image-->
+                <a class="u-product-title-link" href="{{ url('room/details/'.$item->id) }}"><img src="{{ asset( 'upload/roomimg/'.$item->image ) }}" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-4"></a><!--/product_image--><!--product_title-->
+                <h4 class="u-product-control u-text u-text-4">
+                  <a class="u-product-title-link" href="{{ url('room/details/'.$item->id) }}">{{ $item['type']['name'] }}</a>
+                </h4><!--/product_title--><!--product_price-->
+                
+                <div data-add-zero-cents="true" class="u-product-control u-product-price u-product-price-4">
+                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
+                    <div class="u-old-price">{{ $item->price }}</div><!--/product_old_price--><!--product_regular_price-->
+                    <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">per night</div><!--/product_regular_price-->
+                  </div>
+                </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"buy-now","content":"Add to cart"}--><!--/options_json-->
+                <a href="#sec-92fe" class="u-active-grey-75 u-black u-border-none u-btn u-button-style u-hover-grey-75 u-product-control u-btn-4 u-dialog-link u-payment-button" data-product-button-click-type="buy-now" data-product-id="2"><!--product_button_content-->Add to cart<!--/product_button_content--></a><!--/product_button-->
+              </div>
+            </div>
+            <!--/product_item-->
+            @endforeach

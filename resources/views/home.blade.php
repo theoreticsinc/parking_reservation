@@ -44,19 +44,19 @@
       <section class="skrollable u-clearfix u-image u-parallax u-section-1" id="sec-645a" data-image-width="4704" data-image-height="3136">
         <form method="get" action="{{ route('slot.index') }}">
         <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-sheet-1">
-          <p class="u-custom-font u-text u-text-white u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction=""> ARRIVE ON TIME<br>
+          <p class="u-custom-font u-text u-text-white u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">
             <br>
           </p>
           @csrf
           <div class="u-custom-font u-text u-text-custom-color-2 u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">
             
             <button type="submit" class="u-border-1 u-border-custom-color-2 u-border-hover-black u-btn u-button-style u-hover-feature u-none u-text-custom-color-2 u-text-hover-grey-90 u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1750">
-              Check Availability
+              BOOK YOUR SPOT NOW!
             </button>
+            
           </div>
           
-          <p class="u-custom-font u-text u-text-custom-color-2 u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">BOOK YOUR SPOT NOW!</p>
-          <p class="u-custom-font u-text u-text-white u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">Park 'N Fly is the first of its kind and only service in the Philippines wherein customers can leave their vehicles on a daily, weekly or monthly basis either for short-term or long-term parking at very reasonable rates. </p>
+          <div class="u-custom-font u-text u-text-red u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">Park 'N Fly is the first of its kind and only service in the Philippines wherein customers can leave their vehicles on a daily, weekly or monthly basis either for short-term or long-term parking at very reasonable rates. </div>
           
           
         </div>
@@ -68,14 +68,6 @@
         <p class="u-custom-font u-font-georgia u-text u-text-2"> The indoor parking facilities are covered and provided with professional security and electronic surveillance.&nbsp;The facilities are specifically designed for air travelers in order to ensure comfortable hassle-free and worry-free travel. It is ideally located at MIA and Domestic roads just 500 meters from the domestic airport terminal.</p>
       </div>
     </section>
-
-    <!-- Book Area Two-->
-    @include('frontend.home.room_area_two')
-    <!-- Book Area Two End -->
-
-    <!-- Room Area -->
-    @include('frontend.home.room_area')
-    <!-- Room Area End -->
 
     <section class="u-clearfix u-section-3" id="sec-3e8a">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -199,10 +191,10 @@
         <ul class="u-align-left u-text u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1750">
           <li>Chassis lubrication and repairs</li>
           <li>4-wheel computerized wheel alignment</li>
-          <li>.Computerized high-speed wheel balancing.</li>
+          <li>Computerized high-speed wheel balancing.</li>
           <li>Clutch and brake repairs/maintenance.</li>
           <li>General engine and transmission overhaul</li>
-          <li>.Painting and body repair services <br>with oven-baked finishes.
+          <li>Painting and body repair services <br>with oven-baked finishes.
           </li>
         </ul>
       </div>
@@ -210,10 +202,10 @@
     <section class="u-clearfix u-white u-section-5" id="sec-69ec">
       <img class="u-expanded-width u-image u-image-default u-image-1" src="{{ asset("/images/wp2733000-dark-gray-background-texture.jpg") }}" alt="" data-image-width="1920" data-image-height="1080">
       <p class="u-align-left u-custom-font u-font-arial u-text u-text-white u-text-1">
-        <span style="font-weight: 700;">Follow Us&nbsp;</span>
-        <br>Secure your spot effortlessly! Follow us on social media for real-time updates, exclusive promotions, and hassle-free parking solutions. Your convenience, our commitment 
-      </p><span class="u-file-icon u-icon u-text-white u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-direction="X"><img src="{{ asset("/images/1384005-99495e7f.png") }}" alt=""></span><span class="u-file-icon u-icon u-text-white u-icon-2" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="500"><img src="{{ asset("/images/3669688-ae1caf9d.png") }}" alt=""></span><span class="u-file-icon u-icon u-text-white u-icon-3" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="1000"><img src="{{ asset("/images/2168336-99f6b750.png") }}" alt=""></span>
-      <p class="u-align-left u-text u-text-2">F</p>
+        <span style="font-weight: 700;"></span>
+        <br>
+      </p><span class="u-file-icon u-icon u-text-white u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-direction="X"></span><span class="u-file-icon u-icon u-text-white u-icon-2" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="500"></span><span class="u-file-icon u-icon u-text-white u-icon-3" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="1000"></span>
+      <p class="u-align-left u-text u-text-2"></p>
     </section>
     <section class="u-align-center u-border-1 u-border-grey-75 u-clearfix u-section-6" id="sec-426c">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -222,6 +214,9 @@
             <div class="u-layout-row">
               <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" data-image-width="928" data-image-height="626">
                 <div class="u-container-layout u-container-layout-1"></div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.4285140103293!2d120.99791387414805!3d14.517464479108591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ceb04b4234f1%3A0xe2b7d496e61afdf3!2sPark%20&#39;N%20Fly!5e0!3m2!1sen!2sph!4v1705546844034!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
               </div>
               <div class="u-align-left u-container-style u-layout-cell u-right-cell u-shape-rectangle u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
@@ -239,28 +234,31 @@ Philippines&nbsp;<br>
 </g></svg></span><span class="u-file-icon u-icon u-icon-2"><img src="{{ asset("/images/159832.png") }}" alt=""></span>
                   <p class="u-align-left u-custom-font u-font-georgia u-text u-text-4">0918-991-0000</p><span class="u-file-icon u-icon u-icon-3"><img src="{{ asset("/images/545245.png") }}" alt=""></span>
                   <div class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
-                    <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form-1">
+
+                    <form action="{{ route ('home.email')}}" method="POST" style="padding: 10px" name="form-1">
+                      @csrf
                       <div class="u-form-group u-form-name u-label-none">
                         <label for="name-c359" class="u-label">Name</label>
-                        <input type="text" placeholder="Name" id="name-c359" name="name" class="u-input u-input-rectangle" required="">
+                        <input type="text" placeholder="Name" id="fullname" name="fullname" class="u-input u-input-rectangle" required="">
                       </div>
                       <div class="u-form-email u-form-group u-label-none">
                         <label for="email-c359" class="u-label">Email</label>
-                        <input type="email" placeholder="Email" id="email-c359" name="email" class="u-input u-input-rectangle" required="">
+                        <input type="text" placeholder="Email" id="emailto" name="emailto" class="u-input u-input-rectangle" required="">
                       </div>
                       <div class="u-form-group u-form-message u-label-none">
-                        <label for="message-c359" class="u-label">Address</label>
-                        <textarea placeholder="Address" rows="4" cols="50" id="message-c359" name="message" class="u-input u-input-rectangle" required=""></textarea>
+                        <label for="message-c359" class="u-label">Message</label>
+                        <textarea placeholder="Message" rows="4" cols="50" id="message" name="message" class="u-input u-input-rectangle" required=""></textarea>
                       </div>
                       <div class="u-form-group u-form-submit">
-                        <a href="{{ url("#") }}" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-2 u-hover-white u-text-hover-custom-color-2 u-btn-1">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden">
+                        <input type="submit" value="Submit Inquiry" class="u-border-none u-button-style u-custom-color-2 u-hover-white u-text-hover-custom-color-2">
                       </div>
                       <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
                       <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
                       <input type="hidden" value="" name="recaptchaResponse">
                       <input type="hidden" name="formServices" value="47a64133-8ba5-244d-2d11-ac6e479d0892">
                     </form>
+                    
+                    
                   </div>
                 </div>
               </div>
