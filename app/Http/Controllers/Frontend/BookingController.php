@@ -205,9 +205,14 @@ class BookingController extends Controller
      public function UpdateBookingStatus(Request $request, $id){
 
         $booking = Booking::find($id);
-        $booking->payment_status = $request->payment_status;
-        $booking->status = $request->status;
+        $booking->payment_status = 1;
+        $booking->status = 1;
         $booking->save();
+          
+        //$booking = Booking::find($id);
+        //$booking->payment_status = $request->payment_status;
+        //$booking->status = $request->status;
+        //$booking->save();
           
         /// Start Sent Email 
 

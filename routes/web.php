@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymongoController;
 use App\Http\Controllers\Frontend\BookController;
 use App\Http\Controllers\Frontend\SlotController;
+use App\Http\Controllers\Frontend\BookingController;
 use App\Http\Controllers\Frontend\FrontendRoomController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\RoomTypeController;
@@ -21,14 +22,31 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RepairPriceController;
+use App\Http\Controllers\LightVehicleController;
+use App\Http\Controllers\MediumVehicleGasolineController;
+use App\Http\Controllers\MediumVehicleDieselController;
+use App\Http\Controllers\LargeVehicleGasolineController;
+use App\Http\Controllers\LargeVehicleDieselController;
+use App\Http\Controllers\ShoppingCartController;
 //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
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [UserController::class, 'Index']);
+Route::get('/', [HomeController::class, 'Index']);
+Route::get('/calendar', [HomeController::class, 'calendar'])->name('home.calendar');
+
+Route::post('/modifyCalendar', [HomeController::class, 'modifyCalendar'])->name('home.calendar');
+
 //Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
 Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('booking.reserve');
     
+Route::get('/shop', [ShoppingCartController::class, 'startShopping'])->name('cart.index');
+Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{productId}', [ShoppingCartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart/remove/{rowId}', [ShoppingCartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/cart/clear', [ShoppingCartController::class, 'clearCart'])->name('cart.clear');
+
 // routes/web.php
 Route::get('/createpost', function () {      return view('frontend.post.create');    });
 Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
@@ -58,14 +76,21 @@ Route::controller(PaymongoController::class)->group(function(){
 Route::controller(SlotController::class)->group(function(){
     Route::get('/slots', 'slotHome')->name('slot.index');
     Route::get('/slots/booking', 'slotBooking')->name('slot.booking');
-    Route::post('/postbooking', 'postBooking')->name('postbooking');  
+    Route::any('/postbooking', 'postBooking')->name('postbooking');
+    
 });
 
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.user_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/lightvehicle', [LightVehicleController::class, 'index'])->name('lightvehicle.index');
+Route::get('/mediumvehiclegasoline', [MediumVehicleGasolineController::class, 'index'])->name('mediumvehiclegasoline.index');
+Route::get('/mediumvehiclediesel', [MediumVehicleDieselController::class, 'index'])->name('mediumvehiclediesel.index');
+Route::get('/largevehiclegasoline', [LargeVehicleGasolineController::class, 'index'])->name('largevehiclegasoline.index');
+Route::get('/largevehiclediesel', [LargeVehicleDieselController::class, 'index'])->name('largevehiclediesel.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index'); 
+Route::post('/email', [HomeController::class, 'email'])->name('home.email'); 
+Route::get('/show', [HomeController::class, 'showdb'])->name('home.show'); 
 Route::get('/parking', [ParkingController::class, 'index'])->name('parking.index');
 Route::get('/vehicle/repair', [VehicleRepairController::class, 'index'])->name('vehiclerepair.index'); 
 Route::get('/food/service', [FoodServiceController::class, 'index'])->name('foodservice.index'); 
@@ -156,6 +181,7 @@ Route::controller(TeamController::class)->group(function(){
     Route::get('/booking/list', 'BookingList')->name('booking.list');
     Route::get('/edit_booking/{id}', 'EditBooking')->name('edit_booking');
     Route::get('/download/invoice/{id}', 'DownloadInvoice')->name('download.invoice');
+    Route::get('/update/booking/status/{id}', 'UpdateBookingStatus')->name('update.booking.status');
     
       
 });

@@ -2,7 +2,6 @@
 
 namespace Intervention\Image;
 
-use Countable;
 use Traversable;
 use Intervention\Image\Analyzers\ColorspaceAnalyzer;
 use Intervention\Image\Analyzers\HeightAnalyzer;
@@ -23,6 +22,7 @@ use Intervention\Image\Encoders\MediaTypeEncoder;
 use Intervention\Image\Encoders\PngEncoder;
 use Intervention\Image\Encoders\TiffEncoder;
 use Intervention\Image\Encoders\WebpEncoder;
+use Intervention\Image\Exceptions\EncoderException;
 use Intervention\Image\Geometry\Factories\CircleFactory;
 use Intervention\Image\Geometry\Factories\EllipseFactory;
 use Intervention\Image\Geometry\Factories\LineFactory;
@@ -83,7 +83,7 @@ use Intervention\Image\Modifiers\SharpenModifier;
 use Intervention\Image\Modifiers\TextModifier;
 use Intervention\Image\Typography\FontFactory;
 
-final class Image implements ImageInterface, Countable
+final class Image implements ImageInterface
 {
     /**
      * The origin from which the image was created
@@ -261,7 +261,19 @@ final class Image implements ImageInterface, Countable
     {
         $path = is_null($path) ? $this->origin()->filePath() : $path;
 
-        $this->encodeByPath($path, $quality)->save($path);
+        if (is_null($path)) {
+            throw new EncoderException('Could not determine file path to save.');
+        }
+
+        try {
+            // try to determine encoding format by file extension of the path
+            $encoded = $this->encodeByPath($path, $quality);
+        } catch (EncoderException) {
+            // fallback to encoding format by media type
+            $encoded = $this->encodeByMediaType(quality: $quality);
+        }
+
+        $encoded->save($path);
 
         return $this;
     }
