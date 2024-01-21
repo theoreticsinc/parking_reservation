@@ -74,7 +74,7 @@
         </nav>
       </div></header>
     <section class="u-clearfix u-white u-section-1" id="carousel_eb2b">
-      <img class="u-expanded-width u-image u-image-1" src="{{ asset("/images/e336f2c1851721eddf888c8a0d2fa1311bf56973140b53689ab32c368c043fa6b5be32e82e6d7760f98109f348753972ddca721f51d9268316990a_1280.jpg") }}" data-image-width="1280" data-image-height="853">
+      <img class="u-expanded-width u-image u-image-1" src="images/e336f2c1851721eddf888c8a0d2fa1311bf56973140b53689ab32c368c043fa6b5be32e82e6d7760f98109f348753972ddca721f51d9268316990a_1280.jpg" data-image-width="1280" data-image-height="853">
       <div class="u-list u-list-1">
         <div class="u-repeater u-repeater-1">
           <div class="u-align-center u-container-style u-list-item u-opacity u-opacity-95 u-repeater-item u-white u-list-item-1">
@@ -125,7 +125,7 @@
 </g></svg></span>
               <h5 class="u-text u-text-7">Email</h5>
               <p class="u-text u-text-8">
-                <a href="{{ url("mailto:hello@theme.com") }}" class="u-active-none u-border-1 u-border-active-black u-border-custom-color-2 u-border-hover-black u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-custom-color-2 u-text-hover-black u-btn-1">customer ​care@parknfly.com.ph</a>
+                <a href="mailto:hello@theme.com" class="u-active-none u-border-1 u-border-active-black u-border-custom-color-2 u-border-hover-black u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-custom-color-2 u-text-hover-black u-btn-1">customer ​care@parknfly.com.ph</a>
               </p>
             </div>
           </div>
@@ -156,42 +156,54 @@
                       <textarea placeholder="Enter your message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
                     </div>
                     <div class="u-align-left u-form-group u-form-submit">
-                      <a href="{{ url("#") }}" class="u-btn u-btn-submit u-button-style u-white u-btn-2">Submit</a>
+                      <a href="#" class="u-btn u-btn-submit u-button-style u-white u-btn-2">Submit</a>
                       <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
                     </div>
                     <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>
                     <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div>
                     <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true">
-                    <input type="hidden" name="formServices" value="0573d380-3caf-ff86-a790-e3225c7d3be8">
+                    <input type="hidden" name="formServices" value="">
                   </form>
                 </div>
               </div>
             </div>
             <div class="u-black u-container-style u-layout-cell u-opacity u-opacity-0 u-right-cell u-size-30 u-layout-cell-2">
               <div class="u-container-layout u-container-layout-6">
-                <img class="u-absolute-hcenter-md u-absolute-hcenter-sm u-absolute-hcenter-xs u-expanded u-image u-image-default" src="{{ asset("/images/Screenshot2023-12-17115758.png") }}" alt="" data-image-width="856" data-image-height="743">
+                
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+     
+    <style>
+        /* Adjust the size and position of the map */
+        .map-container {
+            position: absolute;
+            width: 100%; /* Adjust the width as needed */
+            height: 580px; /* Adjust the height as needed */
+            top: 540px; /* Adjust the top margin as needed */
+            left: 760px; /* Adjust the left margin as needed */
+        }
+
+        iframe {
+            width: 40%;
+            height: 108%;
+            border: 2px solid #ccc; /* Optional border for visibility */
+        }
+    </style>
+
+
+
+<div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.4492986910104!2d120.9971336674465!3d14.516273733174476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ceb04b4234f1%3A0xe2b7d496e61afdf3!2sPark%20&#39;N%20Fly!5e0!3m2!1sen!2sph!4v1705574880499!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
     
     
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
+<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="{{ url("") }}" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
   
 </body></html>

@@ -1,4 +1,4 @@
-<footer class="footer-area footer-bg">
+<!-- <footer class="footer-area footer-bg">
             <div class="container">
                 <div class="footer-top pt-100 pb-70">
                     <div class="row align-items-center">

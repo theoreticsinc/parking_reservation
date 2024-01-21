@@ -19,6 +19,13 @@ use App\Http\Controllers\AdvertisingController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RepairPriceController;
+use App\Http\Controllers\LightVehicleController;
+use App\Http\Controllers\MediumVehicleGasolineController;
+use App\Http\Controllers\MediumVehicleDieselController;
+use App\Http\Controllers\LargeVehicleGasolineController;
+use App\Http\Controllers\LargeVehicleDieselController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -46,7 +53,13 @@ Route::controller(SlotController::class)->group(function(){
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.user_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/lightvehicle', [LightVehicleController::class, 'index'])->name('lightvehicle.index');
+Route::get('/mediumvehiclegasoline', [MediumVehicleGasolineController::class, 'index'])->name('mediumvehiclegasoline.index');
+Route::get('/mediumvehiclediesel', [MediumVehicleDieselController::class, 'index'])->name('mediumvehiclediesel.index');
+Route::get('/largevehiclegasoline', [LargeVehicleGasolineController::class, 'index'])->name('largevehiclegasoline.index');
+Route::get('/largevehiclediesel', [LargeVehicleDieselController::class, 'index'])->name('largevehiclediesel.index');
 
+Route::get('/repair-price', [RepairPriceController::class, 'index'])->name('repair_price.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index'); 
 Route::get('/parking', [ParkingController::class, 'index'])->name('parking.index');
 Route::get('/vehicle/repair', [VehicleRepairController::class, 'index'])->name('vehiclerepair.index'); 
@@ -56,6 +69,7 @@ Route::get('/career/opportunities', [CareerController::class, 'index'])->name('c
 Route::get('/advertising/opportunities', [AdvertisingController::class, 'index'])->name('advertisingopportunities.index'); 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index'); 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index'); 
+
 
 Route::middleware('auth')->group(function () {
 

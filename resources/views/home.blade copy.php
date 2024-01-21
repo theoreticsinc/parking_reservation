@@ -9,6 +9,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
     <link rel="stylesheet" href="{{ asset('css/Home.css') }}" media="screen">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script class="u-script" type="text/javascript" src="{{ asset('javascript/jquery.js') }}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{{ asset('javascript/nicepage.js') }}" defer=""></script>
     <meta name="generator" content="Nicepage 6.2.1, nicepage.com">
@@ -267,6 +269,35 @@ Philippines&nbsp;<br>
                       <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
                       <input type="hidden" value="" name="recaptchaResponse">
                       <input type="hidden" name="formServices" value="47a64133-8ba5-244d-2d11-ac6e479d0892">
+
+                        <!-- Map container with adjusted height and width -->
+                        <div id="map"></div>
+
+<!-- Include Leaflet library -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Your JavaScript code for the live map -->
+<script>
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(mymap);
+
+    // Example: Add a marker with a popup
+    var marker = L.marker([14.517469695984934, 121.00048774543534]).addTo(map)
+        .bindPopup('Hello, this is a stable live map marker!');
+
+    // Update marker position (for demonstration purposes)
+    function updateMarker() {
+        // You can replace these coordinates with fixed values or your live data
+        var fixedLatLng = L.latLng(14.517469695984934, 121.00048774543534);
+        marker.setLatLng(fixedLatLng);
+    }
+
+    // Update marker position every second (for demonstration purposes)
+    setInterval(updateMarker, 1000);
+</script>
                     </form>
                   </div>
                 </div>
