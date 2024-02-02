@@ -1,3 +1,7 @@
+@include('frontend.body.header')
+@extends('frontend.main_master')
+@section('main')
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,25 +84,25 @@
         <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-1-1" src="" data-image-width="1280" data-image-height="848">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center-sm u-align-center-xs u-text u-text-default u-title u-text-1">Airport Cafe</h1>
-            <p class="u-align-center u-large-text u-text u-text-variant u-text-2"> Park ‘N Fly is ideally located at MIA and Domestic roads just 500 meters from the domestic airport terminal. Our cafe will suit your appetite from different varities of drinks, sandwiches and rice meals while you wait for your car or your flight.</p>
+            <p class="u-align-center u-large-text u-text u-text-variant u-text-2"style="color: white;"> Park ‘N Fly is ideally located at MIA and Domestic roads just 500 meters from the domestic airport terminal. Our cafe will suit your appetite from different varities of drinks, sandwiches and rice meals while you wait for your car or your flight.</p>
           </div>
         </div>
         <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-1-2" src="" data-image-width="770" data-image-height="552">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center-sm u-align-center-xs u-text u-text-default u-title u-text-1">Barbershop</h1>
-            <p class="u-large-text u-text u-text-variant u-text-2"> No time to schedule a haircut with your barber? Our barber shop will give you the haircut that you always want to schedule and other services that you might also need while you wait. Check out our other services: Haircut Ladies Cut Shampoo/Blow Dry Hair Dye Hair Highlight Shave Iper Setting Perma,Hair Straightening, Hot Oil Total,Hair Repair,Scalp Treatment,Manicure,Pedicure,Foot Theraphy,Facial,Ear,Cleaning,Body Massage,Scalp Massage,Gray Hair Pulling.Shoe Shine</p>
+            <p class="u-large-text u-text u-text-variant u-text-2"style="color: white;"> No time to schedule a haircut with your barber? Our barber shop will give you the haircut that you always want to schedule and other services that you might also need while you wait. Check out our other services: Haircut Ladies Cut Shampoo/Blow Dry Hair Dye Hair Highlight Shave Iper Setting Perma,Hair Straightening, Hot Oil Total,Hair Repair,Scalp Treatment,Manicure,Pedicure,Foot Theraphy,Facial,Ear,Cleaning,Body Massage,Scalp Massage,Gray Hair Pulling.Shoe Shine</p>
           </div>
         </div>
         <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-1-3" src="" data-image-width="1280" data-image-height="853">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-text u-text-default u-title u-text-1">Convenience Store</h1>
-            <p class="u-large-text u-text u-text-variant u-text-2"> Did you forgot something from the grocery store that you need to bring with you on your trip? Worry no more! We are equipped with a convenience store that will provide everything you need from that checklist you unable to fulfill before you leave .</p>
+            <p class="u-large-text u-text u-text-variant u-text-2"style="color: white;"> Did you forgot something from the grocery store that you need to bring with you on your trip? Worry no more! We are equipped with a convenience store that will provide everything you need from that checklist you unable to fulfill before you leave .</p>
           </div>
         </div>
         <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-1-4" src="" data-image-width="1280" data-image-height="928">
           <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-align-center-sm u-align-center-xs u-text u-text-default u-title u-text-1">Lounge</h1>
-            <p class="u-large-text u-text u-text-variant u-text-2"> Sit back and relax while you wait for your flight with our cozy lounge area where in you will find most accommodating. We make sure that you are convenient during your stay with us&nbsp;</p>
+            <p class="u-large-text u-text u-text-variant u-text-2"style="color: white;"> Sit back and relax while you wait for your flight with our cozy lounge area where in you will find most accommodating. We make sure that you are convenient during your stay with us&nbsp;</p>
           </div>
         </div>
       </div>
@@ -120,8 +124,8 @@
     
     
     
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
-      </div></footer>
+
   
 </body></html>
+
+@endsection

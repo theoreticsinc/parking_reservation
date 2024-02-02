@@ -1,3 +1,8 @@
+@include('frontend.body.header')
+@extends('frontend.main_master')
+@section('main')
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,17 +57,20 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Parking.html">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="#">Shuttle Service</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Home.html") }}">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href=" href="{{ route('register') }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Vehicle-Repair.html">Vehicle Repair</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Food-Service.html">Food Service</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Advertising-Opportunities.html">Advertising Opportunities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Career-Opportunities.html">Career Opportunities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="FAQS.html">FAQs</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html">Contact us</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About-Us.html">About Us</a>
+<!-- Example button in a Blade file -->
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ route('register') }}">Vehicle Repair</a></li>
+
+
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-.html") }}">Food Service</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Advertising-Opportunities.html") }}">Advertising Opportunities</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Career-Opportunities.html") }}">Career Opportunities</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("FAQS.html") }}">FAQs</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Contact.html") }}">Contact us</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("About-Us.html") }}">About Us</a>
 </li></ul>
               </div>
             </div>
@@ -163,14 +171,12 @@
             <p class="u-align-left u-text u-text-2"> Reserve your parking spot with us and experience stress-free travel. Our secure parking facilities are conveniently located near the airport, ensuring a smooth start to your journey. Book now for peace of mind and hassle-free parking</p>
           </div>
         </div>
-        <img class="u-image u-image-2" src="../images/ConradsGrilleAds.png" data-image-width="1000" data-image-height="600" data-animation-name="bounceIn" data-animation-duration="1750" data-animation-direction="" data-animation-delay="250">
+        <img class="u-image u-image-2" src="../images/ConradsGrilleAds.jpg" data-image-width="1000" data-image-height="600" data-animation-name="bounceIn" data-animation-duration="1750" data-animation-direction="" data-animation-delay="250">
       </div>
     </section>
     
     
     
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
-      </div></footer>
-  
+
 </body></html>
+@endsection

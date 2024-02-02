@@ -560,6 +560,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\GenerateSlots' => __DIR__ . '/../..' . '/app/Console/Commands/GenerateSlots.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutController.php',
@@ -577,11 +578,13 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Backend\\RoomTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/RoomTypeController.php',
         'App\\Http\\Controllers\\Backend\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TeamController.php',
+        'App\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalendarController.php',
         'App\\Http\\Controllers\\CareerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CareerController.php',
         'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FAQSController' => __DIR__ . '/../..' . '/app/Http/Controllers/FAQSController.php',
         'App\\Http\\Controllers\\FoodServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/FoodServiceController.php',
+        'App\\Http\\Controllers\\FormController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormController.php',
         'App\\Http\\Controllers\\Frontend\\BookController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/BookController.php',
         'App\\Http\\Controllers\\Frontend\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/BookingController.php',
         'App\\Http\\Controllers\\Frontend\\FrontendRoomController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FrontendRoomController.php',
@@ -596,8 +599,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\PaymongoController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaymongoController.php',
         'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\RepairPriceController' => __DIR__ . '/../..' . '/app/Http/Controllers/RepairPriceController.php',
         'App\\Http\\Controllers\\SendMailController' => __DIR__ . '/../..' . '/app/Http/Controllers/SendMailController.php',
         'App\\Http\\Controllers\\ShoppingCartController' => __DIR__ . '/../..' . '/app/Http/Controllers/ShoppingCartController.php',
+        'App\\Http\\Controllers\\SlotController' => __DIR__ . '/../..' . '/app/Http/Controllers/SlotController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VehicleRepairController' => __DIR__ . '/../..' . '/app/Http/Controllers/VehicleRepairController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

@@ -116,19 +116,6 @@ class UsersTableSeeder extends Seeder
             ],
  
         ]);
-        DB::table('slots')->insert([
-
-            // Admin
-            [
-                'slot_id' => '1',
-            ],
-            // Admin
-            [
-                'slot_id' => '2',
-                'slot_id' => '102',
-            ],
- 
-        ]);
         DB::table('site_settings')->insert([
 
             // Admin

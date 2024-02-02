@@ -15,6 +15,7 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
+    var titleInput = document.getElementById('titleInput'); // Add this line to get the input element
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
@@ -28,7 +29,9 @@
       selectable: true,
       selectMirror: true,
       select: function(arg) {
-        var title = prompt('Event Title:');
+        //var title = prompt('Event Title:');
+        var title = titleInput.value; // Use the value of the input box
+        
         if (title) {
           calendar.addEvent({
             title: title,
@@ -47,7 +50,7 @@
                     type: 'POST',
                     url: '/modifyCalendar', // Replace with your Laravel route
                     data: {
-                        eventId: arg.event.id // Send event ID or any relevant data
+                        eventId: arg.event.id, eventTitle: arg.event.title // Send event ID or any relevant data
                     },
                     headers: {
                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -142,7 +145,7 @@
     margin: 40px 10px;
     padding: 0;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 28px;
+    font-size: 24px;
   }
 
   #calendar {
@@ -155,6 +158,6 @@
 <body>
 
   <div id='calendar'></div>
-
+  <input type="text" id="titleInput">
 </body>
 </html>

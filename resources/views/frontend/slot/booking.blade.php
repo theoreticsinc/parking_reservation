@@ -4,6 +4,15 @@
 @extends('frontend.main_master')
 @section('main')
 
+<head>
+    <!-- ... other head elements ... -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+
     <style>
     * {
       box-sizing: border-box;
@@ -22,15 +31,101 @@
       flex: 40%;
       padding: 20px;
     }
+    .inner-banner.inner-bg9 {
+    background-image: url('{{ asset('images/booking.jpg') }}');
+    }
     </style>
+    
+<div id="popupContainer" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">PAYMENT</h5>
+                <button id="XclosePopupBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Popup content goes here -->
+                <div>HALF NOW <button id="halfPopupBtn"  type="button" class="btn btn-secondary" data-dismiss="modal">{{$downpayment}}</button></div>
+                <div>FULL PAYMENT NOW <button id="fullPopupBtn"  type="button" class="btn btn-secondary" data-dismiss="modal">{{$totaldue}}.00</button></div>
+                
+            </div>
+            <div class="modal-footer">
+                <button id="closePopupBtn"  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- Additional buttons or actions can be added here -->
+            </div>
+        </div>
+    </div>
+</div>
 
-  <!-- Top Header Start -->
-     @include('frontend.body.header')
-     <!-- Top Header End -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('bookingform');
+        var bookBtn = document.getElementById('bookBtn');
+
+        // Handle the button click event
+        document.getElementById('openPopupBtn').addEventListener('click', function (event) {
+            // Show the popup when the button is clicked
+            if (!form.checkValidity()) {
+                // Form is not valid
+                alert('Please fill out all required fields first. Then proceed to payment');
+                event.preventDefault(); // Prevent form submission
+            } else {
+                // Form is valid                
+                $('#popupContainer').modal('show');
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+        document.getElementById('halfPopupBtn').addEventListener('click', function (event) {
+            // Show the popup when the button is clicked
+            if (!form.checkValidity()) {
+                // Form is not valid
+                alert('Please fill out all required fields first. Then proceed to payment');
+                event.preventDefault(); // Prevent form submission
+            } else {
+                // Form is valid  
+                document.getElementById('payment_status').value = "Half Only";
+                bookBtn.innerHTML = "Checkout Now";
+                //var newDate = new Date(document.getElementById('check_in').value);
+                //bookBtn.innerHTML =  document.getElementById('check_in').value;
+                document.getElementById('bookingform')['destination'].disabled = false;
+                document.getElementById('bookingform')['flightnumber'].disabled = false;
+                form.submit();       
+            }
+        });
+        document.getElementById('fullPopupBtn').addEventListener('click', function (event) {
+            // Show the popup when the button is clicked
+            if (!form.checkValidity()) {
+                // Form is not valid
+                alert('Please fill out all required fields first. Then proceed to payment');
+                event.preventDefault(); // Prevent form submission
+            } else {
+                // Form is valid  
+                document.getElementById('payment_status').value = "Fully Paid";
+                bookBtn.innerHTML = "Checkout Now";
+                document.getElementById('bookingform')['destination'].disabled = false;
+                document.getElementById('bookingform')['flightnumber'].disabled = false;        
+                form.submit();       
+            }
+        });
+        
+        document.getElementById('XclosePopupBtn').addEventListener('click', function () {
+            // Show the popup when the button is clicked
+            $('#popupContainer').modal('hide');
+        }); 
+        
+        document.getElementById('closePopupBtn').addEventListener('click', function () {
+            // Show the popup when the button is clicked
+            $('#popupContainer').modal('hide');
+        });
+    });
+</script>
+  
   <!-- Inner Banner -->
-  <div class="inner-banner inner-bg9">
+  <div class="inner-banner inner-bg9" >
     <div class="container">
-        <form  method="post" action="{{ route('postbooking') }}"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 0px;color:aliceblue" name="bookingform">
+        <form  method="post" action="{{ route('postbooking') }}"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 0px;color:aliceblue" name="bookingform" id="bookingform">
         <div class="row">
             <div class="column1">
                 <div class="inner-title" style="font-style: italic; vertical-align: top; padding-top: 0px">        
@@ -51,6 +146,7 @@
                             </td>
                             <td class="">
                                 <input autocomplete="off" type="text" disabled required name="check_out" id="check_out" class="form-control dt_picker" value="{{$edate}}">
+                                <input type="hidden" id="payment_status" name="payment_status">
                             </td>
                         </tr>
                         <tr>
@@ -64,10 +160,10 @@
                             </tr>
                             <tr>
                             <td class="u-form-email u-form-group">
-                                <input autocomplete="off" type="text" disabled required name="destination" class="form-control" value="{{$destination}}">
+                                <input autocomplete="off" type="text" disabled required name="destination" id="destination" class="form-control" value="{{$destination}}">
                             </td>
                             <td class="">
-                                <input autocomplete="off" type="text" disabled required name="flightnumber" class="form-control" value="{{$flightnumber}}">
+                                <input autocomplete="off" type="text" disabled required name="flightnumber" id="flightnumber" class="form-control" value="{{$flightnumber}}">
                             </td>
                         </tr>            
                         </table>
@@ -88,13 +184,14 @@
                             </tr>
                             <tr>
                                 <td class="u-form-email u-form-group">
-                                    <input autocomplete="on" type="text" required name="firstName" class="form-control">
+                                    <input autocomplete="on" type="text" required id="firstName" name="firstName" class="form-control">
+                                    <span id="firstNameError" class="error"></span>
                                 </td>
                                 <td class="">
-                                    <input autocomplete="on" type="text" required name="lastName" class="form-control">
+                                    <input autocomplete="on" type="text" required id="lastName" name="lastName" class="form-control">
                                 </td>
                                 <td class="">
-                                    <input autocomplete="on" type="text" required name="mobileNumber" class="form-control">
+                                    <input autocomplete="on" type="text" required id="mobileNumber" name="mobileNumber" class="form-control">
                                 </td>
                             </tr>
                             <tr>
@@ -132,15 +229,16 @@
                             </table>
             
                             <div>
-                                <input type="submit" value="Submit" class="default-btn btn-bg-one border-radius-5">
+                                <button id="openPopupBtn" class="btn btn-primary" data-target="#popupContainer">Submit</button>
+
                             </div>
                       
                 </div>
                 
             </div>
-            <div class="column2" style="background-color:#f1f1f1aa;">
+            <div class="column2" style="background-color:#5e5e5eaa;">
                 <div class="inner-title" style="font-style: italic; vertical-align: top; padding-top: 0px">        
-                    <h3 style="font-size: 22px; color: maroon">Parking Fees</h3> 
+                    <h3 style="font-size: 22px; color: aliceblue">Parking Fees</h3> 
                             
                        
                     <hr>
@@ -162,7 +260,7 @@
                         </div>
                         <div class="row">
                             <div class="column1">
-                                <input type="submit" value="Change" class="u-form-contdol-hidden">
+                                <button type="button" class="btn btn-primary">Change</button>
                             </div>
                             <div class="column2">
                                 
@@ -197,7 +295,7 @@
                                 Estimated Min. Amount Due: 
                             </div>
                             <div class="column2">
-                                475.00
+                                {{$downpayment}}<input type="hidden" name="downpayment" id="downpayment" value="{{$downpayment}}">
                             </div>
                         </div>
                         <div class="row">

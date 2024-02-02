@@ -1,3 +1,7 @@
+@include('frontend.body.header')
+@extends('frontend.main_master')
+@section('main')
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,17 +55,20 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Parking.html">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="#">Shuttle Service</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Home.html") }}">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href=" href="{{ route('register') }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Vehicle-Repair.html">Vehicle Repair</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Food-Service.html">Food Service</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Advertising-Opportunities.html">Advertising Opportunities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Career-Opportunities.html">Career Opportunities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="FAQS.html">FAQs</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html">Contact us</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About-Us.html">About Us</a>
+<!-- Example button in a Blade file -->
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ route('register') }}">Vehicle Repair</a></li>
+
+
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-.html") }}">Food Service</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Advertising-Opportunities.html") }}">Advertising Opportunities</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Career-Opportunities.html") }}">Career Opportunities</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("FAQS.html") }}">FAQs</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Contact.html") }}">Contact us</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("About-Us.html") }}">About Us</a>
 </li></ul>
               </div>
             </div>
@@ -69,7 +76,7 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-clearfix u-gradient u-valign-middle u-section-1" id="sec-ec00">
+    <section class="u-clearfix u-gradient u-valign-middle-xs u-section-1" id="sec-ec00">
       <div class="u-shape u-shape-svg u-text-palette-2-base u-shape-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
         <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 150" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-27ed"></use></svg>
         <svg class="u-svg-content" viewBox="0 0 160 150" x="0px" y="0px" id="svg-27ed"><path d="M43.2,126.9c14.2,1.3,27.6,7,39.1,15.6c8.3,6.1,19.4,10.3,32.7,5.3c11.7-4.4,18.6-17.4,21-30.2c2.6-13.3,8.1-25.9,15.7-37.1
@@ -88,8 +95,8 @@
 	s80-35.8,80-80S124.2,0,80,0L80,0z"></path></svg>
       </div>
       <div class="u-clearfix u-group-elements u-group-elements-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
-        <div class="u-border-1 u-border-grey-50 u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xl u-expanded-width-xs u-group u-radius u-shape-round u-white u-group-1">
-          <div class="u-container-layout u-container-layout-1">
+        <div class="u-border-1 u-border-grey-50 u-container-style u-expanded-width u-group u-radius u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-valign-bottom-xl u-container-layout-1">
             <ul class="u-align-left u-text u-text-1">
               <li>Vehicle maintenance and repairing (detailing-cleaning) packages available.</li>
               <li>Cut Polishing-Waxing interior shampoo.</li>
@@ -106,27 +113,28 @@
             <p class="u-custom-font u-heading-font u-text u-text-custom-color-2 u-text-default u-text-2"> Car Repair Services</p>
             <p class="u-align-left u-heading-font u-text u-text-3"> &nbsp; &nbsp; &nbsp; In the interim, our experienced mechanics equipped with the most comprehensive diagnostic systems&nbsp;and specialized automotive equipments are available to service vehicles bumper to bumper, including detailing and cleaning packages such as interior shampoo and seat cover installation/removal.&nbsp;</p>
             <p class="u-heading-font u-text u-text-4">Our Competent mec​​hanics are ready to do bumper-to-bumper automotive repair and maintenance service.</p>
+            <a href="{{ url("repair-price") }}" class="u-border-none u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-2-base u-radius u-btn-1">Proceed</a>
           </div>
         </div>
       </div>
-      <div class="custom-expanded u-carousel u-carousel-duration-500 u-gallery u-gallery-slider u-layout-carousel u-lightbox u-no-transition u-show-text-on-hover u-gallery-1" id="carousel-a3db" data-interval="1500" data-u-ride="carousel">
+      <div class="custom-expanded u-carousel u-carousel-duration-500 u-gallery u-gallery-slider u-layout-carousel u-lightbox u-no-transition u-show-text-on-hover u-gallery-1" id="carousel-8053" data-interval="1500" data-u-ride="carousel">
         <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-1">
-          <li data-u-target="#carousel-a3db" data-u-slide-to="0" class="u-active u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="1" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="2" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="3" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="4" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="5" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="6" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="7" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="8" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="9" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
-          <li data-u-target="#carousel-a3db" data-u-slide-to="10" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="0" class="u-active u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="1" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="2" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="3" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="4" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="5" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="6" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="7" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="8" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="9" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
+          <li data-u-target="#carousel-8053" data-u-slide-to="10" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
         </ol>
         <div class="u-carousel-inner u-gallery-inner" role="listbox">
           <div class="u-active u-carousel-item u-effect-fade u-gallery-item u-carousel-item-1">
             <div class="u-back-slide" data-image-width="626" data-image-height="417">
-              <img class="u-back-image u-expanded" src="../images/detailing-center-worker-cleans-car-s-radiator-grill-with-brush_153608-2690.jpeg" alt="Vehicle maintenance and repairing ">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/detailing-center-worker-cleans-car-s-radiator-grill-with-brush_153608-2690.jpeg") }}" alt="Vehicle maintenance and repairing ">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-1">
               <h3 class="u-gallery-heading">Vehicle maintenance and repairing </h3>
@@ -134,7 +142,7 @@
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-2">
             <div class="u-back-slide" data-image-width="1000" data-image-height="667">
-              <img class="u-back-image u-expanded" src="../images/Cons-of-Polishing-Compounds.jpg" alt="Cut Polishing-Waxing interior shampoo.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/Cons-of-Polishing-Compounds.jpg") }}" alt="Cut Polishing-Waxing interior shampoo.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-2">
               <h3 class="u-gallery-heading">Cut Polishing-Waxing interior shampoo.</h3>
@@ -142,123 +150,123 @@
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-3" data-image-width="1280" data-image-height="828">
             <div class="u-back-slide" data-image-width="470" data-image-height="300">
-              <img class="u-back-image u-expanded" src="../images/dupray-engine-and-battery-steam-cleaning-1.jpg" alt="Engine Steam Cleaning.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/dupray-engine-and-battery-steam-cleaning-1.jpg") }}" alt="Engine Steam Cleaning.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-3">
               <h3 class="u-gallery-heading">Engine Steam Cleaning.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-4" data-image-width="1280" data-image-height="874">
             <div class="u-back-slide" data-image-width="721" data-image-height="480">
-              <img class="u-back-image u-expanded" src="../images/Car-Tune-Up-in-Tulsa-OK.jpg" alt="Electronic tune-up.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/Car-Tune-Up-in-Tulsa-OK.jpg") }}" alt="Electronic tune-up.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-4">
               <h3 class="u-gallery-heading">Electronic tune-up.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-5" data-image-width="1280" data-image-height="853">
             <div class="u-back-slide" data-image-width="845" data-image-height="321">
-              <img class="u-back-image u-expanded" src="../images/shutterstock_1754656973-1-845x321.jpg.webp" alt="Oil &amp;amp; filter change.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/shutterstock_1754656973-1-845x321.jpg.webp") }}" alt="Oil &amp;amp; filter change.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-5">
               <h3 class="u-gallery-heading">Oil &amp; filter change.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-6" data-image-width="720" data-image-height="952">
             <div class="u-back-slide">
-              <img class="u-back-image u-expanded" src="../images/67020.webp" alt="Chassis lubrication &amp;amp; repairs.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/67020.webp") }}" alt="Chassis lubrication &amp;amp; repairs.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-6">
               <h3 class="u-gallery-heading">Chassis lubrication &amp; repairs.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-7" data-image-width="1254" data-image-height="836">
             <div class="u-back-slide">
-              <img class="u-back-image u-expanded" src="../images/1123.jpg" alt="4 wheel computerized Wheel alignment.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/1123.jpg") }}" alt="4 wheel computerized Wheel alignment.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-7">
               <h3 class="u-gallery-heading">4 wheel computerized Wheel alignment.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-8" data-image-width="960" data-image-height="501">
             <div class="u-back-slide">
-              <img class="u-back-image u-expanded" src="../images/267235.jpg" alt="Computerized-High Speed wheel balancing.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/267235.jpg") }}" alt="Computerized-High Speed wheel balancing.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-8">
               <h3 class="u-gallery-heading">Computerized-High Speed wheel balancing.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-9" data-image-width="1500" data-image-height="1000">
             <div class="u-back-slide" data-image-width="394" data-image-height="314">
-              <img class="u-back-image u-expanded" src="../images/08297f63356b9ead718da5fc657948bb.webp" alt="Clutch &amp;amp; brakes Repairs/Maintenance.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/08297f63356b9ead718da5fc657948bb.webp") }}" alt="Clutch &amp;amp; brakes Repairs/Maintenance.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-9">
               <h3 class="u-gallery-heading">Clutch &amp; brakes Repairs/Maintenance.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-10" data-image-width="4000" data-image-height="2667">
             <div class="u-back-slide" data-image-width="1500" data-image-height="1000">
-              <img class="u-back-image u-expanded" src="../images/transmission-gear-repair-ralphstransmission-62276f04b24cd.jpg" alt="General Engine/Transmission Overhaul.">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/transmission-gear-repair-ralphstransmission-62276f04b24cd.jpg") }}" alt="General Engine/Transmission Overhaul.">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-10">
               <h3 class="u-gallery-heading">General Engine/Transmission Overhaul.</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
           <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-11" data-image-width="4000" data-image-height="2667">
             <div class="u-back-slide">
-              <img class="u-back-image u-expanded" src="../images/car-painting-work-royalty-free-image-455249403-1557779322.jpg" alt="Painting &amp;amp; Body repair services">
+              <img class="u-back-image u-expanded" src="{{ asset("/images/car-painting-work-royalty-free-image-455249403-1557779322.jpg") }}" alt="Painting &amp;amp; Body repair services">
             </div>
             <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-11">
               <h3 class="u-gallery-heading">Painting &amp; Body repair services</h3>
             </div>
             <style data-mode="XL" data-visited="true"></style>
-            <style data-mode="LG"></style>
-            <style data-mode="MD"></style>
-            <style data-mode="SM"></style>
-            <style data-mode="XS"></style>
+            <style data-mode="LG" data-visited="true"></style>
+            <style data-mode="MD" data-visited="true"></style>
+            <style data-mode="SM" data-visited="true"></style>
+            <style data-mode="XS" data-visited="true"></style>
           </div>
         </div>
-        <a class="u-absolute-vcenter-lg u-absolute-vcenter-xl u-black u-carousel-control u-carousel-control-prev u-icon-rounded u-opacity u-opacity-70 u-radius u-spacing-10 u-text-white u-carousel-control-1" href="#carousel-a3db" role="button" data-u-slide="prev">
+        <a class="u-absolute-vcenter u-black u-carousel-control u-carousel-control-prev u-icon-rounded u-opacity u-opacity-70 u-radius u-spacing-10 u-text-white u-carousel-control-1" href="{{ url("#carousel-8053") }}" role="button" data-u-slide="prev">
           <span aria-hidden="true">
             <svg viewBox="0 0 477.175 477.175"><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
 		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>
@@ -268,7 +276,7 @@
 		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>
           </span>
         </a>
-        <a class="u-absolute-vcenter-lg u-absolute-vcenter-xl u-black u-carousel-control u-carousel-control-next u-icon-rounded u-opacity u-opacity-70 u-radius u-spacing-10 u-text-white u-carousel-control-2" href="#carousel-a3db" role="button" data-u-slide="next">
+        <a class="u-absolute-vcenter-lg u-absolute-vcenter-xl u-black u-carousel-control u-carousel-control-next u-icon-rounded u-opacity u-opacity-70 u-radius u-spacing-10 u-text-white u-carousel-control-2" href="{{ url("#carousel-8053") }}" role="button" data-u-slide="next">
           <span aria-hidden="true">
             <svg viewBox="0 0 477.175 477.175"><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
 		c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"></path></svg>
@@ -283,8 +291,7 @@
     
     
     
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
-      </div></footer>
-  
+ 
 </body></html>
+
+@endsection

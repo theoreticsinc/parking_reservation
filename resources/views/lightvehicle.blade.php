@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
     <html style="font-size: 16px;" lang="en"><head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,23 +107,94 @@
         
         
         
-        
-        
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyO+Ad9Wfi1SN6w4Gg+8X6clOExzC+7Kz" crossorigin="anonymous">
+   
         <style>
-          #adjustableSquare {
-        width: 450px;
-        height: 470px;
-        top: 190px;
-        left: 75%;
-        transform: translateX(-50%);
-        background-color: transparent;
-        border: 2px solid #333;
-        box-shadow: 5px 5px 10px #888888;
-        position: fixed; /* Change position to fixed */
-        border-radius: 10px;
-    }
+        /* Include only the necessary styles */
+        #selectedModelLabel {
+            font-size: 50px;
+            text-transform: uppercase;
+            left: 0%;
+        }
 
+        .link-button {
+            position: relative;
+            top: 10px;
+            left: -32%;
+            display: inline-block;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            background-color: #ccc;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background: url('{{ asset('images/background1.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        table {
+            position: relative;
+            top: 40px;
+            left: 10px;
+            width: 50%;
+            border-collapse: collapse;
+            border: 1px solid #333;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+            border-spacing: 0;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr {
+            background: linear-gradient(to bottom, #e5f9fc, white);
+        }
+
+        /* Add to Cart button styling */
+        .add-to-cart-button {
+            background-color: #ffff;
+            color: black;
+            padding: 8px;
+            width: 170px;
+            border: 1px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-button.added {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #content-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #adjustableSquare {
+            width: 450px;
+            height: 430px;
+            top: 190px;
+            left: 75%;
+            transform: translateX(-50%);
+            background-color: #ffff;
+            border: 2px solid #333;
+            box-shadow: 5px 5px 10px #888888;
+            position: fixed;
+            border-radius: 10px;
+        }
+        
 
         form {
             display: flex;
@@ -139,7 +211,7 @@
         }
 
         label span {
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         input,
@@ -155,420 +227,433 @@
             width: calc(96% + 16px);
         }
 
-        button {
-            width: 100%;
-            margin: 5px;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+       
 
-        button:hover {
-            background-color: #00a35d;
-        }
-
-        #selectedModelLabel {
-            font-size: 50px;
-            text-transform: uppercase;
-            margin-left: 35px;
-        }
-
-        .adjust-button.oil-filter-button {
-    margin: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 18%;
-    position: absolute;
-    top: 100px; /* Adjust the top value for the Oil Filter button */
-    left: 30px; /* Adjust the left value for the Oil Filter button */
-}
-
-.adjust-button.flushing-button {
-    margin: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 18%;
-    position: absolute;
-    top: 100px; /* Adjust the top value for the Flushing button */
-    left: 260px; /* Adjust the left value for the Flushing button */
-}
-
-.adjust-button {
-        margin: 10px;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-        width: 18%; /* Adjust the width value for adjustable buttons */
-        top: 100px; /* Adjust the top value for the Flushing button */
-        left: -320px;
-    }
-
-    .oil-filter-button,
-    .flushing-button,
-    .regular-oil-button,
-    .fully-synthetic-button {
-        background-color: #f6fffb;
-    }
-
-    .oil-filter-button.active,
-    .flushing-button.active,
-    .regular-oil-button.active,
-    .fully-synthetic-button.active {
-        background-color: #0de470;
-    }
-
-    /* Different width for the confirm button */
-    #addToCartButton {
-        width: 100%; /* Adjust the width value for the confirm button */
-    }
-    #bottomText {
-    position: absolute;
-    bottom: 30px; /* Adjust the bottom distance */
-    left: 20px; /* Adjust the left distance */
-    font-size: 18px; /* Adjust the font size */
-    font-weight: bold; /* Make the text bold */
-}
-
-.line {
-            position: absolute;
-            border-top: 1px solid #000; /* Adjust color and size as needed */
-            width: 50%; /* Adjust width as needed */
-            top: 550px; /* Adjust top position */
-            left: -2%; /* Adjust left position */
-            border-top: 2px solid #000;
-        }
-
-
-
-        #CleaningText {
-        position: absolute;
-        bottom: -50px; /* Adjust the bottom distance */
-        left: 140px; /* Adjust the left distance */
-        font-size: 30px; /* Adjust the font size */
-        font-weight: bold; /* Make the text bold */
-        color: red; /* Set the text color to red */
-
-        }
-
-        table {
+        /* Additional table style */
+        .second-table {
+            position: relative;
+            top: 100px;
+            left: 10px;
             width: 50%;
             border-collapse: collapse;
-            margin: 10px;
-            top:500px;
-        }
-
-        th, td {
             border: 1px solid #333;
-            
-            padding: 5px;
-            text-align: center;
+            margin-top: 20px;
         }
 
-        /* Enhanced style for the on/off switch in column 3 */
-        .on-off-switch {
-            display: inline-block;
-            position: relative;
-            width: 60px;
-            height: 30px;
-            background-color: #ccc;
-            border-radius: 15px;
+        .second-table, .second-table th, .second-table td {
+            border: 1px solid #333;
+            border-spacing: 0;
+        }
+
+        .second-table th, .second-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .second-table tr {
+            background: linear-gradient(to bottom, #fde4e1, white);
+        }
+
+        /* Add to Cart button styling for the second table */
+        .add-to-cart-button.second-table-button {
+            background-color: #ffff;
+            color: black;
+            padding: 8px;
+            width: 170px;
+            border: 1px solid black;
+            border-radius: 20px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            border: 1px solid #999;
-            overflow: hidden;
+            transition: background-color 0.3s ease;
         }
 
-        .on-off-switch::before {
-            content: '';
-            position: absolute;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: #fff;
-            top: 1px;
-            left: 1px;
-            transition: transform 0.3s;
-            border: 1px solid #999;
+        .add-to-cart-button.second-table-button.added {
+            background-color: #4CAF50;
+            color: white;
         }
 
-        /* Toggle the switch on click */
-        .on-off-switch.active::before {
-            transform: translateX(30px);
+
+
+
+  /* Additional table style */
+  .third-table {
+            position: relative;
+            top: 160px;
+            left: 10px;
+            width: 50%;
+            border-collapse: collapse;
+            border: 1px solid #333;
+            margin-top: 20px;
         }
 
-        .on-off-switch.active {
-            background-color: #5cb85c; /* Green color for 'ON' state */
+        .third-table, .third-table th, .third-table td {
+            border: 1px solid #333;
+            border-spacing: 0;
         }
 
-        .on-off-switch.inactive {
-            background-color: #d9534f; /* Red color for 'OFF' state */
+        .third-table th, .third-table td {
+            padding: 10px;
+            text-align: left;
         }
 
-        p {
-        position: relative;
-        top:500px;
-        left: -230px; 
-    }
+        .third-table tr {
+            background: linear-gradient(to bottom, #fbffef, white);
+        }
 
-    #totalAmount {
-        display: inline-block;
-        margin-left: 10px; /* Adjust the margin as needed */
-        font-weight: bold;
-        font-size: 18px; /* Adjust the font size as needed */
-        position: absolute;
-        top:0px;
-        left: 600px; /* Adjust the left position as needed */
-    }
-    
+        /* Add to Cart button styling for the second table */
+        .add-to-cart-button.third-table-button {
+            background-color: #ffff;
+            color: black;
+            padding: 8px;
+            width: 170px;
+            border: 1px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-button.third-table-button.added {
+            background-color: #4CAF50;
+            color: white;
+
+
+        }
+        
+
+        #cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #cart:hover {
+            background-color: #45a049;
+        }
+
+
     </style>
-
-
-
-
-
-
 </head>
-
 <body>
-<div class="line"></div>
-    <div id="adjustableSquare">
-        <!-- Customer Information Form -->
-        <form id="orderForm">
-            <label for="customerName">Customer Name:</label>
-            <input type="text" id="customerName" name="customerName" required>
-
-            <label for="contactNumber">Contact Number:</label>
-            <input type="tel" id="contactNumber" name="contactNumber" required>
-
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" rows="1" required></textarea>
-
-            <label for="scheduleDate">Schedule Date:</label>
-            <input type="date" id="scheduleDate" name="scheduleDate" required>
-
-            <!-- Add to Cart Button -->
-            <button type="button" id="addToCartButton" onclick="addToCart()">Add to Cart</button>
-        </form>
-    </div>
-
-    <!-- Model Label outside the square -->
-    <label id="selectedModelLabel">Your Model Label</label>
-
-    <!-- Adjustable Buttons -->
-    <<button class="adjust-button oil-filter-button" onclick="adjustOilFilterAndFlushing('Oil Filter')">Oil Filter</button>
-<button class="adjust-button flushing-button" onclick="adjustOilFilterAndFlushing('Flushing')">Flushing</button>
-
-<button class="adjust-button regular-oil-button" onclick="adjustRegularOilAndFullySynthetic('Regular Oil')">Regular Oil 20w-50</button>
-<button class="adjust-button fully-synthetic-button" onclick="adjustRegularOilAndFullySynthetic('Fully Synthetic')">Fully Synthetic 5w-40</button>
+<div id="cart" onclick="openCart()">🛒 Cart</div>
 
 
-<div id="bottomText"></div>
+<div id="adjustableSquare">
+    <!-- Customer Information Form -->
+    <form id="orderForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
+
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="1" required></textarea>
+
+        <label for="scheduleDate">Schedule Date:</label>
+        <input type="date" id="scheduleDate" name="scheduleDate" required>
+    </form>
+</div>
 
 
 
+<label id="selectedModelLabel">Your Model Label</label>
 
-
-<div id="CleaningText">Cleaning Package</div>
-<div class="line"></div>
+<!-- First Table -->
 <table>
-
-            <thead>
-            <tr>
-            <td>Car wash</td>
-            <td>₱280.00</td>
-            <td class="on-off-switch" onclick="toggleSwitch(this, 280)"></td>
-        </tr>
-
-                <tr>
-                    <td>Vacuum</td>
-                    <td>₱210.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,210)"></td>
-                </tr>
-
-                <tr>
-                    <td>Engine Wash</td>
-                    <td>₱420.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,420)"></td>
-                </tr>
-
-                <tr>
-                    <td>Under Chassis Wash</td>
-                    <td>₱350.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,350)"></td>
-                </tr>
-
-                <tr>
-                    <td>Promo Package (1,2,3,4)</td>
-                    <td>₱970.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,970)"></td>
-                </tr>
-
-                <tr>
-                    <td>Engine Detailing</td>
-                    <td>₱1,150.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,1150.00)"></td>
-                </tr>
-
-                <tr>
-                    <td>Exterior Detailing</td>
-                    <td>₱5,150.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,5150.00)"></td>
-                </tr>
-
-                <tr>
-                    <td>Interior Detailing</td>
-                    <td>₱3,050.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,3050.00)"></td>
-                </tr>
-
-                <tr>
-                    <td>Complete Auto Detailing</td>
-                    <td>₱8,150.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,8150.00)"></td>
-                </tr>
-
-                <tr>
-                    <td>Waxing (Microtex)</td>
-                    <td>₱1,180.00</td>
-                    <td class="on-off-switch" onclick="toggleSwitch(this,1180.00)"></td>
-                </tr>
-            </tbody>
-        </table>
-
-
-        <p>Total: <span id="totalAmount">₱0.00</span></p>
+<tr>
+<td colspan="3" style="text-align: center; font-weight: bold; font-size: 20px;">Oil and Filter Package</td>
+    </tr>
+    <tr>
+        <td>Regular Oil 20w-50</td>
+        <td>₱2,100.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button" onclick="addToCart(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Regular Oil 20w-50 with Flushing</td>
+        <td>₱2,650.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button" onclick="addToCart(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Fully Synthetic 5w-40</td>
+        <td>₱3,700.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button" onclick="addToCart(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Fully Synthetic 5w-40 with Flushing</td>
+        <td>₱4,250.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button" onclick="addToCart(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+</table>
 
 
 
 
+<!-- Second Table -->
+<table class="second-table">
+
+<tr>
+<td colspan="3" style="text-align: center; font-weight: bold; font-size: 20px;">Cleaning Package</td>
+    </tr>
+    <tr>
+        <td>Car Wash</td>
+        <td>₱280.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Vacuum</td>
+        <td>₱210.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Engine Wash</td>
+        <td>₱420.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Under Chassis Wash</td>
+        <td>₱350.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Promo Package (1,2,3,4)</td>
+        <td>₱970.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Engine Detailing</td>
+        <td>₱1,150.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Exterior Detailing</td>
+        <td>₱5,150.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <td>Interior Detailing</td>
+        <td>₱3,050.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Complete Auto Detailing  (5,6,7,8)</td>
+        <td>₱8,150.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Waxing(Microtex)</td>
+        <td>₱1,180.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        
     
-    <script>
+    <!-- Add more rows as needed -->
+</table>
 
 
+<table class="third-table">
+
+<tr>
+<td colspan="3" style="text-align: center; font-weight: bold; font-size: 20px;">Maintenance and Repair</td>
+    </tr>
+    <tr>
+        <td>Electronic 4-Wheel Alignment</td>
+        <td>₱2,100.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Electronic Wheel Balancing/Tire <br>(Add-on Flat weights,Wheel Weights,Bostik)</td>
+        <td>₱325.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Tire Mounting/Tire</td>
+        <td>₱470.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Vulcanizing/Tire (Plus Patches & Chemicure)</td>
+        <td>₱470.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Open/Clean & Adjust All Breaks</td>
+        <td>₱2,100.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>Check-up Charge (Under Chassis,Engine,Aircon,Electrical)</td>
+        <td>₱800.00</td>
+        <td class="third-column">
+            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
+                <span style="color: black;">&#x1F6D2;</span>
+                <span class="button-text">Add to Cart</span>
+            </button>
+        </td>
+   
+    <tr>
+        
+    
+    <!-- Add more rows as needed -->
+</table>
 
 
+<script>
+    // Get the model from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const model = urlParams.get('model');
 
+    // Display the selected model as labels
+    const selectedModelLabel = document.getElementById('selectedModelLabel');
+    selectedModelLabel.textContent = ` ${model}`;
 
+    // Array to keep track of the currently active button for the first table
+    let activeButtonFirstTable = null;
 
-        // Get the model from the URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const model = urlParams.get('model');
-
-        // Display the selected model as labels
-        const selectedModelLabel = document.getElementById('selectedModelLabel');
-        selectedModelLabel.textContent = ` ${model}`;
-
-        // Function to handle adding to cart
-        function addToCart() {
-            // Get values from the form
-            const customerName = document.getElementById('customerName').value;
-            const contactNumber = document.getElementById('contactNumber').value;
-            const address = document.getElementById('address').value;
-            const scheduleDate = document.getElementById('scheduleDate').value;
-
-            // Here you can do further processing or send the data to a server
-            console.log('Customer Name:', customerName);
-            console.log('Contact Number:', contactNumber);
-            console.log('Address:', address);
-            console.log('Schedule Date:', scheduleDate);
-
-            // Optionally, you can redirect to a confirmation page or perform other actions.
+    // Function to handle adding to cart for the first table
+    function addToCart(button) {
+        if (activeButtonFirstTable && activeButtonFirstTable !== button) {
+            // If there's an active button and it's not the current one, reset it
+            activeButtonFirstTable.classList.remove('added');
+            const activeButtonText = activeButtonFirstTable.querySelector('.button-text');
+            activeButtonText.textContent = 'Add to Cart';
         }
 
-        // Function to adjust size and activate buttons
-        function adjustOilFilterAndFlushing(buttonType) {
-        const oilFilterButton = document.querySelector('.oil-filter-button');
-        const flushingButton = document.querySelector('.flushing-button');
+        // Toggle the 'added' class on the currently clicked button
+        button.classList.toggle('added');
+        const buttonText = button.querySelector('.button-text');
 
-        // Remove 'active' class from both buttons
-        oilFilterButton.classList.remove('active');
-        flushingButton.classList.remove('active');
-
-        // Add 'active' class to the selected button
-        if (buttonType === 'Oil Filter') {
-            oilFilterButton.classList.add('active');
-        } else if (buttonType === 'Flushing') {
-            flushingButton.classList.add('active');
-        }
-    }
-
-
-    function updateBottomText() {
-        const oilFilterButton = document.querySelector('.oil-filter-button');
-        const flushingButton = document.querySelector('.flushing-button');
-        const regularOilButton = document.querySelector('.regular-oil-button');
-        const fullySyntheticButton = document.querySelector('.fully-synthetic-button');
-
-        const bottomText = document.getElementById('bottomText');
-
-        if (oilFilterButton.classList.contains('active') && regularOilButton.classList.contains('active')) {
-            bottomText.textContent = "Oil & Filter Package and Regular Oil 20w-50 = ₱2,100.00";
-        } else if (oilFilterButton.classList.contains('active') && fullySyntheticButton.classList.contains('active')) {
-            bottomText.textContent = "Oil & Filter Package and Fully Synthetic 5w-40 = ₱3,700.00";
-        } else if (flushingButton.classList.contains('active') && regularOilButton.classList.contains('active')) {
-            bottomText.textContent = "Flushing and Regular Oil 20w-50 = ₱2,650.00";
-        } else if (flushingButton.classList.contains('active') && fullySyntheticButton.classList.contains('active')) {
-            bottomText.textContent = "Flushing and Fully Synthetic 5w-40 = ₱4,250.00";
+        if (button.classList.contains('added')) {
+            buttonText.textContent = 'Added!';
+            // Set the current button as the active button for the first table
+            activeButtonFirstTable = button;
         } else {
-            bottomText.textContent = ""; // Clear text if no combination is selected
+            buttonText.textContent = 'Add to Cart';
+            // Reset the active button for the first table
+            activeButtonFirstTable = null;
         }
     }
 
-    // Call the updateBottomText function whenever a button is clicked
-    document.querySelectorAll('.adjust-button').forEach(button => {
-        button.addEventListener('click', updateBottomText);
-    });
-    // Function to adjust size and activate Regular Oil and Fully Synthetic buttons
-    function adjustOilFilterAndFlushing(buttonType) {
-        const oilFilterButton = document.querySelector('.oil-filter-button');
-        const flushingButton = document.querySelector('.flushing-button');
+    // Array to keep track of the currently active button for the second table
+    let activeButtonsSecondTable = [];
 
-        // Remove 'active' class from both buttons
-        oilFilterButton.classList.remove('active');
-        flushingButton.classList.remove('active');
+    // Function to handle adding to cart for the second table
+    function addToCartSecondTable(button) {
+        // Toggle the 'added' class on the currently clicked button
+        button.classList.toggle('added');
+        const buttonText = button.querySelector('.button-text');
 
-        // Add 'active' class to the selected button
-        if (buttonType === 'Oil Filter') {
-            oilFilterButton.classList.add('active');
-        } else if (buttonType === 'Flushing') {
-            flushingButton.classList.add('active');
+        if (button.classList.contains('added')) {
+            buttonText.textContent = 'Added!';
+            // Add the current button to the active buttons array for the second table
+            activeButtonsSecondTable.push(button);
+        } else {
+            buttonText.textContent = 'Add to Cart';
+            // Remove the current button from the active buttons array for the second table
+            activeButtonsSecondTable = activeButtonsSecondTable.filter(btn => btn !== button);
         }
     }
-    function toggleSwitch(element) {
-            element.classList.toggle('active');
-        }
-
-    // Function to adjust size and activate Regular Oil and Fully Synthetic buttons
-    function adjustRegularOilAndFullySynthetic(buttonType) {
-        const regularOilButton = document.querySelector('.regular-oil-button');
-        const fullySyntheticButton = document.querySelector('.fully-synthetic-button');
-
-        // Remove 'active' class from both buttons
-        regularOilButton.classList.remove('active');
-        fullySyntheticButton.classList.remove('active');
-
-        // Add 'active' class to the selected button
-        if (buttonType === 'Regular Oil') {
-            regularOilButton.classList.add('active');
-        } else if (buttonType === 'Fully Synthetic') {
-            fullySyntheticButton.classList.add('active');
-        }
-    }
-    let total = 0;
-    function toggleSwitch(element, amount) {
-    const switchState = element.classList.toggle('active');
-    total = switchState ? total + amount : total - amount;
-    document.getElementById('totalAmount').innerText = `₱${total.toFixed(2)}`;
-}
-    
-    
-
-
 </script>
 
-
 </body>
-
-</html> 
+</html>

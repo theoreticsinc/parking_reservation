@@ -16,9 +16,9 @@ class BookConfirm extends Mailable
     /** 
      * Create a new message instance.
      */
-    public function __construct(private $data)
+    public function __construct($formData)
     {
-        //
+        $this->formData = $formData;
     }
 
     /**
@@ -36,13 +36,13 @@ class BookConfirm extends Mailable
      */
     public function content(): Content
     {
-        $booking = $this->data;
+        //$formData = $this->data;
         return new Content(
             view: 'mail.confirmation_mail',
-            with: ['booking' => $this->data],
+            with: ['formData' => $this->formData],
         );
     }
-
+    
     /**
      * Get the attachments for the message.
      *
