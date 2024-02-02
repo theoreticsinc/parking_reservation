@@ -15,7 +15,6 @@ use Carbon\CarbonPeriod;
 use App\Models\Slot;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\BookConfirm;
 
 class SlotController extends Controller
