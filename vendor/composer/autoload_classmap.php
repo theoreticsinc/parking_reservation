@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\GenerateSlots' => $baseDir . '/app/Console/Commands/GenerateSlots.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AboutController' => $baseDir . '/app/Http/Controllers/AboutController.php',
@@ -23,11 +24,13 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\Backend\\RoomTypeController' => $baseDir . '/app/Http/Controllers/Backend/RoomTypeController.php',
     'App\\Http\\Controllers\\Backend\\TeamController' => $baseDir . '/app/Http/Controllers/Backend/TeamController.php',
+    'App\\Http\\Controllers\\CalendarController' => $baseDir . '/app/Http/Controllers/CalendarController.php',
     'App\\Http\\Controllers\\CareerController' => $baseDir . '/app/Http/Controllers/CareerController.php',
     'App\\Http\\Controllers\\ContactController' => $baseDir . '/app/Http/Controllers/ContactController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\FAQSController' => $baseDir . '/app/Http/Controllers/FAQSController.php',
     'App\\Http\\Controllers\\FoodServiceController' => $baseDir . '/app/Http/Controllers/FoodServiceController.php',
+    'App\\Http\\Controllers\\FormController' => $baseDir . '/app/Http/Controllers/FormController.php',
     'App\\Http\\Controllers\\Frontend\\BookController' => $baseDir . '/app/Http/Controllers/Frontend/BookController.php',
     'App\\Http\\Controllers\\Frontend\\BookingController' => $baseDir . '/app/Http/Controllers/Frontend/BookingController.php',
     'App\\Http\\Controllers\\Frontend\\FrontendRoomController' => $baseDir . '/app/Http/Controllers/Frontend/FrontendRoomController.php',
@@ -42,8 +45,10 @@ return array(
     'App\\Http\\Controllers\\PaymongoController' => $baseDir . '/app/Http/Controllers/PaymongoController.php',
     'App\\Http\\Controllers\\PostController' => $baseDir . '/app/Http/Controllers/PostController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
+    'App\\Http\\Controllers\\RepairPriceController' => $baseDir . '/app/Http/Controllers/RepairPriceController.php',
     'App\\Http\\Controllers\\SendMailController' => $baseDir . '/app/Http/Controllers/SendMailController.php',
     'App\\Http\\Controllers\\ShoppingCartController' => $baseDir . '/app/Http/Controllers/ShoppingCartController.php',
+    'App\\Http\\Controllers\\SlotController' => $baseDir . '/app/Http/Controllers/SlotController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Controllers\\VehicleRepairController' => $baseDir . '/app/Http/Controllers/VehicleRepairController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

@@ -1,10 +1,11 @@
+@include('frontend.body.header')
 @extends('frontend.main_master')
 @section('main')
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Safe and Secure, ​Car Repair Services">
+    <meta name="keywords" content="Safe and Secure, Car Repair Services">
     <meta name="description" content="">
     <title>Home</title>
     <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
@@ -33,13 +34,9 @@
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
     
-     <!-- Top Header Start -->
-     <!--@include('frontend.body.header')-->
-     <!-- Top Header End -->
-    
      <!-- Top HeaderNav Start -->
-    @include('frontend.body.headernav')
-    <!-- Top HeaderNav End -->
+     @include('frontend.body.headernav')
+     <!-- Top HeaderNav End -->
    
       <section class="skrollable u-clearfix u-image u-parallax u-section-1" id="sec-645a" data-image-width="4704" data-image-height="3136">
         <form method="get" action="{{ route('slot.index') }}">
@@ -50,16 +47,15 @@
           @csrf
           <div class="u-custom-font u-text u-text-custom-color-2 u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">
             
-            <button type="submit" class="u-border-1 u-border-custom-color-2 u-border-hover-black u-btn u-button-style u-hover-feature u-none u-text-custom-color-2 u-text-hover-grey-90 u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1750">
-              BOOK YOUR SPOT NOW!
-            </button>
+          <button type="submit" class="u-border-1 u-border-custom-color-2 u-border-hover-black u-btn u-button-style u-hover-feature u-none u-text-custom-color-2 u-text-hover-grey-90 u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1750" style="background-color: rgba(255, 255, 255, 0.5) !important; color: red !important; font-size: 20px !important;">
+  BOOK YOUR SPOT NOW!
+</button>
             
           </div>
           
-          <div class="u-custom-font u-text u-text-red u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">Park 'N Fly is the first of its kind and only service in the Philippines wherein customers can leave their vehicles on a daily, weekly or monthly basis either for short-term or long-term parking at very reasonable rates. </div>
-          
-          
-        </div>
+          <div class="u-custom-font u-text u-text-white u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-direction="">
+  Park 'N Fly is the first of its kind and only service in the Philippines wherein customers can leave their vehicles on a daily, weekly, or monthly basis either for short-term or long-term parking at very reasonable rates.
+</div>
         </form>
       </section>
     <section class="skrollable u-align-center u-clearfix u-image u-parallax u-section-2" id="sec-e840" data-image-width="3000" data-image-height="2000">
@@ -241,9 +237,9 @@ Philippines&nbsp;<br>
                         <label for="name-c359" class="u-label">Name</label>
                         <input type="text" placeholder="Name" id="fullname" name="fullname" class="u-input u-input-rectangle" required="">
                       </div>
-                      <div class="u-form-email u-form-group u-label-none">
-                        <label for="email-c359" class="u-label">Email</label>
-                        <input type="text" placeholder="Email" id="emailto" name="emailto" class="u-input u-input-rectangle" required="">
+                      <div class="u-form-mobile u-form-group u-label-none">
+                        <label for="mobile-c359" class="u-label">Mobile</label>
+                        <input type="text" placeholder="Mobile" id="mobile" name="mobile" class="u-input u-input-rectangle" required="">
                       </div>
                       <div class="u-form-group u-form-message u-label-none">
                         <label for="message-c359" class="u-label">Message</label>
@@ -270,7 +266,5 @@ Philippines&nbsp;<br>
     
     
     
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
-      </div></footer>
+ 
     

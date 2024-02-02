@@ -22,8 +22,18 @@
       flex: 40%;
       padding: 20px;
     }
+    .inner-banner.inner-bg9 {
+    background-image: url('{{ asset('images/booking.jpg') }}');
+    }
     </style>
-     
+     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var bookBtn = document.getElementById('bookBtn');
+          
+          bookBtn.innerHTML = "Checkout Now";   
+          
+      });
+     </script>
     <!-- Room Area -->
     @include('frontend.home.carousel')
     <!-- Room Area End -->

@@ -1,3 +1,7 @@
+@include('frontend.body.header')
+@extends('frontend.main_master')
+@section('main')
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,10 +9,10 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Contact</title>
-    <link rel="stylesheet" href="{{ asset("css/nicepage.css") }}" media="screen">
-    <link rel="stylesheet" href="{{ asset("css/Contact.css") }}" media="screen">
-    <script class="u-script" type="text/javascript" src="{{ asset("javascript/jquery.js") }}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{{ asset("javascript/nicepage.js") }}" defer=""></script>
+    <link rel="stylesheet" href="{{ asset('css/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ asset('css/Contact.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ asset('javascript/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ asset('javascript/nicepage.js') }}" defer=""></script>
     <meta name="generator" content="Nicepage 6.2.1, nicepage.com">
     <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -33,10 +37,10 @@
               <svg class="u-svg-content" version="1.1" id="svg-13d0" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
 </g></svg>
             </a>
-            </div>
+          </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('home.index') }}" }} style="padding: 10px 14px;">Home</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" a href="{{ route('parking.index') }}" style="padding: 10px 14px;">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white u-white" href="{{ url("#") }}">Shuttle Service</a>
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('home.index') }}" style="padding: 10px 14px;">Home</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ url("Parking.html") }}" style="padding: 10px 14px;">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white u-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-active-custom-color-2 u-button-style u-hover-custom-color-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" href="{{ route('vehiclerepair.index') }}" style="padding: 10px 14px;">Vehicle Repair</a>
@@ -53,11 +57,14 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Home.html") }}">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Parking.html") }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href=" href="{{ route('register') }}">Parking</a><div class="u-nav-popup"><ul class="u-h-spacing-12 u-nav u-unstyled u-v-spacing-20"><li class="u-nav-item"><a class="u-button-style u-hover-custom-color-1 u-nav-link u-text-hover-white" href="{{ url("#") }}">Shuttle Service</a>
 </li></ul>
 </div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Vehicle-Repair.html") }}">Vehicle Repair</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-Service.html") }}">Food Service</a>
+<!-- Example button in a Blade file -->
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ route('register') }}">Vehicle Repair</a></li>
+
+
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Food-.html") }}">Food Service</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Advertising-Opportunities.html") }}">Advertising Opportunities</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("Career-Opportunities.html") }}">Career Opportunities</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url("FAQS.html") }}">FAQs</a>
@@ -71,7 +78,7 @@
         </nav>
       </div></header>
     <section class="u-clearfix u-white u-section-1" id="carousel_eb2b">
-      <img class="u-expanded-width u-image u-image-1" src="{{ asset("/images/38164405ba576d62a4f79873a53c90c51e36cc68184be6adec6179fd46b068e98624a0b8f513b7c48ec69c45fb7cab3d56711b8c44bc44b368bf3c_1280.jpg") }}" data-image-width="1280" data-image-height="960">
+      <img class="u-expanded-width u-image u-image-1" src="images/e336f2c1851721eddf888c8a0d2fa1311bf56973140b53689ab32c368c043fa6b5be32e82e6d7760f98109f348753972ddca721f51d9268316990a_1280.jpg" data-image-width="1280" data-image-height="853">
       <div class="u-list u-list-1">
         <div class="u-repeater u-repeater-1">
           <div class="u-align-center u-container-style u-list-item u-opacity u-opacity-95 u-repeater-item u-white u-list-item-1">
@@ -122,7 +129,7 @@
 </g></svg></span>
               <h5 class="u-text u-text-7">Email</h5>
               <p class="u-text u-text-8">
-                <a href="{{ url("mailto:hello@theme.com") }}" class="u-active-none u-border-1 u-border-active-black u-border-custom-color-2 u-border-hover-black u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-custom-color-2 u-text-hover-black u-btn-1">customer ​care@parknfly.com.ph</a>
+                <a href="mailto:hello@theme.com" class="u-active-none u-border-1 u-border-active-black u-border-custom-color-2 u-border-hover-black u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-custom-color-2 u-text-hover-black u-btn-1">customer ​care@parknfly.com.ph</a>
               </p>
             </div>
           </div>
@@ -131,7 +138,7 @@
       <div class="data-layout-selected u-clearfix u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
           <div class="u-layout-row">
-            <div class="u-align-left u-container-style u-custom-color-2 u-layout-cell u-left-cell u-opacity u-opacity-70 u-size-30 u-layout-cell-1">
+            <div class="u-align-left u-container-style u-custom-color-3 u-layout-cell u-left-cell u-opacity u-opacity-70 u-size-30 u-layout-cell-1">
               <div class="u-container-layout u-container-layout-5">
                 <h3 class="u-text u-text-body-alt-color u-text-default u-text-9">Contact info</h3>
                 <div class="custom-expanded u-form u-form-1">
@@ -153,7 +160,7 @@
                       <textarea placeholder="Enter your message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
                     </div>
                     <div class="u-align-left u-form-group u-form-submit">
-                      <a href="{{ url("#") }}" class="u-btn u-btn-submit u-button-style u-white u-btn-2">Submit</a>
+                      <a href="#" class="u-btn u-btn-submit u-button-style u-white u-btn-2">Submit</a>
                       <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
                     </div>
                     <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>
@@ -166,19 +173,38 @@
             </div>
             <div class="u-black u-container-style u-layout-cell u-opacity u-opacity-0 u-right-cell u-size-30 u-layout-cell-2">
               <div class="u-container-layout u-container-layout-6">
-                <img class="u-absolute-hcenter-md u-absolute-hcenter-sm u-absolute-hcenter-xs u-expanded u-image u-image-default" src="{{ asset("/images/Screenshot2023-12-17115758.png") }}" alt="" data-image-width="856" data-image-height="743">
+                
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+     
+    <style>
+        /* Adjust the size and position of the map */
+        .map-container {
+            position: absolute;
+            width: 100%; /* Adjust the width as needed */
+            height: 590px; /* Adjust the height as needed */
+            top: 600px; /* Adjust the top margin as needed */
+            left: 760px; /* Adjust the left margin as needed */
+        }
+
+        iframe {
+            width: 40%;
+            height: 108%;
+            border: 2px solid #ccc; /* Optional border for visibility */
+        }
+    </style>
+
+
+
+<div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.4492986910104!2d120.9971336674465!3d14.516273733174476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ceb04b4234f1%3A0xe2b7d496e61afdf3!2sPark%20&#39;N%20Fly!5e0!3m2!1sen!2sph!4v1705574880499!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
     
     
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
-      </div></footer>
-    
-  
+
 </body></html>
+@endsection

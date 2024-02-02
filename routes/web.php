@@ -20,6 +20,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\AdvertisingController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RepairPriceController;
@@ -29,6 +30,9 @@ use App\Http\Controllers\MediumVehicleDieselController;
 use App\Http\Controllers\LargeVehicleGasolineController;
 use App\Http\Controllers\LargeVehicleDieselController;
 use App\Http\Controllers\ShoppingCartController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\BooktableController;
+
 //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
 // Route::get('/', function () {
 //     return view('welcome');
@@ -36,7 +40,12 @@ use App\Http\Controllers\ShoppingCartController;
 Route::get('/', [HomeController::class, 'Index']);
 Route::get('/calendar', [HomeController::class, 'calendar'])->name('home.calendar');
 
-Route::post('/modifyCalendar', [HomeController::class, 'modifyCalendar'])->name('home.calendar');
+Route::post('/modifyCalendar', [HomeController::class, 'modifyCalendar'])->name('home.modifyCalendar');
+
+Route::get('/getDataFromDatabase', [CalendarController::class, 'getDataFromDatabase']);
+
+Route::get('/show-form', [FormController::class, 'showForm']);
+Route::post('/submit-form', [FormController::class, 'submitForm']);
 
 //Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
 Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('booking.reserve');
@@ -72,22 +81,32 @@ Route::controller(PaymongoController::class)->group(function(){
     Route::post('/createLinkfromPost', 'createLinkfromPost')->name('createLinkfromPost');  
 });
 
+Route::fallback(function () {
+    return redirect('/');
+});
+
 /// SLot All Route 
 Route::controller(SlotController::class)->group(function(){
     Route::get('/slots', 'slotHome')->name('slot.index');
     Route::get('/slots/booking', 'slotBooking')->name('slot.booking');
-    Route::any('/postbooking', 'postBooking')->name('postbooking');
+    Route::post('/postbooking', 'postBooking')->name('postbooking');
     
 });
 
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.user_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/bookingtable', [BooktableController::class, 'index'])->name('booktable.index');
+
+
 Route::get('/lightvehicle', [LightVehicleController::class, 'index'])->name('lightvehicle.index');
 Route::get('/mediumvehiclegasoline', [MediumVehicleGasolineController::class, 'index'])->name('mediumvehiclegasoline.index');
 Route::get('/mediumvehiclediesel', [MediumVehicleDieselController::class, 'index'])->name('mediumvehiclediesel.index');
 Route::get('/largevehiclegasoline', [LargeVehicleGasolineController::class, 'index'])->name('largevehiclegasoline.index');
 Route::get('/largevehiclediesel', [LargeVehicleDieselController::class, 'index'])->name('largevehiclediesel.index');
+Route::get('/repair-price', [RepairPriceController::class, 'index'])->name('repair_price.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index'); 
 Route::post('/email', [HomeController::class, 'email'])->name('home.email'); 
 Route::get('/show', [HomeController::class, 'showdb'])->name('home.show'); 
@@ -134,7 +153,7 @@ Route::post('/admin/store', [AdminRegisteredUserController::class, 'store'])->na
 // Admin Group Middleware 
 Route::middleware(['auth','roles:admin'])->group(function(){
 
- /// Team All Route 
+/// Team All Route 
 Route::controller(TeamController::class)->group(function(){
 
     Route::get('/all/team', 'AllTeam')->name('all.team');

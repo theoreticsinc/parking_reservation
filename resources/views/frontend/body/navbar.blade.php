@@ -1,3 +1,8 @@
+ <script>
+    function submitForm() {
+        document.getElementById("openPopupBtn").click();
+    }
+</script>
 <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
@@ -29,73 +34,55 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Repairs 
-                                        <i class='bx bx-chevron-down'></i>
+                                    <a href="{{ route('vehiclerepair.index') }}" class="nav-link">
+                                        Vehicle Repair
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Services 
-                                        <i class='bx bx-chevron-down'></i>
+                                    <a href="{{ route('foodservice.index') }}" class="nav-link">
+                                        Food Service
                                     </a>                                    
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('advertisingopportunities.index') }}" class="nav-link">
                                         Ads
-                                        <i class='bx bx-chevron-down'></i>
                                     </a>
                                 </li>
-                                @php
-                                    $room = App\Models\Room::latest()->get();
-                                @endphp
                                 <li class="nav-item">
-                                    <a href="{{ route('froom.all') }}" class="nav-link">
+                                    <a href="{{ route('careeropportunities.index') }}" class="nav-link">
                                         Careers
-                                        <i class='bx bx-chevron-down'></i>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        @foreach ($room  as $item) 
-                                        <li class="nav-item">
-                                            <a href="room.html" class="nav-link">
-                                                {{ $item['type']['name'] }}
-                                            </a>
-                                        </li>
-                                        @endforeach
-        
-                                    </ul>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="{{ route('faqs.index') }}" class="nav-link">
                                         FAQs
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="{{ route('contact.index') }}" class="nav-link">
                                         Contacts
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="{{ route('about.index') }}" class="nav-link">
                                         About Us
                                     </a>
                                 </li>
 
-                                <li class="nav-item-btn">
-                                    <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
-                                </li>
                             </ul>
 
-                            <div class="nav-btn">
-                                <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
-                            </div>
+                        </div>
+                        <div class="nav-btn">
+                            <button id="bookBtn" onclick="submitForm()" type="button" class="default-btn btn-bg-one border-radius-5">Book Now</button>
                         </div>
                     </nav>
+                     
+                    
                 </div>
             </div>
         </div>

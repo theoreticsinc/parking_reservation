@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Booking;
@@ -14,6 +15,8 @@ use Carbon\CarbonPeriod;
 use App\Models\Slot;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BookConfirm;
 
 class SlotController extends Controller
 {
@@ -26,7 +29,7 @@ class SlotController extends Controller
     public function slotBooking(Request $request){
 
         $request->flash();
-
+        $startDate = $request->check_in;
         if ($request->check_in >= $request->check_out) {
 
             $notification = array(
@@ -36,11 +39,37 @@ class SlotController extends Controller
 
             return redirect()->back()->with($notification);
         }
+        $record = Slot::where('name', $startDate)->first();
+        $avail = $record->is_exit - $record->is_entry;
+        $msg = 'Those Dates are not available, Sorry ';
+        if ($avail <= 0) {
+            $notification = array(
+                'message' => $msg,
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        } else {
+            $record->is_entry -= 1;
+            try {
+                $record->save();
+            } catch (\Exception $e) {
+                // Handle the exception
+                dd($e->getMessage());
+            }
+        }
+        $responseData = [
+            'message' => 'Booking Dates Available',
+            'is_entry' => $record->is_entry,
+            'is_exit' => $record->is_exit,
+            'name' =>  $record->name,
+            'data' => 'success?',
+        ];
         $rates = 475;
         $destination = $request->destination;
         $flightnumber = $request->flightnumber;
-        $sdate = date('Y-m-d',strtotime($request->check_in));
-        $edate = date('Y-m-d',strtotime($request->check_out));
+        $sdate = date('M d, Y',strtotime($request->check_in));
+        $edate = date('M d, Y',strtotime($request->check_out));
         
         $date1 = strtotime($sdate);
         $date2 = strtotime($edate);
@@ -49,29 +78,28 @@ class SlotController extends Controller
         //echo $days;
         $daysparked = $days;
         $totaldue = $days * $rates;
+        $downpayment = $totaldue / 2;
+        $downpayment = number_format((float)$downpayment, 2, '.', '');
         //echo $totaldue;
+        /*
         $alldate = Carbon::create($edate)->subDay();
         $d_period = CarbonPeriod::create($sdate,$alldate);
         $dt_array = [];
         foreach ($d_period as $period) {
            array_push($dt_array, date('Y-m-d', strtotime($period)));
         }
-
-        $slots = Slot::withCount('slot')->get();
-        return view('frontend.slot.booking', compact('slots','sdate','edate','destination','flightnumber', 'daysparked', 'totaldue'));
+        */
+        $slots = 0;
+        //$slots = Slot::withCount('slot')->get();
+        return view('frontend.slot.booking', compact('slots','sdate','edate','destination','flightnumber', 'daysparked', 'downpayment', 'totaldue'));
 
     } // End Method 
 
     public function postBooking(Request $request) {
-        
+                
         $model = new Booking;
-        $data = [
-            'check_in' => 'value', // Add any data needed for the email view
-            'check_out' => 'value',
-            'name' => 'value',
-            'email' => 'value',
-            'phone' => 'value',
-        ];
+        
+                
         /*
         $validatedData = $request->validate([
             'check_in' => 'required',
@@ -84,10 +112,43 @@ class SlotController extends Controller
             'typeOfCar' => 'required',
             'plateNumber' => 'required',
             'email' => 'required',
-            'confirmEmail' => 'required',
-            
+            'confirmEmail' => 'required',            
         ]);*/
-        $model->fill($request->all());
+
+        $inputData = $request->all();
+
+        $check_in = $request->input('check_in');
+        $check_out = $request->input('check_out');
+        $destination = $request->input('destination');
+        $flightnumber = $request->input('flightnumber');
+
+        $refNumber = now()->format('Ymd');
+        
+        $formattedDate = \Carbon\Carbon::parse($check_in)->format('Y-m-d');
+        $formattedOUTDate = \Carbon\Carbon::parse($check_out)->format('Y-m-d');
+        $inputData['check_in'] = $formattedDate;
+        $inputData['check_out'] = $formattedOUTDate;
+        
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $randomString = substr(str_shuffle($characters), 0, 10);
+        $refNumber =  $refNumber . $randomString;
+        $inputData['check_in'] = $formattedDate;
+        
+            $mailData = [
+                'refNumber' => $refNumber,
+                'check_in' => $check_in,
+                'check_out' => $check_out,
+                // Add other data as needed
+            ];
+            // Send email
+            //
+            //Mail::to('customer_care@parknfly.com.ph')->send(new BookConfirm($mailData));
+            Mail::to('theoreticsinc@gmail.com')->send(new BookConfirm($mailData));
+            //Mail::to('theoreticsinc@gmail.com')->send(new GeneralInquiry($request->all()));
+    
+            return redirect()->back()->with('success', 'Inquiry sent successfully!');
+        
+        $model->fill($inputData);
         
         // Create a new instance of the model
         

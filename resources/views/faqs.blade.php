@@ -1,3 +1,8 @@
+@include('frontend.body.header')
+@extends('frontend.main_master')
+@section('main')
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -157,9 +162,8 @@
     </section>
     
     
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-6375"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1"> Copyright © Park 'N Fly. All rights reserved.</p>
-      </div></footer>
+
   
 </body></html>
+
+@endsection

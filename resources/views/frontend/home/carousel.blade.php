@@ -28,9 +28,9 @@
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-home-page="Home.html" data-home-page-title="Home" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
-    <section class="u-clearfix u-image u-shading u-section-1" id="sec-fe6e" data-image-width="1980" data-image-height="1023">
+    <section class="u-clearfix u-image u-shading u-section-1" u-align-center id="sec-fe6e" data-image-width="1980" data-image-height="1023">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-text u-text-body-alt-color u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">Add-ons</h1>
+        <h1 class="u-align-center u-text u-text-body-alt-color u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">&nbsp;&nbsp;&nbsp; Add-ons</h1>
       
       <!--Carousel Start-->      
     <section class="u-clearfix u-section-2" id="sec-0873">
