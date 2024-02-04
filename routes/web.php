@@ -52,9 +52,11 @@ Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('book
     
 Route::get('/shop', [ShoppingCartController::class, 'startShopping'])->name('cart.index');
 Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add/{productId}', [ShoppingCartController::class, 'addToCart'])->name('cart.add');
+Route::any('/cart/add/{productId}', [ShoppingCartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/remove/{rowId}', [ShoppingCartController::class, 'removeFromCart'])->name('cart.remove');
 Route::get('/cart/clear', [ShoppingCartController::class, 'clearCart'])->name('cart.clear');
+Route::get('/save2cart', [ShoppingCartController::class, 'save2Cart'])->name('cart.save');
+Route::get('/initcart', [ShoppingCartController::class, 'initcart'])->name('cart.init');
 
 // routes/web.php
 Route::get('/createpost', function () {      return view('frontend.post.create');    });

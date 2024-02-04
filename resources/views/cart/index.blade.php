@@ -22,27 +22,34 @@
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
+                    <th>Description</th>
                     <th>Price</th>
-                    <th>Action</th>
+                    <th>Options</th>
+                    <th>Color</th>
+                    <th>Action</th>                    
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach($cartItems as $item)
                     <tr>
-                        <td>
-                            @if($item->model)
-                                {{ $item->model->name }}
-                            @else
-                                Product not found
-                            @endif
-                        </td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->qty }}</td>
-                        <td>${{ $item->price }}</td>
+                        <td> 
+                            @php
+                                $product = \App\Models\Product::find($item->id);
+                                echo $product ? $product->description : 'Description not available';
+                            @endphp
+                        </td>
+                        <td>{{ $item->price }}</td>
+                        <td>{{ $item->options->get('size') }}</td>
+                        <td>{{ $item->options->get('color') }}</td>                        
                         <td>
                             <a href="{{ route('cart.remove', $item->rowId) }}">Remove</a>
                         </td>
                     </tr>
                 @endforeach
+
             </tbody>
         </table>
 

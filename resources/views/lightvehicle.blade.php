@@ -371,9 +371,8 @@
         <td>Regular Oil 20w-50</td>
         <td>₱2,100.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button" onclick="addToCart(this)">
+            <button id="1" onclick="addToCart(this)" class="add-to-cart-button">Add to cart</button>
                 <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
             </button>
         </td>
     </tr>
@@ -381,9 +380,8 @@
         <td>Regular Oil 20w-50 with Flushing</td>
         <td>₱2,650.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button" onclick="addToCart(this)">
+            <button id="2" onclick="addToCart(this)" class="add-to-cart-button">Add to cart</button>
                 <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
             </button>
         </td>
     </tr>
@@ -391,9 +389,8 @@
         <td>Fully Synthetic 5w-40</td>
         <td>₱3,700.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button" onclick="addToCart(this)">
+            <button id="3" onclick="addToCart(this)" class="add-to-cart-button">Add to cart</button>
                 <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
             </button>
         </td>
     </tr>
@@ -401,9 +398,8 @@
         <td>Fully Synthetic 5w-40 with Flushing</td>
         <td>₱4,250.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button" onclick="addToCart(this)">
+            <button id="4" onclick="addToCart(this)" class="add-to-cart-button">Add to cart</button>
                 <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
             </button>
         </td>
     </tr>
@@ -611,27 +607,37 @@
     let activeButtonFirstTable = null;
 
     // Function to handle adding to cart for the first table
-    function addToCart(button) {
-        if (activeButtonFirstTable && activeButtonFirstTable !== button) {
-            // If there's an active button and it's not the current one, reset it
-            activeButtonFirstTable.classList.remove('added');
-            const activeButtonText = activeButtonFirstTable.querySelector('.button-text');
-            activeButtonText.textContent = 'Add to Cart';
-        }
+    function addToCart(button) {  
+        var productId = button.id;      
+        var xhr = new XMLHttpRequest();
 
-        // Toggle the 'added' class on the currently clicked button
-        button.classList.toggle('added');
-        const buttonText = button.querySelector('.button-text');
+        // Configure it: specify the request method and URL
+        xhr.open('POST', "{{ route('cart.add', ['productId' => ':productId']) }}".replace(':productId', productId), true);
 
-        if (button.classList.contains('added')) {
-            buttonText.textContent = 'Added!';
-            // Set the current button as the active button for the first table
-            activeButtonFirstTable = button;
-        } else {
-            buttonText.textContent = 'Add to Cart';
-            // Reset the active button for the first table
-            activeButtonFirstTable = null;
-        }
+        // Set headers if needed
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}'); // Include CSRF token
+
+        // Define the callback function to handle the response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                // Check if the request was successful (status code 2xx)
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log("Action successful!");
+                    button.classList.toggle('added');
+                    const buttonText = button.querySelector('.button-text');
+                    button.innerText = 'Added!';
+                } else {
+                    console.error(xhr.status);
+                }
+            }
+        };
+
+        // Optionally, include data in the request body (e.g., JSON.stringify(yourData))
+        // xhr.send(JSON.stringify(yourData));
+
+        // Send the request
+        xhr.send();
     }
 
     // Array to keep track of the currently active button for the second table
@@ -652,6 +658,12 @@
             // Remove the current button from the active buttons array for the second table
             activeButtonsSecondTable = activeButtonsSecondTable.filter(btn => btn !== button);
         }
+    }
+
+    function openCart(){
+        // Redirect to the specified route
+        var routeUrl = "{{ route('cart.index')}}";
+        window.location.href = routeUrl;
     }
 </script>
 
