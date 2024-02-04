@@ -13,12 +13,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
 
     <style>
+        
         * {
           box-sizing: border-box;
+          
         }
         
         .row {
           display: flex;
+          
         }
         
         /* Create two equal columns that sits next to each other */
@@ -33,6 +36,30 @@
         .inner-banner.inner-bg9 {
         background-image: url('{{ asset('images/booking.jpg') }}');
         }
+
+
+        
+            /* Center the modal content */
+            #popupContainer .modal-dialog {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* Center the form content */
+        .u-inner-form {
+          text-align: center;
+          
+        }
+        .containers {
+ display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+
+    </style>
 
     </style>
     
@@ -136,57 +163,40 @@
      <!-- Top Header End -->
   <!-- Inner Banner -->
   <div class="inner-banner inner-bg9">
-    <div class="container">        
+    <div class="containers">        
         <form action="{{ route('slot.booking') }}" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 0px;color:aliceblue" name="form-2">
-        <div class="row">
-                <div class="inner-title" style="font-style: italic; vertical-align: top; padding-top: 0px">        
-                    <h3 style="font-size: 22px; color: maroon">Flight Details</h3>        
-                        <hr>
-                        <table>
-                        <tr>
-                            <td class="u-form-group u-form-name" style="color: aliceblue">
-                            <label for="checkIn" class="u-form-contdol-hidden u-label">* CHECK-IN</label>
-                            </td>
-                            <td class="" style="color: aliceblue">
-                                <label for="checkOut" class="u-form-contdol-hidden u-label">* CHECK-OUT</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="u-form-email u-form-group">
-                                <input autocomplete="off" type="text" required id="check_in" name="check_in" class="form-control dt_picker" value="">
-                            </td>
-                            <td class="">
-                                <input autocomplete="off" type="text" required id="check_out" name="check_out" class="form-control dt_picker" value="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="u-form-group u-form-name" style="color: aliceblue">
-                              <label for="destination" class="u-form-contdol-hidden u-label">* DESTINATION</label>
-                            </td>
-                            <td class="" style="color: aliceblue">
-                                <label for="flightNumber" class="u-form-contdol-hidden u-label">* FLIGHT NUMBER</label>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td class="u-form-email u-form-group">
-                                <input autocomplete="off" type="text" id="destination" name="destination" class="form-control">
-                            </td>
-                            <td class="">
-                                <input autocomplete="off" type="text" id="flightnumber" name="flightnumber" class="form-control">
-                            </td>
-                        </tr>            
-                        </table>
-                        <hr>
-                        <input type="checkbox" id="agreement" required> &nbsp; Agree to the<a href="#" id="openPopupBtn" data-toggle="modal" data-target="#popupContainer"> Terms and Conditions</a>
-                        <br>
-                        <input type="submit" value="Check Availability" class="u-form-contdol-hidden">
-                        @csrf
-                      
+            <div class="inner-title" style="font-style: italic; vertical-align: top; padding-top: 0px">        
+                <h3 style="font-size: 22px; color: maroon">Flight Details</h3>        
+                <hr>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="u-form-group u-form-name" style="color: aliceblue">
+                        <label for="checkIn" class="u-form-contdol-hidden u-label">* CHECK-IN</label>
+                        <input autocomplete="off" type="text" required id="check_in" name="check_in" class="form-control dt_picker" value="">
+                    </div>
+                    <div class="u-form-group" style="color: aliceblue">
+                        <label for="checkOut" class="u-form-contdol-hidden u-label">* CHECK-OUT</label>
+                        <input autocomplete="off" type="text" required id="check_out" name="check_out" class="form-control dt_picker" value="">
+                    </div>
+                    <div class="u-form-group u-form-name" style="color: aliceblue">
+                        <label for="destination" class="u-form-contdol-hidden u-label">* DESTINATION</label>
+                        <input autocomplete="off" type="text" id="destination" name="destination" class="form-control">
+                    </div>
+                    <div class="u-form-group" style="color: aliceblue">
+                        <label for="flightNumber" class="u-form-contdol-hidden u-label">* FLIGHT NUMBER</label>
+                        <input autocomplete="off" type="text" id="flightnumber" name="flightnumber" class="form-control">
+                    </div>
+                </div>
+                <hr>
+                <input type="checkbox" id="agreement" required> &nbsp; Agree to the<a href="#" id="openPopupBtn" data-toggle="modal" data-target="#popupContainer"> Terms and Conditions</a>
+                <br>
+                <input type="submit" value="Check Availability" class="u-form-contdol-hidden">
+                @csrf
             </div>
         </div>
     </form>
     </div>
 </div>
+
 <!-- Inner Banner End -->
 <div >
             

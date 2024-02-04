@@ -34,29 +34,115 @@
     .inner-banner.inner-bg9 {
     background-image: url('{{ asset('images/booking.jpg') }}');
     }
-    </style>
-    
+
+
+
+    <style>
+  #popupContainer {
+    width: 400px;
+    height: 250px;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto; 
+  }
+
+  .modal-header {
+    background-color: blue;
+    color: white;
+    padding: 1px;
+    text-align: center;
+  }
+
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    border: none;
+    padding: 5px;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .btn-secondary {
+    width: 70%;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .modal-footer {
+    text-align: right; /* Align the footer content to the right */
+    margin-right: 10px; /* Adjust the right margin as needed */
+  }
+
+  #closePopupBtn {
+    width: 40%;
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .half-now-container,
+  .full-payment-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .half-now-text,
+  .full-payment-text {
+    width: calc(60% - 8px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+</style>
+
+
+
 <div id="popupContainer" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">PAYMENT</h5>
-                <button id="XclosePopupBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Popup content goes here -->
-                <div>HALF NOW <button id="halfPopupBtn"  type="button" class="btn btn-secondary" data-dismiss="modal">{{$downpayment}}</button></div>
-                <div>FULL PAYMENT NOW <button id="fullPopupBtn"  type="button" class="btn btn-secondary" data-dismiss="modal">{{$totaldue}}.00</button></div>
-                
-            </div>
-            <div class="modal-footer">
-                <button id="closePopupBtn"  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- Additional buttons or actions can be added here -->
-            </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Payment Options</h5>
+        <button id="XclosePopupBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <div class="half-now-container">
+          <div class="half-now-text">{{$downpayment}}</div>
+          <button id="halfPopupBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Pay Minimum Due</button>
         </div>
+        <div class="full-payment-container">
+          <div class="full-payment-text">{{$totaldue}}.00</div>
+          <button id="fullPopupBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Pay Estimated Amount</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="closePopupBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        
+      </div>
     </div>
+  </div>
 </div>
 
 <script>

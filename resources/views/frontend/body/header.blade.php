@@ -16,31 +16,12 @@
                           <i class='bx bx-phone-call'></i>
                           <a href="tel:+639189910000">(+63)918-991-0000</a>
                       </li>
-@auth
 
-<li>
-                          <i class='bx bxs-user-pin'></i>
-                          <a href="{{ route('dashboard') }}">Dashboard</a>
-                      </li>
 
-                      <li>
-                          <i class='bx bxs-user-rectangle'></i>
-                          <a href="{{ route('user.logout') }}">Logout</a>
-                      </li>
-@else
-
-<li>
-                          <i class='bx bxs-user-pin'></i>
-                          <a href="{{ route('login') }}">Login</a>
-                      </li>
-
-                      <li>
-                          <i class='bx bxs-user-rectangle'></i>
-                          <a href="{{ route('register') }}">Register</a>
-                      </li>
-
-@endauth
-
+                    <li>
+                        <i class="bx bx-credit-card"></i>
+                        <a href="{{ route('cart.index') }}"> CART : Php {{ Cart::subtotal() }} </a>
+                    </li>
                   </ul>
               </div>
           </div>
