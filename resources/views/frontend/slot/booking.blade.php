@@ -175,6 +175,9 @@
                 bookBtn.innerHTML = "Checkout Now";
                 //var newDate = new Date(document.getElementById('check_in').value);
                 //bookBtn.innerHTML =  document.getElementById('check_in').value;
+                document.getElementById('bookingform')['check_in'].disabled = false;
+                document.getElementById('bookingform')['check_out'].disabled = false;
+                
                 document.getElementById('bookingform')['destination'].disabled = false;
                 document.getElementById('bookingform')['flightnumber'].disabled = false;
                 form.submit();       
@@ -190,6 +193,9 @@
                 // Form is valid  
                 document.getElementById('payment_status').value = "Fully Paid";
                 bookBtn.innerHTML = "Checkout Now";
+                document.getElementById('bookingform')['check_in'].disabled = false;
+                document.getElementById('bookingform')['check_out'].disabled = false;
+                
                 document.getElementById('bookingform')['destination'].disabled = false;
                 document.getElementById('bookingform')['flightnumber'].disabled = false;        
                 form.submit();       

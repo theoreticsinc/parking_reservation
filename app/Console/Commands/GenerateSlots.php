@@ -23,7 +23,7 @@ class GenerateSlots extends Command
             $slots[] = [
                 'name' => '' . $currentDate->format('Y-m-d'),
                 'is_entry' => 50, // You may adjust this based on your requirements
-                'is_exit' => 50, // You may adjust this based on your requirements
+                'is_exit' => 150, // You may adjust this based on your requirements
                 'created_at' => $currentDate,
                 'updated_at' => $currentDate,
             ];

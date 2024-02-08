@@ -29,7 +29,13 @@
      <script>
       document.addEventListener('DOMContentLoaded', function () {
           var bookBtn = document.getElementById('bookBtn');
-          
+          const existingList = document.getElementById('navbarSupportedContent');
+          const newListItem = document.createElement('li');
+          newListItem.innerHTML = '<i class="bx bx-credit-card"></i><a href="{{ route("cart.index") }}"> CART : Php {{ Cart::subtotal() }} </a>';
+          const nestedUl = existingList.querySelector('li:first-child ul');
+
+          existingList.appendChild(newListItem);
+          //nestedUl.appendChild(newListItem);
           bookBtn.innerHTML = "Checkout Now";   
           
       });
@@ -38,9 +44,6 @@
     @include('frontend.home.carousel')
     <!-- Room Area End -->
 <div >
-            
-   
-@php //echo $total; 
-@endphp
+        
 </div>
 @endsection
