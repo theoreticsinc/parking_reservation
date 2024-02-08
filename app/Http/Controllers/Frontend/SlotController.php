@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ use Carbon\CarbonPeriod;
 use App\Models\Slot;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\BookConfirm;
 
 class SlotController extends Controller
@@ -96,8 +98,7 @@ class SlotController extends Controller
 
     public function postBooking(Request $request) {
                 
-        $model = new Booking;
-        
+        $model = new Booking;        
                 
         /*
         $validatedData = $request->validate([
@@ -116,6 +117,8 @@ class SlotController extends Controller
 
         $inputData = $request->all();
 
+        $lastName = $request->input('lastName');
+        
         $check_in = $request->input('check_in');
         $check_out = $request->input('check_out');
         $destination = $request->input('destination');
@@ -132,22 +135,53 @@ class SlotController extends Controller
         $randomString = substr(str_shuffle($characters), 0, 10);
         $refNumber =  $refNumber . $randomString;
         $inputData['check_in'] = $formattedDate;
-        
+
+        $payment_status = $request->input('payment_status');
+        $downpayment = $request->input('downpayment');
+        $total_price = $request->input('total_price');
+        if ($payment_status == "Fully Paid") {
+            $downpayment = 0;
+        }
             $mailData = [
                 'refNumber' => $refNumber,
+                'lastName' => $lastName,
                 'check_in' => $check_in,
                 'check_out' => $check_out,
+                'payment_status' => $payment_status,
+                'downpayment' => $downpayment,
+                'total_price' => $total_price,
                 // Add other data as needed
             ];
+
+            
+
+            $cartItem = Cart::add([
+                'id' => '99',
+                'name' => 'Booking',
+                'qty' => 1,
+                'price' => $total_price,           
+            ]);
+            //dd($mailData);
             // Send email
             //
             //Mail::to('customer_care@parknfly.com.ph')->send(new BookConfirm($mailData));
-            Mail::to('theoreticsinc@gmail.com')->send(new BookConfirm($mailData));
+            //Mail::to('theoreticsinc@gmail.com')->send(new BookConfirm($mailData));
             //Mail::to('theoreticsinc@gmail.com')->send(new GeneralInquiry($request->all()));
     
-            return redirect()->back()->with('success', 'Inquiry sent successfully!');
+           //return redirect()->back()->with('success', 'Inquiry sent successfully!');
+           
+        $modelData = [
+            'lastName' => $lastName,
+            'check_in' => $check_in,
+            'check_out' => $check_out,
+            'payment_status' => $payment_status,
+            'downpayment' => $downpayment,
+            'total_price' => $total_price,
+            // Add other data as needed
+        ];
+
         
-        $model->fill($inputData);
+        $model->fill($modelData);
         
         // Create a new instance of the model
         

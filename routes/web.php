@@ -32,6 +32,7 @@ use App\Http\Controllers\LargeVehicleDieselController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\BooktableController;
+use App\Http\Controllers\Auth\BookingsManagementController;
 
 //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
 // Route::get('/', function () {
@@ -101,6 +102,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/bookingtable', [BooktableController::class, 'index'])->name('booktable.index');
+Route::get('/managebookings', [BookingsManagementController::class, 'manage'])->name('managebookings.index');
 
 
 Route::get('/lightvehicle', [LightVehicleController::class, 'index'])->name('lightvehicle.index');
