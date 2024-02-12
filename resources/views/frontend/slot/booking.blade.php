@@ -146,59 +146,97 @@
 </div>
 
 <script>
+
     document.addEventListener('DOMContentLoaded', function () {
         var form = document.getElementById('bookingform');
         var bookBtn = document.getElementById('bookBtn');
+        var mobileNumberRegex = /^\+639\d{9}$/; // Starts with '+639', followed by 9 digits
+        var emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
 
         // Handle the button click event
         document.getElementById('openPopupBtn').addEventListener('click', function (event) {
-            // Show the popup when the button is clicked
+            
+            var mobileNumberInput = document.getElementById('mobileNumber').value;
+            var emailInput = document.getElementById('email').value;
+            var confirmEmail = document.getElementById('confirmEmail').value;
+            
             if (!form.checkValidity()) {
                 // Form is not valid
                 alert('Please fill out all required fields first. Then proceed to payment');
                 event.preventDefault(); // Prevent form submission
+            } else if (!emailRegex.test(emailInput)) {
+                // Mobile number is invalid
+                alert('Invalid email address');
+                event.preventDefault(); // Prevent form submission
+            } else if (emailInput != confirmEmail) {
+                // Mobile number is invalid
+                alert('Confirmation and Email is not the same.');
+                event.preventDefault(); // Prevent form submission
+            } else if (!mobileNumberRegex.test(mobileNumberInput)) {
+                // Mobile number is invalid
+                alert('Invalid mobile number. Please enter a number starting with +63 and followed by 10 digits.');
+                event.preventDefault(); // Prevent form submission
             } else {
-                // Form is valid                
+                // Form is valid and mobile number is valid
                 $('#popupContainer').modal('show');
                 event.preventDefault(); // Prevent form submission
             }
+            
         });
         document.getElementById('halfPopupBtn').addEventListener('click', function (event) {
-            // Show the popup when the button is clicked
-            if (!form.checkValidity()) {
-                // Form is not valid
-                alert('Please fill out all required fields first. Then proceed to payment');
-                event.preventDefault(); // Prevent form submission
-            } else {
-                // Form is valid  
-                document.getElementById('payment_status').value = "Half Only";
-                bookBtn.innerHTML = "Checkout Now";
-                //var newDate = new Date(document.getElementById('check_in').value);
-                //bookBtn.innerHTML =  document.getElementById('check_in').value;
-                document.getElementById('bookingform')['check_in'].disabled = false;
-                document.getElementById('bookingform')['check_out'].disabled = false;
+            
+            var mobileNumberInput = document.getElementById('mobileNumber').value;
+            var emailInput = document.getElementById('email').value;
+            var confirmEmail = document.getElementById('confirmEmail').value;
+            if (mobileNumberRegex.test(mobileNumberInput) && emailRegex.test(emailInput) && emailInput == confirmEmail) {
+                if (!form.checkValidity()) {
+                    // Form is not valid
+                    alert('Please fill out all required fields first. Then proceed to payment');
+                    event.preventDefault(); // Prevent form submission
+                } else {
+                    // Form is valid  
+                    document.getElementById('payment_status').value = "Half Only";
+                    bookBtn.innerHTML = "Checkout Now";
+                    //var newDate = new Date(document.getElementById('check_in').value);
+                    //bookBtn.innerHTML =  document.getElementById('check_in').value;
+                    document.getElementById('bookingform')['check_in'].disabled = false;
+                    document.getElementById('bookingform')['check_out'].disabled = false;
+                    
+                    document.getElementById('bookingform')['destination'].disabled = false;
+                    document.getElementById('bookingform')['flightnumber'].disabled = false;
+                    form.submit();    
+                }
                 
-                document.getElementById('bookingform')['destination'].disabled = false;
-                document.getElementById('bookingform')['flightnumber'].disabled = false;
-                form.submit();       
+            } else {
+                alert('Invalid mobile number. Please enter a number starting with +63 and followed by 10 digits.');
+                event.preventDefault(); // Prevent form submission
             }
         });
         document.getElementById('fullPopupBtn').addEventListener('click', function (event) {
-            // Show the popup when the button is clicked
-            if (!form.checkValidity()) {
-                // Form is not valid
-                alert('Please fill out all required fields first. Then proceed to payment');
-                event.preventDefault(); // Prevent form submission
+            
+            var mobileNumberInput = document.getElementById('mobileNumber').value;
+            var emailInput = document.getElementById('email').value;
+            var confirmEmail = document.getElementById('confirmEmail').value;
+            if (mobileNumberRegex.test(mobileNumberInput) && emailRegex.test(emailInput) && emailInput == confirmEmail) {
+                // Show the popup when the button is clicked
+                if (!form.checkValidity()) {
+                    // Form is not valid
+                    alert('Please fill out all required fields first. Then proceed to payment');
+                    event.preventDefault(); // Prevent form submission
+                } else {
+                    // Form is valid  
+                    document.getElementById('payment_status').value = "Fully Paid";
+                    bookBtn.innerHTML = "Checkout Now";
+                    document.getElementById('bookingform')['check_in'].disabled = false;
+                    document.getElementById('bookingform')['check_out'].disabled = false;
+                    
+                    document.getElementById('bookingform')['destination'].disabled = false;
+                    document.getElementById('bookingform')['flightnumber'].disabled = false;        
+                    form.submit();       
+                }
             } else {
-                // Form is valid  
-                document.getElementById('payment_status').value = "Fully Paid";
-                bookBtn.innerHTML = "Checkout Now";
-                document.getElementById('bookingform')['check_in'].disabled = false;
-                document.getElementById('bookingform')['check_out'].disabled = false;
-                
-                document.getElementById('bookingform')['destination'].disabled = false;
-                document.getElementById('bookingform')['flightnumber'].disabled = false;        
-                form.submit();       
+                alert('Invalid mobile number. Please enter a number starting with +63 and followed by 10 digits.');
+                event.preventDefault(); // Prevent form submission
             }
         });
         
@@ -235,10 +273,12 @@
                         <tr>
                             <td class="u-form-email u-form-group">
                                 <input autocomplete="off" type="text" disabled required name="check_in" id="check_in" class="form-control dt_picker" value="{{$sdate}}">
+                                <input type="hidden" id="checkIndate" name="checkIndate" value="{{$checkIndate}}">
                             </td>
                             <td class="">
                                 <input autocomplete="off" type="text" disabled required name="check_out" id="check_out" class="form-control dt_picker" value="{{$edate}}">
                                 <input type="hidden" id="payment_status" name="payment_status">
+                                <input type="hidden" id="checkOutdate" name="checkOutdate" value="{{$checkOutdate}}">
                             </td>
                         </tr>
                         <tr>
@@ -262,6 +302,16 @@
                         <hr>
                         <h3 style="font-size: 22px; color: maroon">Personal Information</h3>
                         <hr>
+                        @if ($errors->any())
+                            <div class="alert alert-danger" style="color: black">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <table>
                             <tr>
                                 <td class="u-form-group u-form-name" style="color: aliceblue">
@@ -296,10 +346,10 @@
                                 </tr>
                                 <tr>
                                 <td class="u-form-email u-form-group">
-                                    <input autocomplete="on" type="text" required name="typeOfCar" class="form-control">
+                                    <input autocomplete="on" type="text" required id="typeOfCar" name="typeOfCar" class="form-control">
                                 </td>
                                 <td class="">
-                                    <input autocomplete="on" type="text" required name="plateNumber" class="form-control">
+                                    <input autocomplete="on" type="text" required id="plateNumber" name="plateNumber" class="form-control">
                                 </td>
                             </tr>  
                             <tr>
@@ -312,10 +362,10 @@
                                 </tr>
                                 <tr>
                                 <td class="u-form-email u-form-group">
-                                    <input autocomplete="on" type="text" required name="email" class="form-control">
+                                    <input autocomplete="on" type="text" required id="email" name="email" class="form-control">
                                 </td>
                                 <td class="">
-                                    <input autocomplete="on" type="text" required name="confirmEmail" class="form-control">
+                                    <input autocomplete="on" type="text" required id="confirmEmail" name="confirmEmail" class="form-control">
                                 </td>
                             </tr>          
                             </table>
@@ -352,7 +402,7 @@
                         </div>
                         <div class="row">
                             <div class="column1">
-                                <button type="button" class="btn btn-primary">Change</button>
+                                
                             </div>
                             <div class="column2">
                                 

@@ -39,6 +39,7 @@ $(function() {
 			}))
 		}),
 		$(document).ready(function() {
+			$(".dark-mode").click();
 			$(window).on("scroll", function() {
 				$(this).scrollTop() > 300 ? $(".back-to-top").fadeIn() : $(".back-to-top").fadeOut()
 			}), $(".back-to-top").on("click", function() {

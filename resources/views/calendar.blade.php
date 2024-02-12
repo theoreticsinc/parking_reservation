@@ -27,9 +27,9 @@
         center: 'title',
         right: 'dayGridMonth'
       },
-      initialDate: '2024-01-01',
+      initialDate: new Date().toISOString().slice(0, 10),
       eventOrderStrict: true,
-      navLinks: true, // can click day/week names to navigate views
+      navLinks: true,
       selectable: true,
       selectMirror: true,
       select: function(arg) {
@@ -75,17 +75,35 @@
                             // Remove the existing event
                             existingEvent.remove();
                         }
-                        calendar.addEvent({
+                        if (eventId.includes("EN")) {
+                          calendar.addEvent({
                             id: eventId,
                             title: eventTitle,
                             start: startDate, // Replace with the updated start time
                             color: 'blue' // Replace with the updated color
                             // Add other properties as needed
-                        });
+                          });                          
+                        } else {
+                          calendar.addEvent({
+                            id: eventId,
+                            title: eventTitle,
+                            start: startDate, // Replace with the updated start time
+                            color: 'green' // Replace with the updated color
+                            // Add other properties as needed
+                          });
+                        }
+
+                        
                         console.log('startDate:', startDate);
                         console.log('eventId:', eventId);
                         console.log('eventTitle:', eventTitle);
                         console.log('Message:', message);
+
+                        // Update the event in the calendar
+                        //calendar.dispatchEvent('change');
+                        calendar.refetchEvents(); // Refresh the display
+
+                        calendar.render();
 
                     },
                     error: function (error) {

@@ -279,5 +279,5 @@
 					
 
 					 
-			</div>
+			</div
             @endsection

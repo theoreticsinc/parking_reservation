@@ -18,6 +18,10 @@
           box-sizing: border-box;
           
         }
+
+        input { 
+            text-align: center; 
+        }
         
         .row {
           display: flex;
@@ -179,15 +183,15 @@
                     </div>
                     <div class="u-form-group u-form-name" style="color: aliceblue">
                         <label for="destination" class="u-form-contdol-hidden u-label">* DESTINATION</label>
-                        <input autocomplete="off" type="text" id="destination" name="destination" class="form-control">
+                        <input autocomplete="off" type="text" required id="destination" name="destination" class="form-control">
                     </div>
                     <div class="u-form-group" style="color: aliceblue">
                         <label for="flightNumber" class="u-form-contdol-hidden u-label">* FLIGHT NUMBER</label>
-                        <input autocomplete="off" type="text" id="flightnumber" name="flightnumber" class="form-control">
+                        <input autocomplete="off" type="text" required id="flightnumber" name="flightnumber" class="form-control">
                     </div>
                 </div>
                 <hr>
-                <input type="checkbox" id="agreement" required> &nbsp; Agree to the<a href="#" id="openPopupBtn" data-toggle="modal" data-target="#popupContainer"> Terms and Conditions</a>
+                <input type="checkbox" id="agreement" required> &nbsp; Agree to the&nbsp;<a href="#" id="openPopupBtn" data-toggle="modal" data-target="#popupContainer"> Terms and Conditions</a>
                 <br>
                 <input type="submit" value="Check Availability" class="u-form-contdol-hidden">
                 @csrf

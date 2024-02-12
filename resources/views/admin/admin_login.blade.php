@@ -54,7 +54,7 @@
 									</div>
 									<div class="form-body">
             
-            <form class="row g-3" method="POST" action="{{ route('login') }}">
+            <form class="row g-3" method="POST" action="{{ route('admin.login') }}">
         @csrf
 
                 <div class="col-12">

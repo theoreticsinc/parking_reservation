@@ -80,9 +80,11 @@ class HomeController extends Controller
             if ($comparisonResult == 0) {
                 $record->is_entry -= 1;
                 //$eventId.concat("EN", $eventId);
+                $eventTitle = $eventTitle - 1;
             } else {
                 $record->is_exit -= 1;
                 //$eventId.concat("EX", $eventId);
+                $eventTitle = $eventTitle + 1;
             }
             
             // Save the updated record

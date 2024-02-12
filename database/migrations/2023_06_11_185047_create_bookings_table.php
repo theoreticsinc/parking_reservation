@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('rooms_id')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->string('check_in')->nullable();
-            $table->string('check_out')->nullable();
-            $table->string('persons')->nullable();
-            $table->string('number_of_rooms')->nullable();
-
+            $table->string('refNumber')->nullable();
+            $table->dateTime('booking_date')->nullable();            
+            $table->date('check_in')->nullable();
+            $table->date('check_out')->nullable();
             $table->float('total_days')->default(0);
             $table->float('downpayment')->default(0);
             $table->float('subtotal')->default(0);
@@ -27,7 +24,6 @@ return new class extends Migration
             $table->float('total_price')->default(0);
 
             $table->string('payment_method')->nullable();
-            $table->string('transation_id')->nullable();
             $table->string('payment_status')->nullable();
 
             $table->string('firstName')->nullable();
@@ -35,12 +31,6 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('confirmEmail')->nullable();
             $table->string('mobileNumber')->nullable();
-            $table->string('country')->nullable(); 
-            $table->string('state')->nullable();
-            $table->string('zip_code')->nullable();
-            $table->string('address')->nullable();
-
-            $table->string('code')->nullable();
             $table->string('destination')->nullable();
             $table->string('flightNumber')->nullable();
             $table->string('typeOfCar')->nullable();

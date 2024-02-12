@@ -39,7 +39,7 @@ use App\Http\Controllers\Auth\BookingsManagementController;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'Index']);
-Route::get('/calendar', [HomeController::class, 'calendar'])->name('home.calendar');
+Route::get('/admin/calendar', [HomeController::class, 'calendar'])->name('home.calendar');
 
 Route::post('/modifyCalendar', [HomeController::class, 'modifyCalendar'])->name('home.modifyCalendar');
 
@@ -102,7 +102,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/bookingtable', [BooktableController::class, 'index'])->name('booktable.index');
-Route::get('/managebookings', [BookingsManagementController::class, 'manage'])->name('managebookings.index');
+Route::get('/admin/managebookings', [BookingsManagementController::class, 'manage'])->name('managebookings.index');
 
 
 Route::get('/lightvehicle', [LightVehicleController::class, 'index'])->name('lightvehicle.index');

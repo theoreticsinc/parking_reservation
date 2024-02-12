@@ -69,6 +69,9 @@ class SlotController extends Controller
         $rates = 475;
         $destination = $request->destination;
         $flightnumber = $request->flightnumber;
+        $checkIndate = $request->check_in;
+        $checkOutdate = $request->check_out;
+        
         $sdate = date('M d, Y',strtotime($request->check_in));
         $edate = date('M d, Y',strtotime($request->check_out));
         
@@ -80,7 +83,8 @@ class SlotController extends Controller
         $daysparked = $days;
         $totaldue = $days * $rates;
         $downpayment = $totaldue / 2;
-        $downpayment = number_format((float)$downpayment, 2, '.', '');
+        $downpayment = number_format($downpayment, 2, '.', ',');
+        $totaldue = number_format($totaldue, 0, '.', ',');
         //echo $totaldue;
         /*
         $alldate = Carbon::create($edate)->subDay();
@@ -92,14 +96,19 @@ class SlotController extends Controller
         */
         $slots = 0;
         //$slots = Slot::withCount('slot')->get();
-        return view('frontend.slot.booking', compact('slots','sdate','edate','destination','flightnumber', 'daysparked', 'downpayment', 'totaldue'));
+        return view('frontend.slot.booking', compact('slots', 'checkIndate', 'checkOutdate', 'sdate','edate','destination','flightnumber', 'daysparked', 'downpayment', 'totaldue'));
 
     } // End Method 
 
     public function postBooking(Request $request) {
-                
-        $model = new Booking;        
-                
+        $timezone = 'Asia/Manila';
+        $model = new Booking;
+        $request->validate([
+            'mobileNumber' => ['required', 'regex:/^\+639\d{9}$/'], // Validate as +639xxxxxxxxx
+            'email' => ['required', 'email'],
+        ]);
+    
+        //dd($request->all());
         /*
         $validatedData = $request->validate([
             'check_in' => 'required',
@@ -116,68 +125,104 @@ class SlotController extends Controller
         ]);*/
 
         $inputData = $request->all();
-
-        $lastName = $request->input('lastName');
         
+        $firstName = $request->input('firstName');
+        $lastName = $request->input('lastName');
+        $mobileNumber = $request->input('mobileNumber');
+        $email = $request->input('email');
+        $confirmEmail = $request->input('confirmEmail');
+        $typeOfCar = $request->input('typeOfCar');
+        $plateNumber = $request->input('plateNumber');  
         $check_in = $request->input('check_in');
         $check_out = $request->input('check_out');
+        $checkIndate = $request->input('checkIndate');
+        $checkOutdate = $request->input('checkOutdate');
         $destination = $request->input('destination');
         $flightnumber = $request->input('flightnumber');
+        $payment_status = $request->input('payment_status');
+        $downpayment = $request->input('downpayment');
+        $total_price = $request->input('total_price');
+        $parsedDownpayment = (float) str_replace([',', ' '], '', $downpayment);
+        $parsedTotal_price = (float) str_replace([',', ' '], '', $total_price);
 
-        $refNumber = now()->format('Ymd');
+        $refNumber = Carbon::now($timezone)->format('ymd');
         
-        $formattedDate = \Carbon\Carbon::parse($check_in)->format('Y-m-d');
+        $formattedINDate = \Carbon\Carbon::parse($check_in)->format('Y-m-d');
         $formattedOUTDate = \Carbon\Carbon::parse($check_out)->format('Y-m-d');
-        $inputData['check_in'] = $formattedDate;
+        $inputData['check_in'] = $formattedINDate;
         $inputData['check_out'] = $formattedOUTDate;
         
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $randomString = substr(str_shuffle($characters), 0, 10);
         $refNumber =  $refNumber . $randomString;
-        $inputData['check_in'] = $formattedDate;
-
-        $payment_status = $request->input('payment_status');
-        $downpayment = $request->input('downpayment');
-        $total_price = $request->input('total_price');
+        $inputData['check_in'] = $formattedINDate;
+        
         if ($payment_status == "Fully Paid") {
-            $downpayment = 0;
+            $downpayment = $total_price;
+            $parsedDownpayment = $parsedTotal_price;
+            $cartItem = Cart::add([
+                'id' => '99',
+                'name' => 'Booking Downpayment',
+                'qty' => 1,
+                'price' => $parsedTotal_price,           
+            ]);
+        } else {
+            
+            $cartItem = Cart::add([
+                'id' => '99',
+                'name' => 'Booking',
+                'qty' => 1,
+                'price' => $parsedDownpayment,           
+            ]);
+
         }
             $mailData = [
                 'refNumber' => $refNumber,
+                'firstName' => $firstName,
                 'lastName' => $lastName,
+                'mobileNumber' => $mobileNumber,
+                'booking_date' => now()->timezone($timezone),
                 'check_in' => $check_in,
                 'check_out' => $check_out,
+                'total_price' => $total_price,
+                'destination' => $destination,
+                'flightnumber' => $flightnumber,
+                'email' => $email,
+                'confirmEmail' => $confirmEmail,
+                'typeOfCar' => $typeOfCar,
+                'plateNumber' => $plateNumber,
                 'payment_status' => $payment_status,
                 'downpayment' => $downpayment,
                 'total_price' => $total_price,
                 // Add other data as needed
             ];
-
             
-
-            $cartItem = Cart::add([
-                'id' => '99',
-                'name' => 'Booking',
-                'qty' => 1,
-                'price' => $total_price,           
-            ]);
-            //dd($mailData);
-            // Send email
             //
-            //Mail::to('customer_care@parknfly.com.ph')->send(new BookConfirm($mailData));
+            //***Mail::to('customer_care@parknfly.com.ph')->send(new BookConfirm($mailData));
             //Mail::to('theoreticsinc@gmail.com')->send(new BookConfirm($mailData));
             //Mail::to('theoreticsinc@gmail.com')->send(new GeneralInquiry($request->all()));
     
            //return redirect()->back()->with('success', 'Inquiry sent successfully!');
            
         $modelData = [
+            'refNumber' => $refNumber,
+            'firstName' => $firstName,
             'lastName' => $lastName,
-            'check_in' => $check_in,
-            'check_out' => $check_out,
-            'payment_status' => $payment_status,
-            'downpayment' => $downpayment,
+            'mobileNumber' => $mobileNumber,
+            'booking_date' => now()->timezone($timezone),
+            'check_in' => $checkIndate,
+            'check_out' => $checkOutdate,
             'total_price' => $total_price,
-            // Add other data as needed
+            'destination' => $destination,
+            'flightnumber' => $flightnumber,
+            'email' => $email,
+            'confirmEmail' => $confirmEmail,
+            'typeOfCar' => $typeOfCar,
+            'plateNumber' => $plateNumber,
+            'payment_status' => $payment_status,
+            'downpayment' => $parsedDownpayment,
+            'total_price' => $parsedTotal_price,
+            
         ];
 
         
