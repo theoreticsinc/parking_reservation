@@ -6,79 +6,34 @@
         <div>
             <p class="logo-text">ParkNFly Admin</p>
         </div>
-        <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
-        </div>
+       
+
+
      </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        
         <li>
-            <a href="{{ route('admin.dashboard') }}">
-                <div class="parent-icon"><i class='bx bx-home-alt'></i>
-                </div>
-                <div class="menu-title">Dashboard</div>
+            <a href="{{ route('managebookings.index') }}">
+                <div class="parent-icon"><i class='bx bx-home-alt'></i></div>
+                <div class="menu-title">Home</div>
             </a>
         </li>
-        
-        
-         
         <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
-                </div>
-                <div class="menu-title">Manage Bookings </div>
+            <a href="{{ route('home.calendar') }}">
+                <div class="parent-icon"><i class='bx bx-calendar'></i></div>
+                <div class="menu-title">Slot and Fees</div>
             </a>
-            <ul>
-                <li> <a href="{{ route('home.calendar') }}"><i class='bx bx-radio-circle'></i>Check Monthly </a>
-                </li> 
-                <li> <a href="{{ route('managebookings.index') }}"><i class='bx bx-radio-circle'></i>Management List</a>
-                </li> 
-                 
-            </ul>
-        </li>
-
-        <li class="menu-label">UI Elements</li>
-        
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
-                </div>
-                <div class="menu-title">eCommerce</div>
-            </a>
-            <ul>
-                <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Products</a>
-                </li>
-                <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
-                </li>
-                
-            </ul>
         </li>
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
-                </div>
-                <div class="menu-title">Components</div>
+            <a href="{{ route('admin.profile') }}">
+                <div class="parent-icon"><i class='bx bx-user'></i></div>
+                <div class="menu-title">Profile</div>
             </a>
-            <ul>
-                <li> <a href="component-alerts.html"><i class='bx bx-radio-circle'></i>Alerts</a>
-                </li>
-                <li> <a href="component-accordions.html"><i class='bx bx-radio-circle'></i>Accordions</a>
-                </li>
-                 
-            </ul>
         </li>
-         
-          
-       
-         
-        <li class="menu-label">Others</li>
-      
-      
         <li>
-            <a href="#" target="_blank">
-                <div class="parent-icon"><i class="bx bx-support"></i>
-                </div>
-                <div class="menu-title">Support</div>
+            <a href="{{ route('admin.profile') }}">
+                <div class="parent-icon"><i class='bx bx-group'></i></div>
+                <div class="menu-title">Users</div>
             </a>
         </li>
     </ul>

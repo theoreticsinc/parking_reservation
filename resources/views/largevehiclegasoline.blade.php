@@ -164,15 +164,15 @@
             background-color: #ffff;
             color: black;
             padding: 8px;
-            width: 170px;
+            width: 100px;
             border: 1px solid black;
-            border-radius: 20px;
+            border-radius: 80px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         .add-to-cart-button.added {
-            background-color: #4CAF50;
+            background-color:#88cb8b;
             color: white;
         }
 
@@ -184,7 +184,7 @@
 
         #adjustableSquare {
             width: 450px;
-            height: 430px;
+            height: 470px;
             top: 190px;
             left: 75%;
             transform: translateX(-50%);
@@ -259,7 +259,7 @@
             background-color: #ffff;
             color: black;
             padding: 8px;
-            width: 170px;
+            width: 100px;
             border: 1px solid black;
             border-radius: 20px;
             cursor: pointer;
@@ -319,6 +319,55 @@
         }
         
 
+    /* Cart button styling */
+#cart {
+    position: fixed;
+    top: 20px;
+    right:-5px;
+    width: 400px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for hover effect */
+    overflow: hidden; /* Hide overflow for pseudo-elements */
+    z-index: 1; /* Ensure button text appears above pseudo-elements */
+    position: relative; /* Add position relative */
+}
+
+#cart::before,
+#cart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #45a049; /* Darker green */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+    z-index: -1; /* Ensure pseudo-elements appear behind button text */
+}
+
+#cart::before {
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+}
+
+#cart::after {
+    right: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+#cart:hover::before {
+    transform: scaleX(1);
+}
+
+#cart:hover::after {
+    transform: scaleX(1);
+}
+
 
     </style>
 </head>
@@ -338,10 +387,11 @@
 
         <label for="scheduleDate">Schedule Date:</label>
         <input type="date" id="scheduleDate" name="scheduleDate" required>
+
+        <!-- Move the cart button here -->
+        <div id="cart" onclick="openCart()">Cart</div>
     </form>
 </div>
-
-
 
 <label id="selectedModelLabel">Your Model Label</label>
 
@@ -353,10 +403,7 @@
 <td>Regular Oil 20w-50 (9 Liters)</td>
     <td>₱4,200.00</td>
     <td class="third-column">
-        <button class="add-to-cart-button" onclick="addToCart(this)">
-            <span style="color: black;">&#x1F6D2;</span> <!-- Black cart emoji -->
-            <span class="button-text">Add to Cart</span>
-        </button>
+    <button id="30" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
     </td>
 </tr>
     </tr>
@@ -364,30 +411,21 @@
         <td>Regular Oil 20w-50 (9 Liters) with Flushing</td>
         <td>₱5,260.00</td>
         <td class="third-column">
-        <button class="add-to-cart-button" onclick="addToCart(this)">
-            <span style="color: black;">&#x1F6D2;</span> <!-- Black cart emoji -->
-            <span class="button-text">Add to Cart</span>
-        </button>
+        <button id="32" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
     </td>
     </tr>
     <tr>
         <td>Fully Synthetic 5w-40 (9 Liters)</td>
         <td>₱7,500.00</td>
         <td class="third-column">
-        <button class="add-to-cart-button" onclick="addToCart(this)">
-            <span style="color: black;">&#x1F6D2;</span> <!-- Black cart emoji -->
-            <span class="button-text">Add to Cart</span>
-        </button>
+        <button id="31" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
     </td>
     </tr>
     <tr>
         <td>Fully Synthetic 5w-40 (9 Liters) with Flushing</td>
         <td>₱8,350.00</td>
         <td class="third-column">
-        <button class="add-to-cart-button" onclick="addToCart(this)">
-            <span style="color: black;">&#x1F6D2;</span> <!-- Black cart emoji -->
-            <span class="button-text">Add to Cart</span>
-        </button>
+        <button id="33" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
     </td>
     </tr>
    
@@ -402,20 +440,14 @@
         <td>Car Wash</td>
         <td>₱420.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="99" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Vacuum</td>
         <td>₱350.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="100" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
 
@@ -423,79 +455,55 @@
         <td>Engine Wash</td>
         <td>₱560.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="101" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Under Chassis Wash</td>
         <td>₱490.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="102" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Promo Package (1,2,3,4)</td>
         <td>₱1,380.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="103" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Engine Detailing</td>
         <td>₱2,070.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="104" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Exterior Detailing</td>
         <td>₱7,590.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="105" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <td>Interior Detailing</td>
         <td>₱4,350.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="106" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Complete Auto Detailing  (5,6,7,8)</td>
         <td>₱11,950.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="107" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Waxing(Microtex)</td>
         <td>₱1,590.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="108" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
@@ -513,20 +521,14 @@
         <td>Electronic 4-Wheel Alignment</td>
         <td>₱2,100.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="109" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Electronic Wheel Balancing/Tire <br>(Add-on Flat weights,Wheel Weights,Bostik)</td>
         <td>₱325.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="110" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
 
@@ -534,40 +536,28 @@
         <td>Tire Mounting/Tire</td>
         <td>₱470.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="111" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Vulcanizing/Tire (Plus Patches & Chemicure)</td>
         <td>₱470.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="112" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Open/Clean & Adjust All Breaks</td>
         <td>₱2,100.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="113" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
     </tr>
     <tr>
         <td>Check-up Charge (Under Chassis,Engine,Aircon,Electrical)</td>
         <td>₱800.00</td>
         <td class="third-column">
-            <button class="add-to-cart-button second-table-button" onclick="addToCartSecondTable(this)">
-                <span style="color: black;">&#x1F6D2;</span>
-                <span class="button-text">Add to Cart</span>
-            </button>
+        <button id="114" onclick="addToCart(this)" class="add-to-cart-button">&#x1F6D2;</button>
         </td>
    
     <tr>
@@ -575,7 +565,6 @@
     
     <!-- Add more rows as needed -->
 </table>
-
 
 <script>
     // Get the model from the URL parameters
@@ -590,27 +579,37 @@
     let activeButtonFirstTable = null;
 
     // Function to handle adding to cart for the first table
-    function addToCart(button) {
-        if (activeButtonFirstTable && activeButtonFirstTable !== button) {
-            // If there's an active button and it's not the current one, reset it
-            activeButtonFirstTable.classList.remove('added');
-            const activeButtonText = activeButtonFirstTable.querySelector('.button-text');
-            activeButtonText.textContent = 'Add to Cart';
-        }
+    function addToCart(button) {  
+    var productId = button.id;      
+    var xhr = new XMLHttpRequest();
 
-        // Toggle the 'added' class on the currently clicked button
-        button.classList.toggle('added');
-        const buttonText = button.querySelector('.button-text');
+    // Configure it: specify the request method and URL
+    xhr.open('POST', "{{ route('cart.add', ['productId' => ':productId']) }}".replace(':productId', productId), true);
 
-        if (button.classList.contains('added')) {
-            buttonText.textContent = 'Added!';
-            // Set the current button as the active button for the first table
-            activeButtonFirstTable = button;
-        } else {
-            buttonText.textContent = 'Add to Cart';
-            // Reset the active button for the first table
-            activeButtonFirstTable = null;
+    // Set headers if needed
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}'); // Include CSRF token
+
+    // Define the callback function to handle the response
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            // Check if the request was successful (status code 2xx)
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log("Action successful!");
+                button.classList.toggle('added');
+                // Replace text with cart icon
+                button.innerHTML = '&#x1F6D2;'; // Cart icon
+            } else {
+                console.error(xhr.status);
+            }
         }
+    };
+
+        // Optionally, include data in the request body (e.g., JSON.stringify(yourData))
+        // xhr.send(JSON.stringify(yourData));
+
+        // Send the request
+        xhr.send();
     }
 
     // Array to keep track of the currently active button for the second table
@@ -631,6 +630,12 @@
             // Remove the current button from the active buttons array for the second table
             activeButtonsSecondTable = activeButtonsSecondTable.filter(btn => btn !== button);
         }
+    }
+
+    function openCart(){
+        // Redirect to the specified route
+        var routeUrl = "{{ route('cart.index')}}";
+        window.location.href = routeUrl;
     }
 </script>
 

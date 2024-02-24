@@ -137,6 +137,15 @@ class SlotController extends Controller
         $check_out = $request->input('check_out');
         $checkIndate = $request->input('checkIndate');
         $checkOutdate = $request->input('checkOutdate');
+        $sdate = date('M d, Y',strtotime($check_in));
+        $edate = date('M d, Y',strtotime($check_out));
+        
+        $date1 = strtotime($sdate);
+        $date2 = strtotime($edate);
+        $diff = $date2 - $date1;
+        $days = floor($diff / (60 * 60 * 24));
+        //echo $days;
+        $daysparked = $days;
         $destination = $request->input('destination');
         $flightnumber = $request->input('flightnumber');
         $payment_status = $request->input('payment_status');
@@ -157,21 +166,23 @@ class SlotController extends Controller
         $refNumber =  $refNumber . $randomString;
         $inputData['check_in'] = $formattedINDate;
         
-        if ($payment_status == "Fully Paid") {
+        if ($payment_status == "Awaiting Full") {
             $downpayment = $total_price;
             $parsedDownpayment = $parsedTotal_price;
             $cartItem = Cart::add([
-                'id' => '99',
+                'id' => '908070',
                 'name' => 'Booking Downpayment',
                 'qty' => 1,
+                'options' => ['color' => $refNumber],                
                 'price' => $parsedTotal_price,           
             ]);
         } else {
             
             $cartItem = Cart::add([
-                'id' => '99',
+                'id' => '908070',
                 'name' => 'Booking',
                 'qty' => 1,
+                'options' => ['color' => $refNumber],
                 'price' => $parsedDownpayment,           
             ]);
 
@@ -184,6 +195,7 @@ class SlotController extends Controller
                 'booking_date' => now()->timezone($timezone),
                 'check_in' => $check_in,
                 'check_out' => $check_out,
+                'total_days' => $days,
                 'total_price' => $total_price,
                 'destination' => $destination,
                 'flightnumber' => $flightnumber,
@@ -212,6 +224,7 @@ class SlotController extends Controller
             'booking_date' => now()->timezone($timezone),
             'check_in' => $checkIndate,
             'check_out' => $checkOutdate,
+            'total_days' => $days,
             'total_price' => $total_price,
             'destination' => $destination,
             'flightnumber' => $flightnumber,

@@ -11,13 +11,27 @@ use App\Models\CartItem;
 use App\Models\Booking;
 use App\Models\Slot;
 use App\Models\Product;  // Update this import statement
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $amount = 50000;
+        session(['global_data' => $amount]);
         return view('home');
     }
+
+    public function storeData()
+    {
+        // Storing data in the session 
+        $amount = 50000;
+        session(['global_data' => $amount]);
+
+        // Redirecting to Controller 2
+        return redirect()->route('showData');
+    }
+
 
     public function email(Request $request)
     {

@@ -195,7 +195,7 @@
                     event.preventDefault(); // Prevent form submission
                 } else {
                     // Form is valid  
-                    document.getElementById('payment_status').value = "Half Only";
+                    document.getElementById('payment_status').value = "Awaiting Half";
                     bookBtn.innerHTML = "Checkout Now";
                     //var newDate = new Date(document.getElementById('check_in').value);
                     //bookBtn.innerHTML =  document.getElementById('check_in').value;
@@ -225,7 +225,7 @@
                     event.preventDefault(); // Prevent form submission
                 } else {
                     // Form is valid  
-                    document.getElementById('payment_status').value = "Fully Paid";
+                    document.getElementById('payment_status').value = "Awaiting Full";
                     bookBtn.innerHTML = "Checkout Now";
                     document.getElementById('bookingform')['check_in'].disabled = false;
                     document.getElementById('bookingform')['check_out'].disabled = false;

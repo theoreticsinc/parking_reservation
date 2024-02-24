@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('refNumber')->nullable();
+            $table->string('payment_reference')->nullable();
             $table->dateTime('booking_date')->nullable();            
             $table->date('check_in')->nullable();
             $table->date('check_out')->nullable();
-            $table->float('total_days')->default(0);
+            $table->integer('total_days')->default(0);
             $table->float('downpayment')->default(0);
             $table->float('subtotal')->default(0);
             $table->integer('discount')->default(0);

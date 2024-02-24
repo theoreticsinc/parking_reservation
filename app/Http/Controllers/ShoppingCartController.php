@@ -8,7 +8,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\CartItem;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Session;
 
 class ShoppingCartController extends Controller
 {
@@ -35,15 +35,36 @@ class ShoppingCartController extends Controller
         ]);
         $itemQuantity = $cartItem->qty;
         */
+        //$reference_number = 12312344;
+        //session()->put('data1', $reference_number);
+        $data1 = session('data1');
+
     }
 
     public function index()
     {
+        // Retrieving data from the session
+        $globalData = session('global_data');
+
         $cartItems = Cart::content();
 
-        return view('cart.index', compact('cartItems'));
+        return view('cart.index', compact('cartItems','globalData'));
     }
 
+    public function showData()
+    {
+        // Retrieving data from the session
+        $globalData = session('global_data');
+
+        // Use $globalData as needed in this controller
+        // ...
+        $cartItems = Cart::content();
+
+        //dd($cartItems, $globalData);
+
+        return view('show_sessions', compact('cartItems','globalData'));
+    }
+    
     public function startShopping() {
 
         $cartItems = Cart::content();

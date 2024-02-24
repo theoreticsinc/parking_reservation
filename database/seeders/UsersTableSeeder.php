@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('users')->truncate();
         DB::table('users')->insert([
 
             // Admin
@@ -36,6 +37,7 @@ class UsersTableSeeder extends Seeder
             ],
  
         ]);
+        DB::table('book_areas')->truncate();
         DB::table('book_areas')->insert([
 
             // Admin
@@ -50,7 +52,7 @@ class UsersTableSeeder extends Seeder
             
  
         ]);
-
+        DB::table('room_numbers')->truncate();
         DB::table('room_numbers')->insert([
 
             // Admin
@@ -70,6 +72,7 @@ class UsersTableSeeder extends Seeder
             ],
  
         ]);
+        DB::table('rooms')->truncate();
         DB::table('rooms')->insert([
 
             // Admin
@@ -104,6 +107,7 @@ class UsersTableSeeder extends Seeder
             ],
  
         ]);
+        DB::table('room_types')->truncate();
         DB::table('room_types')->insert([
 
             // Admin
@@ -116,6 +120,7 @@ class UsersTableSeeder extends Seeder
             ],
  
         ]);
+        DB::table('site_settings')->truncate();
         DB::table('site_settings')->insert([
 
             // Admin

@@ -33,6 +33,8 @@ use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\BooktableController;
 use App\Http\Controllers\Auth\BookingsManagementController;
+use App\Http\Controllers\DeleteController;
+Route::delete('/delete-booking/{id}', [DeleteController::class, 'deleteBooking'])->name('delete.booking');
 
 //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
 // Route::get('/', function () {
@@ -40,6 +42,7 @@ use App\Http\Controllers\Auth\BookingsManagementController;
 // });
 Route::get('/', [HomeController::class, 'Index']);
 Route::get('/admin/calendar', [HomeController::class, 'calendar'])->name('home.calendar');
+Route::get('/storeData', [HomeController::class, 'storeData'])->name('home.storedata');
 
 Route::post('/modifyCalendar', [HomeController::class, 'modifyCalendar'])->name('home.modifyCalendar');
 
@@ -51,11 +54,14 @@ Route::post('/submit-form', [FormController::class, 'submitForm']);
 //Route::any('/book/search', [BookController::class, 'BookSearch'])->name('booking.search');
 Route::post('/book/reserve', [BookController::class, 'BookReserve'])->name('booking.reserve');
     
-Route::get('/shop', [ShoppingCartController::class, 'startShopping'])->name('cart.index');
+Route::get('/showData', [ShoppingCartController::class, 'showData'])->name('showData');
+
 Route::get('/cart', [ShoppingCartController::class, 'index'])->name('cart.index');
 Route::any('/cart/add/{productId}', [ShoppingCartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/remove/{rowId}', [ShoppingCartController::class, 'removeFromCart'])->name('cart.remove');
 Route::get('/cart/clear', [ShoppingCartController::class, 'clearCart'])->name('cart.clear');
+Route::get('/shop', [ShoppingCartController::class, 'startShopping'])->name('cart.shop');
+Route::get('/pay', [ShoppingCartController::class, 'pay'])->name('cart.pay');
 Route::get('/save2cart', [ShoppingCartController::class, 'save2Cart'])->name('cart.save');
 Route::get('/initcart', [ShoppingCartController::class, 'initcart'])->name('cart.init');
 
@@ -78,10 +84,12 @@ Route::controller(FrontendRoomController::class)->group(function(){
 
 Route::controller(PaymongoController::class)->group(function(){
  
-    Route::get('/mongo', 'index')->name('mongo');
+    Route::get('/mongo', 'home')->name('mongo');
     Route::get('/createLink/{title}/{amount}', 'createLink')->name('createLink');
     //Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
-    Route::post('/createLinkfromPost', 'createLinkfromPost')->name('createLinkfromPost');  
+    Route::any('/createLinkfromPost', 'createLinkfromPost')->name('createLinkfromPost');
+      
+    Route::get('/checkPayment', 'checkPayment')->name('checkPayment');
 });
 
 Route::fallback(function () {
@@ -103,7 +111,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/bookingtable', [BooktableController::class, 'index'])->name('booktable.index');
 Route::get('/admin/managebookings', [BookingsManagementController::class, 'manage'])->name('managebookings.index');
-
+Route::get('/payments/list', [BookingsManagementController::class, 'retrieveAllPaymentRecords'])->name('payments.list');
+Route::get('/payment/{id}', [BookingsManagementController::class, 'retrieveLink'])->name('payment.retrieveLink');
+    
 
 Route::get('/lightvehicle', [LightVehicleController::class, 'index'])->name('lightvehicle.index');
 Route::get('/mediumvehiclegasoline', [MediumVehicleGasolineController::class, 'index'])->name('mediumvehiclegasoline.index');
